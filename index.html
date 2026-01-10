@@ -718,6 +718,142 @@
             gap: 1rem;
         }
 
+        /* Voice Control Buttons */
+        .cook-voice-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .cook-voice-btn {
+            width: 44px;
+            height: 44px;
+            border: 3px solid var(--border);
+            background: var(--card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--text);
+            transition: all 0.1s ease;
+            box-shadow: 3px 3px 0 var(--border);
+            position: relative;
+        }
+
+        .cook-voice-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--border);
+        }
+
+        .cook-voice-btn.active {
+            background: var(--accent);
+        }
+
+        .cook-voice-btn.listening {
+            background: var(--accent);
+            animation: pulse-mic 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-mic {
+            0%, 100% { box-shadow: 3px 3px 0 var(--border); }
+            50% { box-shadow: 3px 3px 0 var(--border), 0 0 0 8px rgba(255, 87, 34, 0.3); }
+        }
+
+        .cook-voice-btn.speaking {
+            background: var(--accent-secondary);
+        }
+
+        .cook-voice-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Voice Commands Panel */
+        .voice-commands-panel {
+            position: fixed;
+            bottom: 6.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--card);
+            border: 3px solid var(--border);
+            box-shadow: 4px 4px 0 var(--border);
+            padding: 0.75rem 1.25rem;
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+        }
+
+        .voice-commands-panel.active {
+            display: flex;
+        }
+
+        .voice-commands-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        .voice-commands-label svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .voice-commands-list {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .voice-command {
+            padding: 0.35rem 0.6rem;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.75rem;
+            transition: all 0.15s ease;
+        }
+
+        .voice-command.recognized {
+            background: var(--accent-secondary);
+            color: var(--text);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .voice-commands-panel {
+                left: 1rem;
+                right: 1rem;
+                transform: none;
+                bottom: 5.5rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .voice-commands-list {
+                justify-content: center;
+            }
+
+            .cook-voice-controls {
+                margin-left: 0.5rem;
+            }
+
+            .cook-voice-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+        }
+
         .cook-progress-text {
             font-family: 'Space Mono', monospace;
             font-size: 0.9rem;
@@ -1229,6 +1365,18 @@
                     <div class="cook-progress-fill" id="cook-progress-fill"></div>
                 </div>
             </div>
+            <div class="cook-voice-controls">
+                <button class="cook-voice-btn" id="voice-mic-btn" title="Toggle voice commands">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                </button>
+                <button class="cook-voice-btn" id="voice-speaker-btn" title="Toggle voice readout">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
         <div class="cook-body">
@@ -1249,6 +1397,22 @@
             <button class="cook-ingredients-toggle" id="cook-ingredients-toggle" title="View Ingredients">
                 &#9776;
             </button>
+
+            <!-- Voice Commands Panel -->
+            <div class="voice-commands-panel" id="voice-commands-panel">
+                <div class="voice-commands-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                    Say:
+                </div>
+                <div class="voice-commands-list">
+                    <span class="voice-command" data-command="next">"Next"</span>
+                    <span class="voice-command" data-command="back">"Back"</span>
+                    <span class="voice-command" data-command="repeat">"Repeat"</span>
+                    <span class="voice-command" data-command="ingredients">"Ingredients"</span>
+                </div>
+            </div>
         </div>
 
         <div class="cook-nav" id="cook-nav">
@@ -1777,6 +1941,39 @@
                 ],
                 meta: "Yield: 12 pieces",
                 source: "https://minimalistbaker.com/5-ingredient-golden-milk-snack-bites/"
+            },
+            {
+                id: 17,
+                title: "Vegan Blueberry Muffins",
+                category: "breakfast",
+                image: "images/vegan-blueberry-muffins.jpg",
+                description: "Soft, fluffy, and moist vegan blueberry muffins with fresh, juicy blueberries throughout. Easy to make in one bowl!",
+                ingredients: [
+                    "1 1/4 cup unsweetened soy milk",
+                    "1 tsp apple cider vinegar",
+                    "2 cups all purpose flour",
+                    "1 cup granulated sugar",
+                    "2 tsp baking powder",
+                    "1/4 tsp salt",
+                    "1 Tbsp cornstarch",
+                    "1/3 cup melted vegan butter (or neutral flavored oil)",
+                    "1 tsp pure vanilla extract",
+                    "1 1/2 cups fresh blueberries",
+                    "1-2 Tbsp coarse sugar, optional, for sprinkling the tops"
+                ],
+                instructions: [
+                    "Preheat the oven to 400°F. Line a standard muffin pan with liners and spray them lightly with oil.",
+                    "Combine the soy milk and apple cider vinegar in a measuring cup and set aside to curdle. This is your \"buttermilk\".",
+                    "In a large mixing bowl, whisk together all the dry ingredients: flour, sugar, baking powder, salt and cornstarch.",
+                    "Pour in the soy milk/vinegar mixture, melted vegan butter (or oil) and vanilla. Stir with a large spoon to combine, but do not over mix. Some small lumps are fine.",
+                    "Fold in the blueberries gently.",
+                    "Using a small measuring cup or ice cream scoop, add batter to the liners in the pan 3/4 of the way full. Top with a few extra blueberries and a sprinkle of coarse sugar, if desired.",
+                    "Bake for 22-26 minutes, until golden brown on top and a toothpick inserted comes out clean.",
+                    "Let cool 5 minutes in the pan, then move to a cooling rack.",
+                    "Store leftover muffins in an airtight container at room temperature for about 3 days. You can also freeze them."
+                ],
+                meta: "Yield: 12 muffins | Prep Time: 10 minutes | Cook Time: 26 minutes",
+                source: "https://www.noracooks.com/vegan-blueberry-muffins/"
             }
         ];
 
@@ -2151,6 +2348,249 @@
                 toggleIngredientsPanel();
             }
         });
+
+        // ==================== VOICE FEATURES ====================
+
+        // Voice state
+        let voiceEnabled = false;
+        let listeningEnabled = false;
+        let recognition = null;
+        let isSpeaking = false;
+
+        // Check for browser support
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const speechSynthesis = window.speechSynthesis;
+        const hasSpeechRecognition = !!SpeechRecognition;
+        const hasSpeechSynthesis = !!speechSynthesis;
+
+        // DOM elements for voice
+        const micBtn = document.getElementById('voice-mic-btn');
+        const speakerBtn = document.getElementById('voice-speaker-btn');
+        const voiceCommandsPanel = document.getElementById('voice-commands-panel');
+
+        // Initialize speech recognition
+        function initSpeechRecognition() {
+            if (!hasSpeechRecognition) {
+                console.log('Speech recognition not supported');
+                return;
+            }
+
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onresult = (event) => {
+                const last = event.results.length - 1;
+                const transcript = event.results[last][0].transcript.toLowerCase().trim();
+                console.log('Heard:', transcript);
+                handleVoiceCommand(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                console.log('Speech recognition error:', event.error);
+                if (event.error === 'no-speech' || event.error === 'audio-capture') {
+                    // Restart if still listening
+                    if (listeningEnabled) {
+                        restartRecognition();
+                    }
+                }
+            };
+
+            recognition.onend = () => {
+                // Restart if still supposed to be listening
+                if (listeningEnabled) {
+                    restartRecognition();
+                }
+            };
+        }
+
+        function restartRecognition() {
+            if (recognition && listeningEnabled) {
+                try {
+                    recognition.start();
+                } catch (e) {
+                    // Already started, ignore
+                }
+            }
+        }
+
+        // Handle voice commands
+        function handleVoiceCommand(transcript) {
+            // Check for each command
+            const commands = {
+                'next': () => {
+                    highlightCommand('next');
+                    goToNextStep();
+                },
+                'back': () => {
+                    highlightCommand('back');
+                    goToPrevStep();
+                },
+                'previous': () => {
+                    highlightCommand('back');
+                    goToPrevStep();
+                },
+                'repeat': () => {
+                    highlightCommand('repeat');
+                    speakCurrentStep();
+                },
+                'ingredients': () => {
+                    highlightCommand('ingredients');
+                    toggleIngredientsPanel();
+                }
+            };
+
+            // Find matching command
+            for (const [keyword, action] of Object.entries(commands)) {
+                if (transcript.includes(keyword)) {
+                    action();
+                    return;
+                }
+            }
+        }
+
+        // Highlight recognized command
+        function highlightCommand(command) {
+            const commandEl = document.querySelector(`.voice-command[data-command="${command}"]`);
+            if (commandEl) {
+                commandEl.classList.add('recognized');
+                setTimeout(() => {
+                    commandEl.classList.remove('recognized');
+                }, 500);
+            }
+        }
+
+        // Toggle listening
+        function toggleListening() {
+            if (!hasSpeechRecognition) {
+                alert('Voice commands are not supported in this browser. Try Chrome, Edge, or Safari.');
+                return;
+            }
+
+            listeningEnabled = !listeningEnabled;
+
+            if (listeningEnabled) {
+                if (!recognition) {
+                    initSpeechRecognition();
+                }
+                try {
+                    recognition.start();
+                } catch (e) {
+                    // Already started
+                }
+                micBtn.classList.add('listening');
+                voiceCommandsPanel.classList.add('active');
+            } else {
+                if (recognition) {
+                    recognition.stop();
+                }
+                micBtn.classList.remove('listening');
+                voiceCommandsPanel.classList.remove('active');
+            }
+        }
+
+        // Text-to-speech
+        function speakText(text) {
+            if (!hasSpeechSynthesis) return;
+
+            // Cancel any ongoing speech
+            speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+
+            utterance.onstart = () => {
+                isSpeaking = true;
+                speakerBtn.classList.add('speaking');
+            };
+
+            utterance.onend = () => {
+                isSpeaking = false;
+                speakerBtn.classList.remove('speaking');
+            };
+
+            utterance.onerror = () => {
+                isSpeaking = false;
+                speakerBtn.classList.remove('speaking');
+            };
+
+            speechSynthesis.speak(utterance);
+        }
+
+        function speakCurrentStep() {
+            if (!currentCookRecipe || !voiceEnabled) return;
+
+            const stepText = currentCookRecipe.instructions[currentStep];
+            const stepNumber = currentStep + 1;
+            speakText(`Step ${stepNumber}. ${stepText}`);
+        }
+
+        // Toggle voice readout
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+
+            if (voiceEnabled) {
+                speakerBtn.classList.add('active');
+                // Speak current step when enabled
+                speakCurrentStep();
+            } else {
+                speakerBtn.classList.remove('active');
+                // Stop any ongoing speech
+                if (hasSpeechSynthesis) {
+                    speechSynthesis.cancel();
+                }
+            }
+        }
+
+        // Event listeners for voice buttons
+        micBtn.addEventListener('click', toggleListening);
+        speakerBtn.addEventListener('click', toggleVoice);
+
+        // Modify goToNextStep to speak
+        const originalGoToNextStep = goToNextStep;
+        goToNextStep = function() {
+            originalGoToNextStep();
+            // Speak after navigation if voice is enabled and not on complete screen
+            if (voiceEnabled && currentCookRecipe && currentStep < currentCookRecipe.instructions.length) {
+                speakCurrentStep();
+            }
+        };
+
+        // Modify goToPrevStep to speak
+        const originalGoToPrevStep = goToPrevStep;
+        goToPrevStep = function() {
+            originalGoToPrevStep();
+            // Speak after navigation if voice is enabled
+            if (voiceEnabled) {
+                speakCurrentStep();
+            }
+        };
+
+        // Clean up when closing cook mode
+        const originalCloseCookMode = closeCookMode;
+        closeCookMode = function() {
+            // Stop listening
+            if (listeningEnabled) {
+                listeningEnabled = false;
+                if (recognition) {
+                    recognition.stop();
+                }
+                micBtn.classList.remove('listening');
+                voiceCommandsPanel.classList.remove('active');
+            }
+
+            // Stop speaking
+            if (hasSpeechSynthesis) {
+                speechSynthesis.cancel();
+            }
+            voiceEnabled = false;
+            speakerBtn.classList.remove('active');
+            speakerBtn.classList.remove('speaking');
+
+            originalCloseCookMode();
+        };
 
         // Initial render
         renderFilters();
