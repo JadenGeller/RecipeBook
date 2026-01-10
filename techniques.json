@@ -1,0 +1,181 @@
+{
+  "whisk": {
+    "equipment": ["whisk", "mixing bowl"],
+    "parent": "mix"
+  },
+  "stir": {
+    "equipment": ["spoon"],
+    "parent": "mix"
+  },
+  "beat": {
+    "equipment": ["hand mixer", "mixing bowl"],
+    "parent": "mix"
+  },
+  "mix": {
+    "equipment": ["mixing bowl"]
+  },
+  "fold": {
+    "equipment": ["spatula", "mixing bowl"],
+    "parent": "mix"
+  },
+
+  "sauté": {
+    "equipment": ["skillet", "spatula"],
+    "parent": "cook"
+  },
+  "stir-fry": {
+    "equipment": ["wok", "spatula"],
+    "parent": "sauté"
+  },
+  "pan-fry": {
+    "equipment": ["skillet", "spatula"],
+    "parent": "cook"
+  },
+  "simmer": {
+    "equipment": ["pot"],
+    "parent": "cook"
+  },
+  "boil": {
+    "equipment": ["pot"],
+    "parent": "cook"
+  },
+  "steam": {
+    "equipment": ["pot", "steamer basket", "lid"],
+    "parent": "cook"
+  },
+  "cook": {
+    "equipment": []
+  },
+
+  "bake": {
+    "equipment": ["oven", "baking sheet"],
+    "prep": { "oven": "preheat" }
+  },
+  "roast": {
+    "equipment": ["oven", "roasting pan"],
+    "prep": { "oven": "preheat" },
+    "parent": "bake"
+  },
+  "broil": {
+    "equipment": ["oven"],
+    "prep": { "oven": "preheat to broil" },
+    "parent": "bake"
+  },
+  "toast": {
+    "equipment": ["toaster"],
+    "alternatives": [
+      { "equipment": ["oven", "baking sheet"], "prep": { "oven": "preheat" } }
+    ]
+  },
+
+  "chop": {
+    "equipment": ["knife", "cutting board"],
+    "parent": "cut"
+  },
+  "dice": {
+    "equipment": ["knife", "cutting board"],
+    "parent": "chop"
+  },
+  "mince": {
+    "equipment": ["knife", "cutting board"],
+    "parent": "chop"
+  },
+  "slice": {
+    "equipment": ["knife", "cutting board"],
+    "parent": "cut"
+  },
+  "julienne": {
+    "equipment": ["knife", "cutting board"],
+    "parent": "cut"
+  },
+  "grate": {
+    "equipment": ["grater"],
+    "parent": "cut"
+  },
+  "cut": {
+    "equipment": ["knife", "cutting board"]
+  },
+
+  "blend": {
+    "equipment": ["blender"]
+  },
+  "puree": {
+    "equipment": ["blender"],
+    "alternatives": [
+      { "equipment": ["immersion blender"] },
+      { "equipment": ["food processor"] }
+    ],
+    "parent": "blend"
+  },
+  "process": {
+    "equipment": ["food processor"]
+  },
+
+  "marinate": {
+    "equipment": ["container with lid"]
+  },
+  "coat": {
+    "equipment": [],
+    "parent": "marinate"
+  },
+  "refrigerate": {
+    "equipment": ["refrigerator"]
+  },
+  "chill": {
+    "equipment": ["refrigerator"],
+    "parent": "refrigerate"
+  },
+  "freeze": {
+    "equipment": ["freezer"]
+  },
+
+  "measure": {
+    "equipment": ["measuring cups", "measuring spoons"]
+  },
+  "weigh": {
+    "equipment": ["kitchen scale"],
+    "parent": "measure"
+  },
+
+  "drain": {
+    "equipment": ["colander"]
+  },
+  "strain": {
+    "equipment": ["fine mesh strainer"],
+    "parent": "drain"
+  },
+  "sift": {
+    "equipment": ["sifter"],
+    "alternatives": [
+      { "equipment": ["fine mesh strainer"] }
+    ]
+  },
+
+  "knead": {
+    "equipment": ["work surface"]
+  },
+  "roll": {
+    "equipment": ["rolling pin", "work surface"]
+  },
+  "press": {
+    "equipment": []
+  },
+
+  "combine": {
+    "equipment": []
+  },
+  "toss": {
+    "equipment": [],
+    "parent": "combine"
+  },
+  "serve": {
+    "equipment": ["serving dish"]
+  },
+  "plate": {
+    "equipment": ["plate"],
+    "parent": "serve"
+  },
+  "garnish": {
+    "equipment": []
+  }
+}

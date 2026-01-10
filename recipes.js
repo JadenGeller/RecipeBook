@@ -1099,7 +1099,14 @@ const recipes = [
             "raw": "4 Tbsp water"
           }
         ],
-        "action": "whisk until smooth and pourable"
+        "action": "whisk until smooth and pourable",
+        "techniques": [
+          "whisk"
+        ],
+        "equipment": [
+          "mixing bowl",
+          "whisk"
+        ]
       },
       "marinated tempeh": {
         "inputs": [
@@ -1117,7 +1124,15 @@ const recipes = [
             "raw": "glaze"
           }
         ],
-        "action": "coat tempeh in glaze, refrigerate 15 min"
+        "action": "coat tempeh in glaze, refrigerate 15 min",
+        "techniques": [
+          "coat",
+          "refrigerate"
+        ],
+        "equipment": [
+          "container with lid",
+          "refrigerator"
+        ]
       },
       "cooked tempeh": {
         "inputs": [
@@ -1135,7 +1150,14 @@ const recipes = [
             "raw": "4 tsp sesame oil"
           }
         ],
-        "action": "heat skillet, sauté 3-4 min per side until browned"
+        "action": "heat skillet, sauté 3-4 min per side until browned",
+        "techniques": [
+          "sauté"
+        ],
+        "equipment": [
+          "skillet",
+          "spatula"
+        ]
       },
       "vegetables": {
         "inputs": [
@@ -1164,7 +1186,14 @@ const recipes = [
             "raw": "4 tsp coconut aminos"
           }
         ],
-        "action": "sauté until tender, 4-5 min"
+        "action": "sauté until tender, 4-5 min",
+        "techniques": [
+          "sauté"
+        ],
+        "equipment": [
+          "skillet",
+          "spatula"
+        ]
       },
       "dish": {
         "inputs": [
@@ -1192,7 +1221,14 @@ const recipes = [
             "raw": "3 cups quinoa"
           }
         ],
-        "action": "combine everything, serve over grains"
+        "action": "combine everything, serve over grains",
+        "techniques": [
+          "combine",
+          "serve"
+        ],
+        "equipment": [
+          "serving dish"
+        ]
       }
     },
     "stepOrder": [
@@ -1306,6 +1342,43 @@ const recipes = [
         "unit": "cups",
         "prep": null,
         "raw": "3 cups quinoa"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "container with lid",
+        "kind": "container",
+        "prep": null
+      },
+      {
+        "name": "mixing bowl",
+        "kind": "container",
+        "prep": null
+      },
+      {
+        "name": "refrigerator",
+        "kind": "appliance",
+        "prep": null
+      },
+      {
+        "name": "serving dish",
+        "kind": "container",
+        "prep": null
+      },
+      {
+        "name": "skillet",
+        "kind": "cookware",
+        "prep": null
+      },
+      {
+        "name": "spatula",
+        "kind": "utensil",
+        "prep": null
+      },
+      {
+        "name": "whisk",
+        "kind": "utensil",
+        "prep": null
       }
     ],
     "meta": "Yield: 4 servings | Prep: 20 min | Cook: 10 min",
@@ -1682,5 +1755,515 @@ const ingredients = {
   },
   "vegan parmesan": {
     "kind": "cheese substitute"
+  }
+};
+
+const techniques = {
+  "whisk": {
+    "equipment": [
+      "whisk",
+      "mixing bowl"
+    ],
+    "parent": "mix"
+  },
+  "stir": {
+    "equipment": [
+      "spoon"
+    ],
+    "parent": "mix"
+  },
+  "beat": {
+    "equipment": [
+      "hand mixer",
+      "mixing bowl"
+    ],
+    "parent": "mix"
+  },
+  "mix": {
+    "equipment": [
+      "mixing bowl"
+    ]
+  },
+  "fold": {
+    "equipment": [
+      "spatula",
+      "mixing bowl"
+    ],
+    "parent": "mix"
+  },
+  "sauté": {
+    "equipment": [
+      "skillet",
+      "spatula"
+    ],
+    "parent": "cook"
+  },
+  "stir-fry": {
+    "equipment": [
+      "wok",
+      "spatula"
+    ],
+    "parent": "sauté"
+  },
+  "pan-fry": {
+    "equipment": [
+      "skillet",
+      "spatula"
+    ],
+    "parent": "cook"
+  },
+  "simmer": {
+    "equipment": [
+      "pot"
+    ],
+    "parent": "cook"
+  },
+  "boil": {
+    "equipment": [
+      "pot"
+    ],
+    "parent": "cook"
+  },
+  "steam": {
+    "equipment": [
+      "pot",
+      "steamer basket",
+      "lid"
+    ],
+    "parent": "cook"
+  },
+  "cook": {
+    "equipment": []
+  },
+  "bake": {
+    "equipment": [
+      "oven",
+      "baking sheet"
+    ],
+    "prep": {
+      "oven": "preheat"
+    }
+  },
+  "roast": {
+    "equipment": [
+      "oven",
+      "roasting pan"
+    ],
+    "prep": {
+      "oven": "preheat"
+    },
+    "parent": "bake"
+  },
+  "broil": {
+    "equipment": [
+      "oven"
+    ],
+    "prep": {
+      "oven": "preheat to broil"
+    },
+    "parent": "bake"
+  },
+  "toast": {
+    "equipment": [
+      "toaster"
+    ],
+    "alternatives": [
+      {
+        "equipment": [
+          "oven",
+          "baking sheet"
+        ],
+        "prep": {
+          "oven": "preheat"
+        }
+      }
+    ]
+  },
+  "chop": {
+    "equipment": [
+      "knife",
+      "cutting board"
+    ],
+    "parent": "cut"
+  },
+  "dice": {
+    "equipment": [
+      "knife",
+      "cutting board"
+    ],
+    "parent": "chop"
+  },
+  "mince": {
+    "equipment": [
+      "knife",
+      "cutting board"
+    ],
+    "parent": "chop"
+  },
+  "slice": {
+    "equipment": [
+      "knife",
+      "cutting board"
+    ],
+    "parent": "cut"
+  },
+  "julienne": {
+    "equipment": [
+      "knife",
+      "cutting board"
+    ],
+    "parent": "cut"
+  },
+  "grate": {
+    "equipment": [
+      "grater"
+    ],
+    "parent": "cut"
+  },
+  "cut": {
+    "equipment": [
+      "knife",
+      "cutting board"
+    ]
+  },
+  "blend": {
+    "equipment": [
+      "blender"
+    ]
+  },
+  "puree": {
+    "equipment": [
+      "blender"
+    ],
+    "alternatives": [
+      {
+        "equipment": [
+          "immersion blender"
+        ]
+      },
+      {
+        "equipment": [
+          "food processor"
+        ]
+      }
+    ],
+    "parent": "blend"
+  },
+  "process": {
+    "equipment": [
+      "food processor"
+    ]
+  },
+  "marinate": {
+    "equipment": [
+      "container with lid"
+    ]
+  },
+  "coat": {
+    "equipment": [],
+    "parent": "marinate"
+  },
+  "refrigerate": {
+    "equipment": [
+      "refrigerator"
+    ]
+  },
+  "chill": {
+    "equipment": [
+      "refrigerator"
+    ],
+    "parent": "refrigerate"
+  },
+  "freeze": {
+    "equipment": [
+      "freezer"
+    ]
+  },
+  "measure": {
+    "equipment": [
+      "measuring cups",
+      "measuring spoons"
+    ]
+  },
+  "weigh": {
+    "equipment": [
+      "kitchen scale"
+    ],
+    "parent": "measure"
+  },
+  "drain": {
+    "equipment": [
+      "colander"
+    ]
+  },
+  "strain": {
+    "equipment": [
+      "fine mesh strainer"
+    ],
+    "parent": "drain"
+  },
+  "sift": {
+    "equipment": [
+      "sifter"
+    ],
+    "alternatives": [
+      {
+        "equipment": [
+          "fine mesh strainer"
+        ]
+      }
+    ]
+  },
+  "knead": {
+    "equipment": [
+      "work surface"
+    ]
+  },
+  "roll": {
+    "equipment": [
+      "rolling pin",
+      "work surface"
+    ]
+  },
+  "press": {
+    "equipment": []
+  },
+  "combine": {
+    "equipment": []
+  },
+  "toss": {
+    "equipment": [],
+    "parent": "combine"
+  },
+  "serve": {
+    "equipment": [
+      "serving dish"
+    ]
+  },
+  "plate": {
+    "equipment": [
+      "plate"
+    ],
+    "parent": "serve"
+  },
+  "garnish": {
+    "equipment": []
+  }
+};
+
+const equipment = {
+  "whisk": {
+    "kind": "utensil",
+    "description": "Wire loops for mixing and aerating"
+  },
+  "spatula": {
+    "kind": "utensil",
+    "variants": [
+      "rubber spatula",
+      "metal spatula",
+      "fish spatula"
+    ]
+  },
+  "spoon": {
+    "kind": "utensil",
+    "variants": [
+      "wooden spoon",
+      "slotted spoon",
+      "ladle"
+    ]
+  },
+  "tongs": {
+    "kind": "utensil"
+  },
+  "knife": {
+    "kind": "utensil",
+    "variants": [
+      "chef's knife",
+      "paring knife",
+      "serrated knife"
+    ]
+  },
+  "cutting board": {
+    "kind": "surface"
+  },
+  "work surface": {
+    "kind": "surface",
+    "description": "Clean counter or board for kneading/rolling"
+  },
+  "grater": {
+    "kind": "utensil",
+    "variants": [
+      "box grater",
+      "microplane"
+    ]
+  },
+  "peeler": {
+    "kind": "utensil"
+  },
+  "mixing bowl": {
+    "kind": "container",
+    "variants": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  "container with lid": {
+    "kind": "container",
+    "description": "For marinating or storage"
+  },
+  "serving dish": {
+    "kind": "container"
+  },
+  "plate": {
+    "kind": "container"
+  },
+  "measuring cups": {
+    "kind": "measuring",
+    "variants": [
+      "dry measuring cups",
+      "liquid measuring cup"
+    ]
+  },
+  "measuring spoons": {
+    "kind": "measuring"
+  },
+  "kitchen scale": {
+    "kind": "measuring"
+  },
+  "skillet": {
+    "kind": "cookware",
+    "variants": [
+      "cast iron skillet",
+      "non-stick skillet",
+      "stainless steel skillet"
+    ],
+    "aliases": [
+      "frying pan",
+      "pan"
+    ]
+  },
+  "wok": {
+    "kind": "cookware"
+  },
+  "pot": {
+    "kind": "cookware",
+    "variants": [
+      "small pot",
+      "medium pot",
+      "large pot",
+      "stock pot",
+      "dutch oven"
+    ]
+  },
+  "saucepan": {
+    "kind": "cookware",
+    "parent": "pot"
+  },
+  "roasting pan": {
+    "kind": "cookware"
+  },
+  "baking sheet": {
+    "kind": "cookware",
+    "aliases": [
+      "sheet pan",
+      "cookie sheet"
+    ]
+  },
+  "baking dish": {
+    "kind": "cookware",
+    "variants": [
+      "9x13 baking dish",
+      "8x8 baking dish"
+    ]
+  },
+  "lid": {
+    "kind": "cookware"
+  },
+  "steamer basket": {
+    "kind": "cookware"
+  },
+  "oven": {
+    "kind": "appliance",
+    "prep": [
+      "preheat"
+    ]
+  },
+  "stovetop": {
+    "kind": "appliance",
+    "aliases": [
+      "burner",
+      "range"
+    ]
+  },
+  "refrigerator": {
+    "kind": "appliance",
+    "aliases": [
+      "fridge"
+    ]
+  },
+  "freezer": {
+    "kind": "appliance"
+  },
+  "toaster": {
+    "kind": "appliance"
+  },
+  "microwave": {
+    "kind": "appliance"
+  },
+  "blender": {
+    "kind": "appliance"
+  },
+  "immersion blender": {
+    "kind": "appliance",
+    "aliases": [
+      "stick blender",
+      "hand blender"
+    ]
+  },
+  "food processor": {
+    "kind": "appliance"
+  },
+  "hand mixer": {
+    "kind": "appliance"
+  },
+  "stand mixer": {
+    "kind": "appliance"
+  },
+  "colander": {
+    "kind": "strainer"
+  },
+  "fine mesh strainer": {
+    "kind": "strainer",
+    "aliases": [
+      "sieve"
+    ]
+  },
+  "sifter": {
+    "kind": "strainer"
+  },
+  "cheesecloth": {
+    "kind": "strainer"
+  },
+  "rolling pin": {
+    "kind": "baking tool"
+  },
+  "pastry brush": {
+    "kind": "baking tool"
+  },
+  "wire rack": {
+    "kind": "baking tool",
+    "aliases": [
+      "cooling rack"
+    ]
+  },
+  "parchment paper": {
+    "kind": "consumable"
+  },
+  "aluminum foil": {
+    "kind": "consumable"
+  },
+  "plastic wrap": {
+    "kind": "consumable"
   }
 };

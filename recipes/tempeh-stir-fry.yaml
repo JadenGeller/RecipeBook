@@ -15,18 +15,21 @@ steps:
       - 3 tsp ginger, grated
       - 1 tsp maple syrup
       - 4 Tbsp water
+    techniques: [whisk]
     do: whisk until smooth and pourable
 
   marinated tempeh:
     in:
       - 8 oz tempeh, cubed
       - glaze
+    techniques: [coat, refrigerate]
     do: coat tempeh in glaze, refrigerate 15 min
 
   cooked tempeh:
     in:
       - marinated tempeh
       - 4 tsp sesame oil
+    techniques: [sauté]
     do: heat skillet, sauté 3-4 min per side until browned
 
   vegetables:
@@ -34,6 +37,7 @@ steps:
       - 2/3 cup green onions, chopped
       - 4 cups mixed vegetables
       - 4 tsp coconut aminos
+    techniques: [sauté]
     do: sauté until tender, 4-5 min
 
   dish:
@@ -42,4 +46,5 @@ steps:
       - vegetables
       - glaze
       - 3 cups quinoa
+    techniques: [combine, serve]
     do: combine everything, serve over grains

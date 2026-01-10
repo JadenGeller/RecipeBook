@@ -643,6 +643,24 @@
             font-style: italic;
         }
 
+        .step-equipment {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.5rem;
+        }
+
+        .equipment-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            text-transform: lowercase;
+            color: var(--text-light);
+            background: var(--bg);
+            padding: 0.15rem 0.4rem;
+            border: 1px solid var(--border);
+            opacity: 0.7;
+        }
+
         .instructions-list {
             list-style: none;
             counter-reset: step;
@@ -1755,12 +1773,19 @@
                             }
                             return `<span class="step-ingredient">${inp.raw}</span>`;
                         }).join('');
+
+                        // Equipment tags for this step
+                        const equipmentHtml = (step.equipment || []).length > 0
+                            ? `<div class="step-equipment">${step.equipment.map(e => `<span class="equipment-tag">${e}</span>`).join('')}</div>`
+                            : '';
+
                         return `
                             <li class="recipe-step" id="step-${stepId}">
                                 <div class="step-inputs">${inputsHtml}</div>
                                 <div class="step-info">
                                     <div class="step-name">${stepName}</div>
                                     <div class="step-action">${step.action || ''}</div>
+                                    ${equipmentHtml}
                                 </div>
                             </li>
                         `;
