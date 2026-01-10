@@ -7,17 +7,94 @@ const recipes = [
     "image": "images/coconut-curry-lentils.jpg",
     "description": "Rich, creamy, and earthy coconut curry lentils with spinach - an easy and delicious vegan dinner option perfect for meal prep!",
     "ingredients": [
-      "2 Tbsp olive oil",
-      "2 cloves garlic, minced",
-      "1 tsp grated fresh ginger",
-      "1 small yellow onion, diced",
-      "1 Tbsp curry powder",
-      "1 cup brown lentils (dry)",
-      "2 cups vegetable broth",
-      "1 (13 oz) can coconut milk",
-      "3 cups fresh baby spinach",
-      "4 cups cooked rice (for serving)",
-      "1/4 cup chopped fresh cilantro (optional)"
+      {
+        "type": "raw",
+        "name": "olive oil",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
+        "name": "garlic",
+        "amount": "2",
+        "unit": "cloves",
+        "prep": "minced",
+        "raw": "2 cloves garlic, minced"
+      },
+      {
+        "type": "raw",
+        "name": "grated fresh ginger",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp grated fresh ginger"
+      },
+      {
+        "type": "raw",
+        "name": "yellow onion",
+        "amount": "1",
+        "unit": "small",
+        "prep": "diced",
+        "raw": "1 small yellow onion, diced"
+      },
+      {
+        "type": "raw",
+        "name": "curry powder",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp curry powder"
+      },
+      {
+        "type": "raw",
+        "name": "brown lentils (dry)",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup brown lentils (dry)"
+      },
+      {
+        "type": "raw",
+        "name": "vegetable broth",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups vegetable broth"
+      },
+      {
+        "type": "raw",
+        "name": "oz) can coconut milk",
+        "amount": "1",
+        "unit": "(13",
+        "prep": null,
+        "raw": "1 (13 oz) can coconut milk"
+      },
+      {
+        "type": "raw",
+        "name": "fresh baby spinach",
+        "amount": "3",
+        "unit": "cups",
+        "prep": null,
+        "raw": "3 cups fresh baby spinach"
+      },
+      {
+        "type": "raw",
+        "name": "cooked rice (for serving)",
+        "amount": "4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "4 cups cooked rice (for serving)"
+      },
+      {
+        "type": "raw",
+        "name": "chopped fresh cilantro (optional)",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup chopped fresh cilantro (optional)"
+      }
     ],
     "instructions": [
       "Mince the garlic, grate the ginger, and dice the onion. Add the olive oil, garlic, and ginger to a deep skillet and sauté over medium heat for 1 minute until fragrant.",
@@ -28,7 +105,8 @@ const recipes = [
       "Serve over rice and top with cilantro if desired."
     ],
     "meta": "Yield: 4 servings | Prep Time: 5 minutes | Cook Time: 40 minutes",
-    "source": "https://www.budgetbytes.com/creamy-coconut-curry-lentils-with-spinach/"
+    "source": "https://www.budgetbytes.com/creamy-coconut-curry-lentils-with-spinach/",
+    "format": "markdown"
   },
   {
     "id": 2,
@@ -37,18 +115,93 @@ const recipes = [
     "image": "images/southwest-tofu-scramble.jpg",
     "description": "Savory, Southwest-inspired tofu scramble with lots of veggies and a simple 5-ingredient sauce. Just 10 ingredients, 30 minutes, and 1 pan!",
     "ingredients": [
-      "8 oz extra-firm tofu",
-      "1-2 Tbsp olive oil",
-      "1/4 medium red onion, thinly sliced",
-      "1/2 medium red bell pepper, thinly sliced",
-      "2 cups kale, loosely chopped",
-      "1/2 tsp sea salt",
-      "1/2 tsp garlic powder",
-      "1/2 tsp ground cumin",
-      "1/4 tsp chili powder",
-      "1/4 tsp turmeric (optional)",
-      "Water to thin sauce",
-      "Salsa, cilantro, hot sauce for serving"
+      {
+        "type": "raw",
+        "name": "extra-firm tofu",
+        "amount": "8",
+        "unit": "oz",
+        "prep": null,
+        "raw": "8 oz extra-firm tofu"
+      },
+      {
+        "type": "ref",
+        "name": "1-2 tbsp olive oil",
+        "raw": "1-2 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
+        "name": "red onion",
+        "amount": "1/4",
+        "unit": "medium",
+        "prep": "thinly sliced",
+        "raw": "1/4 medium red onion, thinly sliced"
+      },
+      {
+        "type": "raw",
+        "name": "red bell pepper",
+        "amount": "1/2",
+        "unit": "medium",
+        "prep": "thinly sliced",
+        "raw": "1/2 medium red bell pepper, thinly sliced"
+      },
+      {
+        "type": "raw",
+        "name": "kale",
+        "amount": "2",
+        "unit": "cups",
+        "prep": "loosely chopped",
+        "raw": "2 cups kale, loosely chopped"
+      },
+      {
+        "type": "raw",
+        "name": "sea salt",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp sea salt"
+      },
+      {
+        "type": "raw",
+        "name": "garlic powder",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp garlic powder"
+      },
+      {
+        "type": "raw",
+        "name": "ground cumin",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp ground cumin"
+      },
+      {
+        "type": "raw",
+        "name": "chili powder",
+        "amount": "1/4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/4 tsp chili powder"
+      },
+      {
+        "type": "raw",
+        "name": "turmeric (optional)",
+        "amount": "1/4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/4 tsp turmeric (optional)"
+      },
+      {
+        "type": "ref",
+        "name": "water to thin sauce",
+        "raw": "Water to thin sauce"
+      },
+      {
+        "type": "ref",
+        "name": "salsa, cilantro",
+        "raw": "Salsa, cilantro, hot sauce for serving"
+      }
     ],
     "instructions": [
       "Press tofu dry using a towel with weight for 15 minutes.",
@@ -60,7 +213,8 @@ const recipes = [
       "Cook 5-7 minutes until tofu is lightly browned. Serve with salsa, cilantro, and hot sauce."
     ],
     "meta": "Yield: 2 servings | Prep Time: 10 minutes | Cook Time: 20 minutes",
-    "source": "https://minimalistbaker.com/southwest-tofu-scramble/"
+    "source": "https://minimalistbaker.com/southwest-tofu-scramble/",
+    "format": "markdown"
   },
   {
     "id": 3,
@@ -69,22 +223,122 @@ const recipes = [
     "image": "images/spanish-rice-beans.jpg",
     "description": "Rich and flavorful Spanish rice and beans - the perfect one-pot weeknight dinner that's naturally gluten-free and vegan!",
     "ingredients": [
-      "1 Tbsp oil",
-      "1 medium onion, diced",
-      "1 medium red bell pepper, chopped",
-      "3-4 garlic cloves, minced",
-      "1 tsp ground cumin",
-      "1 tsp sweet paprika",
-      "1 tsp dried oregano",
-      "1/2 tsp smoked paprika",
-      "Pinch of red pepper flakes",
-      "Salt and black pepper to taste",
-      "1 1/2 cups white rice, uncooked",
-      "1 1/4 cups vegetable broth",
-      "1 1/4 cups salsa",
-      "1 (15 oz) can kidney beans, drained and rinsed",
-      "1/2 cup green olives, halved (optional)",
-      "Fresh cilantro or parsley for garnish"
+      {
+        "type": "raw",
+        "name": "oil",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp oil"
+      },
+      {
+        "type": "raw",
+        "name": "onion",
+        "amount": "1",
+        "unit": "medium",
+        "prep": "diced",
+        "raw": "1 medium onion, diced"
+      },
+      {
+        "type": "raw",
+        "name": "red bell pepper",
+        "amount": "1",
+        "unit": "medium",
+        "prep": "chopped",
+        "raw": "1 medium red bell pepper, chopped"
+      },
+      {
+        "type": "ref",
+        "name": "3-4 garlic cloves",
+        "raw": "3-4 garlic cloves, minced"
+      },
+      {
+        "type": "raw",
+        "name": "ground cumin",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp ground cumin"
+      },
+      {
+        "type": "raw",
+        "name": "sweet paprika",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp sweet paprika"
+      },
+      {
+        "type": "raw",
+        "name": "dried oregano",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp dried oregano"
+      },
+      {
+        "type": "raw",
+        "name": "smoked paprika",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp smoked paprika"
+      },
+      {
+        "type": "ref",
+        "name": "pinch of red pepper flakes",
+        "raw": "Pinch of red pepper flakes"
+      },
+      {
+        "type": "ref",
+        "name": "salt and black pepper to taste",
+        "raw": "Salt and black pepper to taste"
+      },
+      {
+        "type": "raw",
+        "name": "white rice",
+        "amount": "1 1/2",
+        "unit": "cups",
+        "prep": "uncooked",
+        "raw": "1 1/2 cups white rice, uncooked"
+      },
+      {
+        "type": "raw",
+        "name": "vegetable broth",
+        "amount": "1 1/4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/4 cups vegetable broth"
+      },
+      {
+        "type": "raw",
+        "name": "salsa",
+        "amount": "1 1/4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/4 cups salsa"
+      },
+      {
+        "type": "raw",
+        "name": "oz) can kidney beans",
+        "amount": "1",
+        "unit": "(15",
+        "prep": "drained and rinsed",
+        "raw": "1 (15 oz) can kidney beans, drained and rinsed"
+      },
+      {
+        "type": "raw",
+        "name": "green olives",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": "halved (optional)",
+        "raw": "1/2 cup green olives, halved (optional)"
+      },
+      {
+        "type": "ref",
+        "name": "fresh cilantro or parsley for garnish",
+        "raw": "Fresh cilantro or parsley for garnish"
+      }
     ],
     "instructions": [
       "Soak uncooked rice in water for 10-30 minutes, then drain.",
@@ -94,7 +348,8 @@ const recipes = [
       "Turn off heat, adjust seasonings, then stir in beans and optional olives. Garnish with fresh herbs."
     ],
     "meta": "Yield: 4 servings | Prep Time: 15 minutes | Cook Time: 20 minutes",
-    "source": "https://elavegan.com/spanish-rice-and-beans/"
+    "source": "https://elavegan.com/spanish-rice-and-beans/",
+    "format": "markdown"
   },
   {
     "id": 4,
@@ -103,22 +358,128 @@ const recipes = [
     "image": "images/sesame-tofu-broccoli.jpg",
     "description": "Seriously crispy pan-fried tofu drenched in a tangy sesame sauce with broccoli florets - a delicious plant-based meal!",
     "ingredients": [
-      "1/4 cup soy sauce",
-      "2 Tbsp water",
-      "1 Tbsp toasted sesame oil",
-      "2 Tbsp brown sugar",
-      "2 Tbsp rice vinegar",
-      "1 Tbsp grated fresh ginger",
-      "2 cloves garlic, minced",
-      "2 Tbsp sesame seeds",
-      "1 Tbsp cornstarch (for sauce)",
-      "14 oz block extra-firm tofu",
-      "Pinch of salt",
-      "2 Tbsp cornstarch (for tofu)",
-      "2 Tbsp neutral oil",
-      "1/2 lb frozen broccoli florets",
-      "3-4 green onions, sliced",
-      "4 cups cooked rice"
+      {
+        "type": "raw",
+        "name": "soy sauce",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup soy sauce"
+      },
+      {
+        "type": "raw",
+        "name": "water",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp water"
+      },
+      {
+        "type": "raw",
+        "name": "toasted sesame oil",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp toasted sesame oil"
+      },
+      {
+        "type": "raw",
+        "name": "brown sugar",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp brown sugar"
+      },
+      {
+        "type": "raw",
+        "name": "rice vinegar",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp rice vinegar"
+      },
+      {
+        "type": "raw",
+        "name": "grated fresh ginger",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp grated fresh ginger"
+      },
+      {
+        "type": "raw",
+        "name": "garlic",
+        "amount": "2",
+        "unit": "cloves",
+        "prep": "minced",
+        "raw": "2 cloves garlic, minced"
+      },
+      {
+        "type": "raw",
+        "name": "sesame seeds",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp sesame seeds"
+      },
+      {
+        "type": "raw",
+        "name": "cornstarch (for sauce)",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp cornstarch (for sauce)"
+      },
+      {
+        "type": "raw",
+        "name": "block extra-firm tofu",
+        "amount": "14",
+        "unit": "oz",
+        "prep": null,
+        "raw": "14 oz block extra-firm tofu"
+      },
+      {
+        "type": "ref",
+        "name": "pinch of salt",
+        "raw": "Pinch of salt"
+      },
+      {
+        "type": "raw",
+        "name": "cornstarch (for tofu)",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp cornstarch (for tofu)"
+      },
+      {
+        "type": "raw",
+        "name": "neutral oil",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp neutral oil"
+      },
+      {
+        "type": "raw",
+        "name": "frozen broccoli florets",
+        "amount": "1/2",
+        "unit": "lb",
+        "prep": null,
+        "raw": "1/2 lb frozen broccoli florets"
+      },
+      {
+        "type": "ref",
+        "name": "3-4 green onions",
+        "raw": "3-4 green onions, sliced"
+      },
+      {
+        "type": "raw",
+        "name": "cooked rice",
+        "amount": "4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "4 cups cooked rice"
+      }
     ],
     "instructions": [
       "Press tofu between towels with weight on top for at least 30 minutes to extract water.",
@@ -130,7 +491,8 @@ const recipes = [
       "Serve over rice topped with sliced green onions."
     ],
     "meta": "Yield: 3 servings | Prep Time: 45 minutes | Cook Time: 15 minutes",
-    "source": "https://www.budgetbytes.com/pan-fried-sesame-tofu-with-broccoli/"
+    "source": "https://www.budgetbytes.com/pan-fried-sesame-tofu-with-broccoli/",
+    "format": "markdown"
   },
   {
     "id": 5,
@@ -139,20 +501,115 @@ const recipes = [
     "image": "images/creamy-lentil-soup.jpg",
     "description": "A cozy medley of colors, flavors, and textures - this creamy lentil vegetable soup is hearty, inexpensive, and vegan!",
     "ingredients": [
-      "16 oz mushrooms, sliced",
-      "2 Tbsp cooking oil",
-      "3 carrots, diced",
-      "3 ribs celery, diced",
-      "1 yellow onion, diced",
-      "2 cloves garlic, minced",
-      "1/2 tsp dried thyme",
-      "1/2 tsp rubbed sage",
-      "1/2 tsp dried rosemary",
-      "1 cup brown lentils",
-      "3 cups vegetable broth",
-      "1 (13.5 oz) can full-fat coconut milk",
-      "1/2 tsp salt",
-      "1/4 tsp pepper"
+      {
+        "type": "raw",
+        "name": "mushrooms",
+        "amount": "16",
+        "unit": "oz",
+        "prep": "sliced",
+        "raw": "16 oz mushrooms, sliced"
+      },
+      {
+        "type": "raw",
+        "name": "cooking oil",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp cooking oil"
+      },
+      {
+        "type": "ref",
+        "name": "3 carrots",
+        "raw": "3 carrots, diced"
+      },
+      {
+        "type": "raw",
+        "name": "celery",
+        "amount": "3",
+        "unit": "ribs",
+        "prep": "diced",
+        "raw": "3 ribs celery, diced"
+      },
+      {
+        "type": "raw",
+        "name": "onion",
+        "amount": "1",
+        "unit": "yellow",
+        "prep": "diced",
+        "raw": "1 yellow onion, diced"
+      },
+      {
+        "type": "raw",
+        "name": "garlic",
+        "amount": "2",
+        "unit": "cloves",
+        "prep": "minced",
+        "raw": "2 cloves garlic, minced"
+      },
+      {
+        "type": "raw",
+        "name": "dried thyme",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp dried thyme"
+      },
+      {
+        "type": "raw",
+        "name": "rubbed sage",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp rubbed sage"
+      },
+      {
+        "type": "raw",
+        "name": "dried rosemary",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp dried rosemary"
+      },
+      {
+        "type": "raw",
+        "name": "brown lentils",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup brown lentils"
+      },
+      {
+        "type": "raw",
+        "name": "vegetable broth",
+        "amount": "3",
+        "unit": "cups",
+        "prep": null,
+        "raw": "3 cups vegetable broth"
+      },
+      {
+        "type": "raw",
+        "name": "oz) can full-fat coconut milk",
+        "amount": "1",
+        "unit": "(13.5",
+        "prep": null,
+        "raw": "1 (13.5 oz) can full-fat coconut milk"
+      },
+      {
+        "type": "raw",
+        "name": "salt",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp salt"
+      },
+      {
+        "type": "raw",
+        "name": "pepper",
+        "amount": "1/4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/4 tsp pepper"
+      }
     ],
     "instructions": [
       "Rinse mushrooms and slice them. Add to a large soup pot with cooking oil and a pinch of salt and pepper. Sauté over medium heat until mushrooms release their water and it evaporates.",
@@ -162,7 +619,8 @@ const recipes = [
       "Taste and add salt and pepper as needed. Serve hot with bread for dipping!"
     ],
     "meta": "Yield: 4 servings | Prep Time: 15 minutes | Cook Time: 40 minutes",
-    "source": "https://www.budgetbytes.com/creamy-lentil-vegetable-soup/"
+    "source": "https://www.budgetbytes.com/creamy-lentil-vegetable-soup/",
+    "format": "markdown"
   },
   {
     "id": 6,
@@ -171,21 +629,120 @@ const recipes = [
     "image": "images/go-to-vegan-soup.jpg",
     "description": "A simple 20-minute white bean and kale soup packed full of veggies, made with ingredients you likely already have on hand!",
     "ingredients": [
-      "1 Tbsp olive oil",
-      "3 medium carrots, peeled and chopped",
-      "3 ribs celery, chopped",
-      "1 yellow onion, chopped",
-      "4 cloves garlic, minced",
-      "6 cups vegetable broth",
-      "2 (19 oz) cans white kidney beans, drained and rinsed",
-      "1 tsp dried thyme",
-      "1 tsp oregano",
-      "1 tsp cumin",
-      "1/2 tsp ground turmeric",
-      "1/4 tsp black pepper",
-      "4 cups kale, finely shredded",
-      "Salt to taste",
-      "Vegan parmesan (optional garnish)"
+      {
+        "type": "raw",
+        "name": "olive oil",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
+        "name": "carrots",
+        "amount": "3",
+        "unit": "medium",
+        "prep": "peeled and chopped",
+        "raw": "3 medium carrots, peeled and chopped"
+      },
+      {
+        "type": "raw",
+        "name": "celery",
+        "amount": "3",
+        "unit": "ribs",
+        "prep": "chopped",
+        "raw": "3 ribs celery, chopped"
+      },
+      {
+        "type": "raw",
+        "name": "onion",
+        "amount": "1",
+        "unit": "yellow",
+        "prep": "chopped",
+        "raw": "1 yellow onion, chopped"
+      },
+      {
+        "type": "raw",
+        "name": "garlic",
+        "amount": "4",
+        "unit": "cloves",
+        "prep": "minced",
+        "raw": "4 cloves garlic, minced"
+      },
+      {
+        "type": "raw",
+        "name": "vegetable broth",
+        "amount": "6",
+        "unit": "cups",
+        "prep": null,
+        "raw": "6 cups vegetable broth"
+      },
+      {
+        "type": "raw",
+        "name": "oz) cans white kidney beans",
+        "amount": "2",
+        "unit": "(19",
+        "prep": "drained and rinsed",
+        "raw": "2 (19 oz) cans white kidney beans, drained and rinsed"
+      },
+      {
+        "type": "raw",
+        "name": "dried thyme",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp dried thyme"
+      },
+      {
+        "type": "raw",
+        "name": "oregano",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp oregano"
+      },
+      {
+        "type": "raw",
+        "name": "cumin",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp cumin"
+      },
+      {
+        "type": "raw",
+        "name": "ground turmeric",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp ground turmeric"
+      },
+      {
+        "type": "raw",
+        "name": "black pepper",
+        "amount": "1/4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/4 tsp black pepper"
+      },
+      {
+        "type": "raw",
+        "name": "kale",
+        "amount": "4",
+        "unit": "cups",
+        "prep": "finely shredded",
+        "raw": "4 cups kale, finely shredded"
+      },
+      {
+        "type": "ref",
+        "name": "salt to taste",
+        "raw": "Salt to taste"
+      },
+      {
+        "type": "ref",
+        "name": "vegan parmesan (optional garnish)",
+        "raw": "Vegan parmesan (optional garnish)"
+      }
     ],
     "instructions": [
       "Heat olive oil in a large pot over medium-high heat. Add carrots, celery, onion, and garlic. Sauté until vegetables begin to soften, about 5 minutes.",
@@ -194,7 +751,8 @@ const recipes = [
       "Add salt to taste if needed. Serve hot with vegan parmesan if desired."
     ],
     "meta": "Yield: 6 servings | Prep Time: 5 minutes | Cook Time: 15 minutes",
-    "source": "https://itdoesnttastelikechicken.com/my-go-to-vegan-soup-recipe/"
+    "source": "https://itdoesnttastelikechicken.com/my-go-to-vegan-soup-recipe/",
+    "format": "markdown"
   },
   {
     "id": 7,
@@ -203,20 +761,118 @@ const recipes = [
     "image": "images/vegan-lentil-stew.jpg",
     "description": "A rich and hearty medley of vegetables, lentils, and herbs - this freezer-friendly vegan lentil stew is the perfect cold-weather comfort food.",
     "ingredients": [
-      "2 Tbsp olive oil",
-      "1 yellow onion, diced",
-      "4 cloves garlic, minced",
-      "4 carrots (about 1/2 lb), diced",
-      "4 stalks celery, diced",
-      "2 lbs potatoes, cubed",
-      "1 cup brown lentils",
-      "1 tsp dried rosemary",
-      "1/2 tsp dried thyme",
-      "2 Tbsp Dijon mustard",
-      "1.5 Tbsp soy sauce",
-      "1 Tbsp brown sugar",
-      "6 cups vegetable broth",
-      "1 cup frozen peas"
+      {
+        "type": "raw",
+        "name": "olive oil",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
+        "name": "onion",
+        "amount": "1",
+        "unit": "yellow",
+        "prep": "diced",
+        "raw": "1 yellow onion, diced"
+      },
+      {
+        "type": "raw",
+        "name": "garlic",
+        "amount": "4",
+        "unit": "cloves",
+        "prep": "minced",
+        "raw": "4 cloves garlic, minced"
+      },
+      {
+        "type": "raw",
+        "name": "(about 1/2 lb)",
+        "amount": "4",
+        "unit": "carrots",
+        "prep": "diced",
+        "raw": "4 carrots (about 1/2 lb), diced"
+      },
+      {
+        "type": "raw",
+        "name": "celery",
+        "amount": "4",
+        "unit": "stalks",
+        "prep": "diced",
+        "raw": "4 stalks celery, diced"
+      },
+      {
+        "type": "raw",
+        "name": "potatoes",
+        "amount": "2",
+        "unit": "lbs",
+        "prep": "cubed",
+        "raw": "2 lbs potatoes, cubed"
+      },
+      {
+        "type": "raw",
+        "name": "brown lentils",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup brown lentils"
+      },
+      {
+        "type": "raw",
+        "name": "dried rosemary",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp dried rosemary"
+      },
+      {
+        "type": "raw",
+        "name": "dried thyme",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp dried thyme"
+      },
+      {
+        "type": "raw",
+        "name": "dijon mustard",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp Dijon mustard"
+      },
+      {
+        "type": "raw",
+        "name": "soy sauce",
+        "amount": "1.5",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1.5 Tbsp soy sauce"
+      },
+      {
+        "type": "raw",
+        "name": "brown sugar",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp brown sugar"
+      },
+      {
+        "type": "raw",
+        "name": "vegetable broth",
+        "amount": "6",
+        "unit": "cups",
+        "prep": null,
+        "raw": "6 cups vegetable broth"
+      },
+      {
+        "type": "raw",
+        "name": "frozen peas",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup frozen peas"
+      }
     ],
     "instructions": [
       "Dice onion and mince garlic. Add to a large soup pot with olive oil and sauté over medium heat.",
@@ -227,7 +883,8 @@ const recipes = [
       "Stir in frozen peas and let heat through. Taste and add salt if needed. Serve hot!"
     ],
     "meta": "Yield: 8 servings | Prep Time: 10 minutes | Cook Time: 50 minutes",
-    "source": "https://www.budgetbytes.com/vegan-winter-lentil-stew/"
+    "source": "https://www.budgetbytes.com/vegan-winter-lentil-stew/",
+    "format": "markdown"
   },
   {
     "id": 8,
@@ -236,23 +893,133 @@ const recipes = [
     "image": "images/quinoa-power-bowls.jpg",
     "description": "Nutritious power bowls with maple chipotle Brussels sprouts, smoky butternut squash, and fluffy quinoa - perfect for meal prep!",
     "ingredients": [
-      "14-16 oz Brussels sprouts, trimmed and halved",
-      "2 Tbsp extra-virgin olive oil, divided",
-      "1 Tbsp adobo sauce",
-      "1 Tbsp maple syrup",
-      "1 tsp kosher salt, divided",
-      "3 cups cubed butternut squash",
-      "1 tsp smoked paprika",
-      "1 tsp garlic powder",
-      "1 cup dry quinoa",
-      "2 cups vegetable broth",
-      "2-3 handfuls chopped kale",
-      "Sliced avocado (optional)",
-      "1/4 cup extra-virgin olive oil (for dressing)",
-      "1 Tbsp apple cider vinegar",
-      "1 Tbsp honey or maple syrup",
-      "2 tsp Dijon mustard",
-      "1/4 tsp kosher salt"
+      {
+        "type": "ref",
+        "name": "14-16 oz brussels sprouts",
+        "raw": "14-16 oz Brussels sprouts, trimmed and halved"
+      },
+      {
+        "type": "raw",
+        "name": "extra-virgin olive oil",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": "divided",
+        "raw": "2 Tbsp extra-virgin olive oil, divided"
+      },
+      {
+        "type": "raw",
+        "name": "adobo sauce",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp adobo sauce"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "kosher salt",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": "divided",
+        "raw": "1 tsp kosher salt, divided"
+      },
+      {
+        "type": "raw",
+        "name": "cubed butternut squash",
+        "amount": "3",
+        "unit": "cups",
+        "prep": null,
+        "raw": "3 cups cubed butternut squash"
+      },
+      {
+        "type": "raw",
+        "name": "smoked paprika",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp smoked paprika"
+      },
+      {
+        "type": "raw",
+        "name": "garlic powder",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp garlic powder"
+      },
+      {
+        "type": "raw",
+        "name": "dry quinoa",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup dry quinoa"
+      },
+      {
+        "type": "raw",
+        "name": "vegetable broth",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups vegetable broth"
+      },
+      {
+        "type": "ref",
+        "name": "2-3 handfuls chopped kale",
+        "raw": "2-3 handfuls chopped kale"
+      },
+      {
+        "type": "ref",
+        "name": "sliced avocado (optional)",
+        "raw": "Sliced avocado (optional)"
+      },
+      {
+        "type": "raw",
+        "name": "extra-virgin olive oil (for dressing)",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup extra-virgin olive oil (for dressing)"
+      },
+      {
+        "type": "raw",
+        "name": "apple cider vinegar",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp apple cider vinegar"
+      },
+      {
+        "type": "raw",
+        "name": "honey or maple syrup",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp honey or maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "dijon mustard",
+        "amount": "2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "2 tsp Dijon mustard"
+      },
+      {
+        "type": "raw",
+        "name": "kosher salt",
+        "amount": "1/4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/4 tsp kosher salt"
+      }
     ],
     "instructions": [
       "Preheat oven to 425°F.",
@@ -263,40 +1030,287 @@ const recipes = [
       "Divide quinoa mixture among four bowls, top with roasted vegetables, drizzle with dressing, and garnish with avocado."
     ],
     "meta": "Yield: 4 servings | Prep Time: 20 minutes | Cook Time: 25 minutes",
-    "source": "https://dishingouthealth.com/quinoa-power-bowls-with-maple-chipotle-brussels-and-smoky-butternut-squash/"
+    "source": "https://dishingouthealth.com/quinoa-power-bowls-with-maple-chipotle-brussels-and-smoky-butternut-squash/",
+    "format": "markdown"
   },
   {
     "id": 9,
     "title": "30-Minute Tempeh Stir-Fry",
     "category": "dinner",
     "image": "images/tempeh-stir-fry.jpg",
-    "description": "A hearty tempeh stir fry with BIG flavor! Perfect for weeknight dinners using leftover vegetables and grains.",
+    "description": "A hearty tempeh stir fry with BIG flavor! Perfect for weeknight dinners.",
+    "steps": {
+      "glaze": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "peanut butter",
+            "amount": "4",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "4 Tbsp peanut butter"
+          },
+          {
+            "type": "raw",
+            "name": "sesame oil",
+            "amount": "4",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "4 tsp sesame oil"
+          },
+          {
+            "type": "raw",
+            "name": "coconut aminos",
+            "amount": "1/3",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/3 cup coconut aminos"
+          },
+          {
+            "type": "raw",
+            "name": "lime juice",
+            "amount": "4",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "4 tsp lime juice"
+          },
+          {
+            "type": "raw",
+            "name": "ginger",
+            "amount": "3",
+            "unit": "tsp",
+            "prep": "grated",
+            "raw": "3 tsp ginger, grated"
+          },
+          {
+            "type": "raw",
+            "name": "maple syrup",
+            "amount": "1",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1 tsp maple syrup"
+          },
+          {
+            "type": "raw",
+            "name": "water",
+            "amount": "4",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "4 Tbsp water"
+          }
+        ],
+        "action": "whisk until smooth and pourable"
+      },
+      "marinated tempeh": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "tempeh",
+            "amount": "8",
+            "unit": "oz",
+            "prep": "cubed",
+            "raw": "8 oz tempeh, cubed"
+          },
+          {
+            "type": "ref",
+            "name": "glaze",
+            "raw": "glaze"
+          }
+        ],
+        "action": "coat tempeh in glaze, refrigerate 15 min"
+      },
+      "cooked tempeh": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "marinated tempeh",
+            "raw": "marinated tempeh"
+          },
+          {
+            "type": "raw",
+            "name": "sesame oil",
+            "amount": "4",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "4 tsp sesame oil"
+          }
+        ],
+        "action": "heat skillet, sauté 3-4 min per side until browned"
+      },
+      "vegetables": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "green onions",
+            "amount": "2/3",
+            "unit": "cup",
+            "prep": "chopped",
+            "raw": "2/3 cup green onions, chopped"
+          },
+          {
+            "type": "raw",
+            "name": "mixed vegetables",
+            "amount": "4",
+            "unit": "cups",
+            "prep": null,
+            "raw": "4 cups mixed vegetables"
+          },
+          {
+            "type": "raw",
+            "name": "coconut aminos",
+            "amount": "4",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "4 tsp coconut aminos"
+          }
+        ],
+        "action": "sauté until tender, 4-5 min"
+      },
+      "dish": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "cooked tempeh",
+            "raw": "cooked tempeh"
+          },
+          {
+            "type": "ref",
+            "name": "vegetables",
+            "raw": "vegetables"
+          },
+          {
+            "type": "ref",
+            "name": "glaze",
+            "raw": "glaze"
+          },
+          {
+            "type": "raw",
+            "name": "quinoa",
+            "amount": "3",
+            "unit": "cups",
+            "prep": null,
+            "raw": "3 cups quinoa"
+          }
+        ],
+        "action": "combine everything, serve over grains"
+      }
+    },
+    "stepOrder": [
+      "glaze",
+      "marinated tempeh",
+      "cooked tempeh",
+      "vegetables",
+      "dish"
+    ],
     "ingredients": [
-      "3-4 tsp chili garlic sauce",
-      "4 Tbsp salted creamy peanut butter",
-      "4 tsp sesame oil",
-      "1/3 cup coconut aminos",
-      "4 tsp lime juice",
-      "3 tsp freshly grated ginger",
-      "1 tsp maple syrup",
-      "3-4 Tbsp water",
-      "8 oz tempeh, cubed",
-      "4 tsp sesame oil (for cooking)",
-      "2/3 cup chopped green onion",
-      "4 cups mixed vegetables (bell pepper, broccoli, carrots, kale)",
-      "4 tsp coconut aminos (for vegetables)",
-      "3 cups cooked quinoa, brown rice, or cauliflower rice"
+      {
+        "type": "raw",
+        "name": "peanut butter",
+        "amount": "4",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "4 Tbsp peanut butter"
+      },
+      {
+        "type": "raw",
+        "name": "sesame oil",
+        "amount": "4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "4 tsp sesame oil"
+      },
+      {
+        "type": "raw",
+        "name": "coconut aminos",
+        "amount": "1/3",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/3 cup coconut aminos"
+      },
+      {
+        "type": "raw",
+        "name": "lime juice",
+        "amount": "4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "4 tsp lime juice"
+      },
+      {
+        "type": "raw",
+        "name": "ginger",
+        "amount": "3",
+        "unit": "tsp",
+        "prep": "grated",
+        "raw": "3 tsp ginger, grated"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "water",
+        "amount": "4",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "4 Tbsp water"
+      },
+      {
+        "type": "raw",
+        "name": "tempeh",
+        "amount": "8",
+        "unit": "oz",
+        "prep": "cubed",
+        "raw": "8 oz tempeh, cubed"
+      },
+      {
+        "type": "raw",
+        "name": "sesame oil",
+        "amount": "4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "4 tsp sesame oil"
+      },
+      {
+        "type": "raw",
+        "name": "green onions",
+        "amount": "2/3",
+        "unit": "cup",
+        "prep": "chopped",
+        "raw": "2/3 cup green onions, chopped"
+      },
+      {
+        "type": "raw",
+        "name": "mixed vegetables",
+        "amount": "4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "4 cups mixed vegetables"
+      },
+      {
+        "type": "raw",
+        "name": "coconut aminos",
+        "amount": "4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "4 tsp coconut aminos"
+      },
+      {
+        "type": "raw",
+        "name": "quinoa",
+        "amount": "3",
+        "unit": "cups",
+        "prep": null,
+        "raw": "3 cups quinoa"
+      }
     ],
-    "instructions": [
-      "Whisk together chili garlic sauce, peanut butter, sesame oil, coconut aminos, lime juice, ginger, and maple syrup. Add water until pourable.",
-      "Coat tempeh cubes in glaze. Refrigerate 15 minutes (or up to 48 hours).",
-      "Heat skillet over medium heat. Sauté tempeh 3-4 minutes per side until browned. Remove and set aside.",
-      "Add oil, green onion, and vegetables to hot skillet. Season with coconut aminos. Cover and steam 4-5 minutes until tender.",
-      "Add greens and grains. Sauté 3-4 minutes until warmed through.",
-      "Return tempeh and remaining glaze. Cook 1-2 minutes and serve."
-    ],
-    "meta": "Yield: 4 servings | Prep Time: 20 minutes | Cook Time: 10 minutes",
-    "source": "https://minimalistbaker.com/simple-vegetable-tempeh-stir-fry/"
+    "meta": "Yield: 4 servings | Prep: 20 min | Cook: 10 min",
+    "source": "https://minimalistbaker.com/simple-vegetable-tempeh-stir-fry/",
+    "format": "yaml"
   },
   {
     "id": 10,
@@ -305,20 +1319,118 @@ const recipes = [
     "image": "images/edamame-salad.jpg",
     "description": "A protein-packed edamame salad with crunchy colorful vegetables tossed in a Thai-inspired peanut dressing.",
     "ingredients": [
-      "16 oz frozen shelled edamame",
-      "1 cup shredded red cabbage",
-      "1 cup shredded carrots",
-      "1/2 cup chopped green onions",
-      "2 cups chopped kale",
-      "1/4 cup chopped cilantro (optional)",
-      "1/2 cup chopped peanuts or cashews",
-      "6 Tbsp creamy peanut butter",
-      "3 Tbsp seasoned rice vinegar",
-      "3 Tbsp low-sodium soy sauce",
-      "3 Tbsp pure maple syrup",
-      "1 tsp toasted sesame oil",
-      "1/4 tsp ground ginger",
-      "1 tsp Sriracha hot sauce (or to taste)"
+      {
+        "type": "raw",
+        "name": "frozen shelled edamame",
+        "amount": "16",
+        "unit": "oz",
+        "prep": null,
+        "raw": "16 oz frozen shelled edamame"
+      },
+      {
+        "type": "raw",
+        "name": "shredded red cabbage",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup shredded red cabbage"
+      },
+      {
+        "type": "raw",
+        "name": "shredded carrots",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup shredded carrots"
+      },
+      {
+        "type": "raw",
+        "name": "chopped green onions",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup chopped green onions"
+      },
+      {
+        "type": "raw",
+        "name": "chopped kale",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups chopped kale"
+      },
+      {
+        "type": "raw",
+        "name": "chopped cilantro (optional)",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup chopped cilantro (optional)"
+      },
+      {
+        "type": "raw",
+        "name": "chopped peanuts or cashews",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup chopped peanuts or cashews"
+      },
+      {
+        "type": "raw",
+        "name": "creamy peanut butter",
+        "amount": "6",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "6 Tbsp creamy peanut butter"
+      },
+      {
+        "type": "raw",
+        "name": "seasoned rice vinegar",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp seasoned rice vinegar"
+      },
+      {
+        "type": "raw",
+        "name": "low-sodium soy sauce",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp low-sodium soy sauce"
+      },
+      {
+        "type": "raw",
+        "name": "pure maple syrup",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp pure maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "toasted sesame oil",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp toasted sesame oil"
+      },
+      {
+        "type": "raw",
+        "name": "ground ginger",
+        "amount": "1/4",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/4 tsp ground ginger"
+      },
+      {
+        "type": "raw",
+        "name": "sriracha hot sauce (or to taste)",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp Sriracha hot sauce (or to taste)"
+      }
     ],
     "instructions": [
       "Cook or thaw edamame per package directions; rinse under cold water.",
@@ -328,6 +1440,247 @@ const recipes = [
       "Top with additional nuts if desired. Refrigerate at least one hour before serving."
     ],
     "meta": "Yield: 6 servings | Prep Time: 20 minutes",
-    "source": "https://www.noracooks.com/edamame-salad/"
+    "source": "https://www.noracooks.com/edamame-salad/",
+    "format": "markdown"
   }
 ];
+
+const ingredients = {
+  "olive oil": {
+    "kind": "cooking oil"
+  },
+  "vegetable oil": {
+    "kind": "cooking oil"
+  },
+  "sesame oil": {
+    "kind": "cooking oil"
+  },
+  "neutral oil": {
+    "kind": "cooking oil"
+  },
+  "garlic": {
+    "kind": "allium"
+  },
+  "ginger": {
+    "kind": "aromatic"
+  },
+  "yellow onion": {
+    "kind": "allium"
+  },
+  "red onion": {
+    "kind": "allium"
+  },
+  "onion": {
+    "kind": "allium"
+  },
+  "green onions": {
+    "kind": "allium"
+  },
+  "carrots": {
+    "kind": "vegetable"
+  },
+  "celery": {
+    "kind": "vegetable"
+  },
+  "spinach": {
+    "kind": "leafy green"
+  },
+  "kale": {
+    "kind": "leafy green"
+  },
+  "red cabbage": {
+    "kind": "leafy green"
+  },
+  "red bell pepper": {
+    "kind": "vegetable"
+  },
+  "broccoli": {
+    "kind": "vegetable"
+  },
+  "brussels sprouts": {
+    "kind": "vegetable"
+  },
+  "butternut squash": {
+    "kind": "vegetable"
+  },
+  "potatoes": {
+    "kind": "vegetable"
+  },
+  "mushrooms": {
+    "kind": "vegetable"
+  },
+  "avocado": {
+    "kind": "vegetable"
+  },
+  "mixed vegetables": {
+    "kind": "vegetable"
+  },
+  "brown lentils": {
+    "kind": "legume"
+  },
+  "white kidney beans": {
+    "kind": "legume"
+  },
+  "kidney beans": {
+    "kind": "legume"
+  },
+  "peas": {
+    "kind": "legume"
+  },
+  "edamame": {
+    "kind": "legume"
+  },
+  "tofu": {
+    "kind": "plant protein"
+  },
+  "tempeh": {
+    "kind": "plant protein"
+  },
+  "vegetable broth": {
+    "kind": "broth"
+  },
+  "coconut milk": {
+    "kind": "plant milk"
+  },
+  "soy sauce": {
+    "kind": "savory sauce"
+  },
+  "coconut aminos": {
+    "kind": "savory sauce"
+  },
+  "rice vinegar": {
+    "kind": "vinegar"
+  },
+  "apple cider vinegar": {
+    "kind": "vinegar"
+  },
+  "maple syrup": {
+    "kind": "sweetener"
+  },
+  "brown sugar": {
+    "kind": "sweetener"
+  },
+  "honey": {
+    "kind": "sweetener"
+  },
+  "rice": {
+    "kind": "grain"
+  },
+  "white rice": {
+    "kind": "grain"
+  },
+  "quinoa": {
+    "kind": "grain"
+  },
+  "peanut butter": {
+    "kind": "nut seed butter"
+  },
+  "almond butter": {
+    "kind": "nut seed butter"
+  },
+  "tahini": {
+    "kind": "nut seed butter"
+  },
+  "salsa": {
+    "kind": "condiment"
+  },
+  "adobo sauce": {
+    "kind": "condiment"
+  },
+  "sriracha": {
+    "kind": "hot sauce"
+  },
+  "hot sauce": {
+    "kind": "hot sauce"
+  },
+  "chili garlic sauce": {
+    "kind": "hot sauce"
+  },
+  "dijon mustard": {
+    "kind": "condiment"
+  },
+  "lime juice": {
+    "kind": "citrus"
+  },
+  "cornstarch": {
+    "kind": "thickener"
+  },
+  "water": {
+    "kind": "liquid"
+  },
+  "green olives": {
+    "kind": "pickle"
+  },
+  "curry powder": {
+    "kind": "spice blend"
+  },
+  "salt": {
+    "kind": "seasoning"
+  },
+  "kosher salt": {
+    "kind": "seasoning"
+  },
+  "sea salt": {
+    "kind": "seasoning"
+  },
+  "pepper": {
+    "kind": "seasoning"
+  },
+  "dried thyme": {
+    "kind": "dried herb"
+  },
+  "rubbed sage": {
+    "kind": "dried herb"
+  },
+  "dried rosemary": {
+    "kind": "dried herb"
+  },
+  "dried oregano": {
+    "kind": "dried herb"
+  },
+  "oregano": {
+    "kind": "dried herb"
+  },
+  "cumin": {
+    "kind": "spice"
+  },
+  "turmeric": {
+    "kind": "spice"
+  },
+  "chili powder": {
+    "kind": "spice"
+  },
+  "garlic powder": {
+    "kind": "spice"
+  },
+  "smoked paprika": {
+    "kind": "spice"
+  },
+  "sweet paprika": {
+    "kind": "spice"
+  },
+  "red pepper flakes": {
+    "kind": "spice"
+  },
+  "ground ginger": {
+    "kind": "spice"
+  },
+  "sesame seeds": {
+    "kind": "seed"
+  },
+  "cilantro": {
+    "kind": "fresh herb"
+  },
+  "parsley": {
+    "kind": "fresh herb"
+  },
+  "peanuts": {
+    "kind": "nut"
+  },
+  "cashews": {
+    "kind": "nut"
+  },
+  "vegan parmesan": {
+    "kind": "cheese substitute"
+  }
+};
