@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Book</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
         :root {
-            --bg: #faf9f7;
+            --bg: #f5f0e8;
             --card: #ffffff;
-            --text: #2d2d2d;
-            --text-light: #6b6b6b;
-            --accent: #e07a5f;
-            --accent-light: #f4d1c7;
-            --border: #e8e6e3;
-            --shadow: rgba(0, 0, 0, 0.06);
+            --text: #1a1a1a;
+            --text-light: #4a4a4a;
+            --accent: #ff5722;
+            --accent-secondary: #ffeb3b;
+            --accent-tertiary: #4caf50;
+            --border: #1a1a1a;
+            --shadow-offset: 6px;
         }
 
         * {
@@ -23,7 +26,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -33,22 +36,25 @@
         header {
             text-align: center;
             padding: 3rem 1.5rem 2rem;
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
+            background: var(--accent);
+            border-bottom: 4px solid var(--border);
         }
 
         header h1 {
-            font-size: 2rem;
-            font-weight: 300;
-            letter-spacing: 0.1em;
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
             text-transform: uppercase;
             color: var(--text);
             margin-bottom: 0.5rem;
         }
 
         header p {
-            color: var(--text-light);
-            font-size: 0.9rem;
+            font-family: 'Space Mono', monospace;
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         .container {
@@ -60,88 +66,151 @@
         /* Category Filter */
         .filters {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .filter-btn {
-            padding: 0.5rem 1.25rem;
-            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border: 3px solid var(--border);
             background: var(--card);
-            color: var(--text-light);
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            border-radius: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: capitalize;
+            transition: all 0.1s ease;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--border);
         }
 
         .filter-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+            transform: translate(-2px, -2px);
+            box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 var(--border);
+        }
+
+        .filter-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: calc(var(--shadow-offset) - 2px) calc(var(--shadow-offset) - 2px) 0 var(--border);
         }
 
         .filter-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
+            background: var(--accent-secondary);
+            color: var(--text);
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 4px solid var(--border);
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--accent-secondary);
+            border: 3px solid var(--border);
+            box-shadow: 3px 3px 0 var(--border);
+        }
+
+        .category-header h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .category-count {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-left: auto;
         }
 
         /* Recipe Grid */
         .recipes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
         .recipe-card {
             background: var(--card);
-            border-radius: 12px;
-            padding: 1.75rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
+            transition: all 0.1s ease;
+            border: 3px solid var(--border);
+            position: relative;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--border);
+        }
+
+        .recipe-card:active {
+            transform: translate(2px, 2px);
+            box-shadow: calc(var(--shadow-offset) - 2px) calc(var(--shadow-offset) - 2px) 0 var(--border);
+        }
+
+        .recipe-image {
+            height: 180px;
+            border-bottom: 3px solid var(--border);
             position: relative;
             overflow: hidden;
         }
 
-        .recipe-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .recipe-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px var(--shadow);
-        }
-
-        .recipe-card:hover::before {
-            transform: scaleX(1);
+        .recipe-card-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .recipe-card .category {
-            font-size: 0.7rem;
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
+            letter-spacing: 0.05em;
+            color: var(--text);
+            background: var(--accent-secondary);
+            padding: 0.2rem 0.4rem;
+            border: 2px solid var(--border);
             margin-bottom: 0.75rem;
-            font-weight: 500;
+            font-weight: 700;
+            align-self: flex-start;
         }
 
         .recipe-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .recipe-card .description {
@@ -151,120 +220,303 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            flex: 1;
         }
 
-        /* Modal */
-        .modal-overlay {
+        .recipe-card .recipe-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 2px dashed var(--border);
+        }
+
+        .recipe-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: var(--bg);
+            padding: 0.2rem 0.4rem;
+            border: 1px solid var(--border);
+        }
+
+        /* Featured Recipe */
+        .featured-section {
+            margin-bottom: 3rem;
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--card);
+            border: 4px solid var(--border);
+            box-shadow: 8px 8px 0 var(--border);
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .featured-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--border);
+        }
+
+        .featured-image {
+            height: 300px;
+            border-right: 4px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text);
+            background: var(--accent);
+            padding: 0.4rem 0.75rem;
+            border: 2px solid var(--border);
+            box-shadow: 2px 2px 0 var(--border);
+        }
+
+        .featured-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-content .category {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            background: var(--accent-secondary);
+            padding: 0.25rem 0.5rem;
+            border: 2px solid var(--border);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .featured-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .featured-content .description {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 200px;
+                border-right: none;
+                border-bottom: 4px solid var(--border);
+            }
+
+            .featured-content {
+                padding: 1.5rem;
+            }
+
+            .featured-content h3 {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* Recipe Page (Full Page View) */
+        .recipe-page {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
+            background: var(--bg);
             z-index: 1000;
+            overflow-y: auto;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
-        .modal-overlay.active {
+        .recipe-page.active {
             opacity: 1;
             visibility: visible;
         }
 
-        .modal {
-            background: var(--card);
-            border-radius: 16px;
-            max-width: 700px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
+        .recipe-hero {
             position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            height: 50vh;
+            min-height: 350px;
+            max-height: 500px;
+            overflow: hidden;
+            border-bottom: 4px solid var(--border);
         }
 
-        .modal-overlay.active .modal {
-            transform: translateY(0);
+        .recipe-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .modal-header {
-            padding: 2rem 2rem 1rem;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: var(--card);
-            z-index: 10;
-        }
-
-        .modal-header .category {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .modal-header h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-header .description {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .close-btn {
+        .recipe-hero-overlay {
             position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem 2rem 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        }
+
+        .recipe-hero .category {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            background: var(--accent-secondary);
+            padding: 0.35rem 0.6rem;
+            border: 2px solid var(--border);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .recipe-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0 var(--border);
+        }
+
+        .back-btn {
+            position: fixed;
             top: 1.5rem;
-            right: 1.5rem;
-            width: 36px;
-            height: 36px;
-            border: none;
-            background: var(--bg);
-            border-radius: 50%;
-            cursor: pointer;
+            left: 1.5rem;
+            z-index: 1001;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            color: var(--text-light);
-            transition: all 0.2s ease;
-        }
-
-        .close-btn:hover {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-
-        .modal-body {
-            padding: 1.5rem 2rem 2rem;
-        }
-
-        .modal-body h3 {
-            font-size: 0.8rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border: 3px solid var(--border);
+            background: var(--card);
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-weight: 500;
+            color: var(--text);
+            transition: all 0.1s ease;
+            box-shadow: 4px 4px 0 var(--border);
+        }
+
+        .back-btn:hover {
+            background: var(--accent);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border);
+        }
+
+        .back-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .recipe-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem;
+        }
+
+        .recipe-description {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            padding-bottom: 2rem;
+            border-bottom: 3px dashed var(--border);
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .recipe-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .recipe-hero {
+                height: 40vh;
+                min-height: 280px;
+            }
+        }
+
+        .recipe-section-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            background: var(--accent);
+            padding: 0.6rem 1rem;
+            border: 3px solid var(--border);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 3px 3px 0 var(--border);
         }
 
         .ingredients-list {
             list-style: none;
-            margin-bottom: 2rem;
+            border: 3px solid var(--border);
+            background: var(--card);
+            box-shadow: 5px 5px 0 var(--border);
         }
 
         .ingredients-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
+            padding: 0.875rem 1.25rem;
+            border-bottom: 2px solid var(--border);
             font-size: 0.95rem;
         }
 
@@ -278,11 +530,12 @@
         }
 
         .instructions-list li {
-            padding: 1rem 0;
-            padding-left: 3rem;
+            padding: 1.25rem 0;
+            padding-left: 4rem;
             position: relative;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95rem;
+            border-bottom: 2px dashed var(--border);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .instructions-list li:last-child {
@@ -295,41 +548,58 @@
             position: absolute;
             left: 0;
             top: 1rem;
-            width: 2rem;
-            height: 2rem;
-            background: var(--accent-light);
-            color: var(--accent);
-            border-radius: 50%;
+            width: 2.75rem;
+            height: 2.75rem;
+            background: var(--accent-secondary);
+            color: var(--text);
+            border: 3px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 3px 3px 0 var(--border);
+        }
+
+        .recipe-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 3px dashed var(--border);
         }
 
         .source-link {
             display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.75rem 1.5rem;
+            padding: 0.875rem 1.5rem;
             background: var(--bg);
-            color: var(--text-light);
+            color: var(--text);
             text-decoration: none;
-            border-radius: 2rem;
+            font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            transition: all 0.2s ease;
+            font-weight: 700;
+            border: 3px solid var(--border);
+            transition: all 0.1s ease;
+            box-shadow: 4px 4px 0 var(--border);
         }
 
         .source-link:hover {
-            background: var(--accent-light);
-            color: var(--accent);
+            background: var(--accent-secondary);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border);
         }
 
-        .meta {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--text-light);
+        .recipe-meta {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            border: 3px solid var(--border);
+            background: var(--card);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text);
+            box-shadow: 4px 4px 0 var(--border);
         }
 
         /* Empty state */
@@ -337,6 +607,7 @@
             text-align: center;
             padding: 4rem 2rem;
             color: var(--text-light);
+            font-family: 'Space Mono', monospace;
         }
 
         /* Cook Mode Button */
@@ -346,20 +617,28 @@
             gap: 0.5rem;
             margin-top: 1.5rem;
             margin-right: 0.75rem;
-            padding: 0.75rem 1.5rem;
+            padding: 0.875rem 1.5rem;
             background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 2rem;
+            color: var(--text);
+            border: 3px solid var(--border);
+            font-family: 'Space Mono', monospace;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.1s ease;
+            box-shadow: 4px 4px 0 var(--border);
         }
 
         .cook-mode-btn:hover {
-            background: #c9684f;
-            transform: scale(1.02);
+            background: var(--accent-secondary);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border);
+        }
+
+        .cook-mode-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--border);
         }
 
         .cook-mode-btn svg {
@@ -378,7 +657,7 @@
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
         }
@@ -390,8 +669,8 @@
 
         .cook-header {
             padding: 1.5rem 2rem;
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
+            background: var(--accent-tertiary);
+            border-bottom: 4px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -405,28 +684,31 @@
         }
 
         .cook-exit-btn {
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: var(--bg);
-            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            border: 3px solid var(--border);
+            background: var(--card);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            color: var(--text-light);
-            transition: all 0.2s ease;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            transition: all 0.1s ease;
+            box-shadow: 3px 3px 0 var(--border);
         }
 
         .cook-exit-btn:hover {
-            background: var(--accent-light);
-            color: var(--accent);
+            background: var(--accent);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 var(--border);
         }
 
         .cook-title {
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--text);
         }
 
@@ -437,23 +719,24 @@
         }
 
         .cook-progress-text {
+            font-family: 'Space Mono', monospace;
             font-size: 0.9rem;
-            color: var(--text-light);
-            font-weight: 500;
+            color: var(--text);
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .cook-progress-bar {
-            width: 120px;
-            height: 6px;
-            background: var(--border);
-            border-radius: 3px;
+            width: 150px;
+            height: 12px;
+            background: var(--card);
+            border: 3px solid var(--border);
             overflow: hidden;
         }
 
         .cook-progress-fill {
             height: 100%;
-            background: var(--accent);
-            border-radius: 3px;
+            background: var(--accent-secondary);
             transition: width 0.3s ease;
         }
 
@@ -474,7 +757,7 @@
         }
 
         .cook-step-container {
-            max-width: 700px;
+            max-width: 750px;
             width: 100%;
             text-align: center;
         }
@@ -483,38 +766,45 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.75rem;
-            font-weight: 600;
+            width: 5rem;
+            height: 5rem;
+            background: var(--accent-secondary);
+            color: var(--text);
+            border: 4px solid var(--border);
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 2rem;
+            box-shadow: 6px 6px 0 var(--border);
         }
 
         .cook-step-text {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.75rem;
             line-height: 1.5;
             color: var(--text);
-            font-weight: 400;
+            font-weight: 500;
+            padding: 2rem;
+            background: var(--card);
+            border: 3px solid var(--border);
+            box-shadow: 8px 8px 0 var(--border);
         }
 
         .cook-step-ingredients {
             margin-top: 2rem;
             padding: 1.5rem;
             background: var(--card);
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            border: 3px solid var(--border);
         }
 
         .cook-step-ingredients h4 {
+            font-family: 'Space Mono', monospace;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
+            letter-spacing: 0.05em;
+            color: var(--text);
             margin-bottom: 0.75rem;
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .cook-step-ingredients p {
@@ -526,32 +816,39 @@
         .cook-nav {
             padding: 1.5rem 2rem;
             background: var(--card);
-            border-top: 1px solid var(--border);
+            border-top: 4px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-shrink: 0;
         }
 
         .cook-nav-btn {
             padding: 1rem 2rem;
-            border: 1px solid var(--border);
+            border: 3px solid var(--border);
             background: var(--card);
             color: var(--text);
+            font-family: 'Space Mono', monospace;
             font-size: 1rem;
-            font-weight: 500;
-            border-radius: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.1s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            box-shadow: 4px 4px 0 var(--border);
         }
 
         .cook-nav-btn:hover:not(:disabled) {
-            border-color: var(--accent);
-            color: var(--accent);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border);
+        }
+
+        .cook-nav-btn:active:not(:disabled) {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--border);
         }
 
         .cook-nav-btn:disabled {
@@ -561,14 +858,11 @@
 
         .cook-nav-btn.primary {
             background: var(--accent);
-            border-color: var(--accent);
-            color: white;
+            color: var(--text);
         }
 
         .cook-nav-btn.primary:hover:not(:disabled) {
-            background: #c9684f;
-            border-color: #c9684f;
-            color: white;
+            background: var(--accent-secondary);
         }
 
         .cook-nav-btn svg {
@@ -581,39 +875,38 @@
             position: fixed;
             bottom: 7rem;
             right: 2rem;
-            width: 50px;
-            height: 50px;
-            border: none;
-            background: var(--card);
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            border: 3px solid var(--border);
+            background: var(--accent-secondary);
             cursor: pointer;
-            box-shadow: 0 4px 12px var(--shadow);
+            box-shadow: 4px 4px 0 var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            font-weight: 700;
             color: var(--text);
-            transition: all 0.2s ease;
+            transition: all 0.1s ease;
             z-index: 10;
-            border: 1px solid var(--border);
         }
 
         .cook-ingredients-toggle:hover {
             background: var(--accent);
-            color: white;
-            border-color: var(--accent);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border);
         }
 
         .cook-ingredients-panel {
             position: fixed;
             top: 0;
-            right: -350px;
-            width: 350px;
+            right: -380px;
+            width: 380px;
             height: 100%;
             background: var(--card);
-            border-left: 1px solid var(--border);
+            border-left: 4px solid var(--border);
             z-index: 2001;
-            transition: right 0.3s ease;
+            transition: right 0.2s ease;
             display: flex;
             flex-direction: column;
         }
@@ -624,52 +917,62 @@
 
         .cook-ingredients-header {
             padding: 1.5rem;
-            border-bottom: 1px solid var(--border);
+            background: var(--accent-secondary);
+            border-bottom: 4px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .cook-ingredients-header h3 {
+            font-family: 'Space Mono', monospace;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
             color: var(--text);
         }
 
         .cook-ingredients-close {
-            width: 32px;
-            height: 32px;
-            border: none;
-            background: var(--bg);
-            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            border: 3px solid var(--border);
+            background: var(--card);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            color: var(--text-light);
-            transition: all 0.2s ease;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            transition: all 0.1s ease;
+            box-shadow: 2px 2px 0 var(--border);
         }
 
         .cook-ingredients-close:hover {
-            background: var(--accent-light);
-            color: var(--accent);
+            background: var(--accent);
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--border);
         }
 
         .cook-ingredients-list {
             flex: 1;
             overflow-y: auto;
-            padding: 1rem 1.5rem;
+            padding: 0;
         }
 
         .cook-ingredient-item {
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid var(--border);
             cursor: pointer;
-            transition: opacity 0.2s ease;
+            transition: all 0.1s ease;
+            background: var(--card);
+        }
+
+        .cook-ingredient-item:hover {
+            background: var(--bg);
         }
 
         .cook-ingredient-item:last-child {
@@ -677,30 +980,30 @@
         }
 
         .cook-ingredient-item.checked {
-            opacity: 0.5;
+            background: var(--bg);
         }
 
         .cook-ingredient-item.checked span {
             text-decoration: line-through;
+            opacity: 0.6;
         }
 
         .cook-ingredient-checkbox {
-            width: 22px;
-            height: 22px;
-            border: 2px solid var(--border);
-            border-radius: 6px;
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--border);
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            transition: all 0.1s ease;
             margin-top: 1px;
+            font-weight: 700;
         }
 
         .cook-ingredient-item.checked .cook-ingredient-checkbox {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
+            background: var(--accent-tertiary);
+            color: var(--text);
         }
 
         .cook-ingredient-item span {
@@ -724,61 +1027,74 @@
         }
 
         .cook-complete-icon {
-            width: 6rem;
-            height: 6rem;
-            background: #d4edda;
-            color: #28a745;
-            border-radius: 50%;
+            width: 7rem;
+            height: 7rem;
+            background: var(--accent-tertiary);
+            color: var(--text);
+            border: 4px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 2rem;
+            box-shadow: 6px 6px 0 var(--border);
         }
 
         .cook-complete h2 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             color: var(--text);
+            text-transform: uppercase;
         }
 
         .cook-complete p {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: var(--text);
             margin-bottom: 2rem;
+            max-width: 400px;
         }
 
         .cook-complete-btn {
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 2rem;
+            color: var(--text);
+            border: 3px solid var(--border);
+            font-family: 'Space Mono', monospace;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.1s ease;
+            box-shadow: 4px 4px 0 var(--border);
         }
 
         .cook-complete-btn:hover {
-            background: #c9684f;
+            background: var(--accent-secondary);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border);
         }
 
         /* Responsive */
         @media (max-width: 600px) {
             header h1 {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
+            }
+
+            .recipes-grid {
+                grid-template-columns: 1fr;
             }
 
             .modal {
-                max-height: 90vh;
-                border-radius: 16px 16px 0 0;
+                max-height: 95vh;
+                box-shadow: 8px 8px 0 var(--border);
             }
 
             .modal-header, .modal-body {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
 
             .cook-header {
@@ -788,7 +1104,7 @@
             }
 
             .cook-title {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
 
             .cook-progress-bar {
@@ -796,14 +1112,17 @@
             }
 
             .cook-step-number {
-                width: 3rem;
-                height: 3rem;
-                font-size: 1.25rem;
+                width: 3.5rem;
+                height: 3.5rem;
+                font-size: 1.5rem;
                 margin-bottom: 1.5rem;
+                box-shadow: 4px 4px 0 var(--border);
             }
 
             .cook-step-text {
-                font-size: 1.35rem;
+                font-size: 1.25rem;
+                padding: 1.5rem;
+                box-shadow: 5px 5px 0 var(--border);
             }
 
             .cook-nav {
@@ -811,8 +1130,9 @@
             }
 
             .cook-nav-btn {
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 0.875rem 1.25rem;
+                font-size: 0.85rem;
+                box-shadow: 3px 3px 0 var(--border);
             }
 
             .cook-ingredients-panel {
@@ -821,8 +1141,20 @@
             }
 
             .cook-ingredients-toggle {
-                bottom: 6.5rem;
+                bottom: 6rem;
                 right: 1rem;
+                width: 48px;
+                height: 48px;
+            }
+
+            .cook-complete h2 {
+                font-size: 1.75rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+                box-shadow: 4px 4px 0 var(--border);
             }
         }
     </style>
@@ -835,33 +1167,51 @@
 
     <div class="container">
         <div class="filters" id="filters"></div>
-        <div class="recipes-grid" id="recipes-grid"></div>
+        <div id="featured-section"></div>
+        <div id="recipes-container"></div>
     </div>
 
-    <div class="modal-overlay" id="modal-overlay">
-        <div class="modal" id="modal">
-            <div class="modal-header">
-                <button class="close-btn" id="close-btn">&times;</button>
-                <div class="category" id="modal-category"></div>
-                <h2 id="modal-title"></h2>
-                <p class="description" id="modal-description"></p>
+    <!-- Full Page Recipe View -->
+    <div class="recipe-page" id="recipe-page">
+        <button class="back-btn" id="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back
+        </button>
+        <div class="recipe-hero">
+            <img id="recipe-hero-img" src="" alt="">
+            <div class="recipe-hero-overlay">
+                <div class="category" id="recipe-category"></div>
+                <h1 id="recipe-title"></h1>
             </div>
-            <div class="modal-body">
-                <h3>Ingredients</h3>
-                <ul class="ingredients-list" id="modal-ingredients"></ul>
+        </div>
+        <div class="recipe-content">
+            <p class="recipe-description" id="recipe-description"></p>
 
-                <h3>Instructions</h3>
-                <ol class="instructions-list" id="modal-instructions"></ol>
+            <div class="recipe-grid">
+                <div class="ingredients-section">
+                    <h3 class="recipe-section-title">Ingredients</h3>
+                    <ul class="ingredients-list" id="recipe-ingredients"></ul>
+                </div>
 
-                <div class="meta" id="modal-meta"></div>
-                <button class="cook-mode-btn" id="start-cook-mode">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Start Cook Mode
-                </button>
-                <a class="source-link" id="modal-source" href="#" target="_blank">View Original Recipe</a>
+                <div class="instructions-section">
+                    <h3 class="recipe-section-title">Instructions</h3>
+                    <ol class="instructions-list" id="recipe-instructions"></ol>
+
+                    <div class="recipe-meta" id="recipe-meta"></div>
+
+                    <div class="recipe-actions">
+                        <button class="cook-mode-btn" id="start-cook-mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Start Cook Mode
+                        </button>
+                        <a class="source-link" id="recipe-source" href="#" target="_blank">View Original Recipe</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -932,6 +1282,7 @@
                 id: 1,
                 title: "Banana Chocolate Pecan Muffins",
                 category: "breakfast",
+                image: "images/banana-chocolate-pecan-muffins.jpg",
                 description: "Fluffy, 1-bowl vegan + gluten-free banana muffins generously studded with pecans and chocolate chips. Perfect for a lazy weekend breakfast or take-along snack!",
                 ingredients: [
                     "2 Tbsp flaxseed meal",
@@ -965,6 +1316,7 @@
                 id: 2,
                 title: "Pumpkin Baked Oatmeal",
                 category: "breakfast",
+                image: "images/pumpkin-baked-oatmeal.jpg",
                 description: "Perfect baked oatmeal with pumpkin puree, warm spices and maple syrup, studded with pecans and cranberries. Made in just 1 bowl with 10 ingredients.",
                 ingredients: [
                     "2 flax eggs",
@@ -994,6 +1346,7 @@
                 id: 3,
                 title: "Creamy Vegan White Bean Chili",
                 category: "dinner",
+                image: "images/white-bean-chili.jpg",
                 description: "Creamy, comforting vegan white bean chili with green chiles, corn, and leafy greens. A 30-minute meal perfect for meal prep or weeknights!",
                 ingredients: [
                     "2 cups water",
@@ -1026,6 +1379,7 @@
                 id: 4,
                 title: "Cherry Tomato White Bean Pasta",
                 category: "dinner",
+                image: "images/cherry-tomato-pasta.jpg",
                 description: "A quick, plant-based weeknight dish featuring sauteed garlic and shallot with burst cherry tomatoes, kale, kalamata olives, and white beans. Ready in approximately 25 minutes.",
                 ingredients: [
                     "3 tablespoons olive oil",
@@ -1055,6 +1409,7 @@
                 id: 5,
                 title: "Golden Curry Lentil Soup",
                 category: "dinner",
+                image: "images/golden-curry-lentil-soup.jpg",
                 description: "A comforting, one-pot curried lentil soup that's rich with flavor, fiber, and protein. Vegan, gluten-free, and features warm spices with coconut milk.",
                 ingredients: [
                     "1/4 cup water (or oil)",
@@ -1087,6 +1442,7 @@
                 id: 6,
                 title: "Shiitake Mushroom Risotto",
                 category: "dinner",
+                image: "images/shiitake-mushroom-risotto.jpg",
                 description: "Easy-to-make vegan risotto infused with sauteed shallot and caramelized shiitake mushrooms! Hearty, flavorful, and incredibly satisfying.",
                 ingredients: [
                     "3 1/2 - 4 cups vegetable broth",
@@ -1116,6 +1472,7 @@
                 id: 7,
                 title: "Tempeh Stir-Fry",
                 category: "dinner",
+                image: "images/tempeh-stir-fry.jpg",
                 description: "A hearty tempeh stir fry with bold flavors ready in 30 minutes, designed for weeknight dinners using leftover vegetables.",
                 ingredients: [
                     "3-4 tsp chili garlic sauce",
@@ -1146,6 +1503,7 @@
                 id: 8,
                 title: "Moroccan Eggplant & Tomato Stew",
                 category: "dinner",
+                image: "images/moroccan-eggplant-stew.jpg",
                 description: "A flavorful, satisfying 10-ingredient meal inspired by zaalouk featuring roasted eggplant, smoky spices, and chickpeas.",
                 ingredients: [
                     "1 large eggplant (~1.2 lb), unpeeled and cubed",
@@ -1178,6 +1536,7 @@
                 id: 9,
                 title: "Chickpea Shakshuka",
                 category: "dinner",
+                image: "images/chickpea-shakshuka.jpg",
                 description: "A savory, flavorful plant-based dish prepared in a single pot within 30 minutes. This vegan adaptation substitutes chickpeas for eggs.",
                 ingredients: [
                     "1 Tbsp olive or avocado oil",
@@ -1209,6 +1568,7 @@
                 id: 10,
                 title: "Cauliflower Banh Mi",
                 category: "dinner",
+                image: "images/cauliflower-banh-mi.jpg",
                 description: "A plant-based Vietnamese-inspired sandwich featuring savory, caramelized cauliflower, sriracha mayo, and quick-pickled vegetables.",
                 ingredients: [
                     "2/3 cup rice wine vinegar",
@@ -1243,6 +1603,7 @@
                 id: 11,
                 title: "Gluten-Free Pumpkin Bread",
                 category: "desserts",
+                image: "images/pumpkin-bread.jpg",
                 description: "The ULTIMATE gluten-free pumpkin bread: FLUFFY, tender, spice-filled, and so classic! Dairy-free, simple methods, and just 1 bowl required.",
                 ingredients: [
                     "1/2 cup avocado oil",
@@ -1270,6 +1631,7 @@
                 id: 12,
                 title: "Monster Cookies",
                 category: "desserts",
+                image: "images/monster-cookies.jpg",
                 description: "Chewy, tender, peanut buttery, incredibly delicious Monster Cookies that are vegan, gluten-free, flourless, and made in one bowl.",
                 ingredients: [
                     "1 cup natural creamy peanut butter",
@@ -1297,6 +1659,7 @@
                 id: 13,
                 title: "Vegan Chocolate Chip Cookies",
                 category: "desserts",
+                image: "images/chocolate-chip-cookies.jpg",
                 description: "Perfect vegan chocolate chip cookies made with simple methods and 9 ingredients. Tender, sweet, studded with chocolate, and undetectably gluten-free.",
                 ingredients: [
                     "1 1/4 cup almond flour",
@@ -1325,6 +1688,7 @@
                 id: 14,
                 title: "Raw Carrot Cake",
                 category: "desserts",
+                image: "images/raw-carrot-cake.jpg",
                 description: "Raw vegan carrot cake made with 10 wholesome ingredients! Tender, 30 minutes to make, and topped with an optional cashew cream cheese frosting!",
                 ingredients: [
                     "2 cups finely shredded carrots",
@@ -1359,6 +1723,7 @@
                 id: 15,
                 title: "Lemony Quinoa Kale Salad",
                 category: "salads",
+                image: "images/quinoa-kale-salad.jpg",
                 description: "A hearty salad combining quinoa, massaged kale, and roasted chickpeas with a tangy lemon dressing, ready in about 30 minutes.",
                 ingredients: [
                     "1 1/2 cups cooked quinoa",
@@ -1390,6 +1755,7 @@
                 id: 16,
                 title: "Golden Milk Snack Bites",
                 category: "snacks",
+                image: "images/golden-milk-bites.jpg",
                 description: "Quick and easy, 5-ingredient snack bites with cashew butter, coconut, anti-inflammatory golden milk spices, and naturally sweetened with maple syrup.",
                 ingredients: [
                     "1/2 cup unsalted cashew butter",
@@ -1426,53 +1792,162 @@
             ).join('');
         }
 
+        // Category display info
+        const categoryInfo = {
+            breakfast: { icon: '🌅', label: 'Breakfast', color: '#ffeb3b' },
+            dinner: { icon: '🍽️', label: 'Dinner', color: '#ff5722' },
+            desserts: { icon: '🍰', label: 'Desserts', color: '#e91e63' },
+            salads: { icon: '🥬', label: 'Salads', color: '#4caf50' },
+            snacks: { icon: '🥜', label: 'Snacks', color: '#ff9800' }
+        };
+
+        // Render featured recipe
+        function renderFeatured() {
+            const featuredEl = document.getElementById('featured-section');
+
+            if (activeCategory !== 'all') {
+                featuredEl.innerHTML = '';
+                return;
+            }
+
+            // Pick a featured recipe (the risotto is visually appealing)
+            const featured = recipes.find(r => r.id === 6);
+            if (!featured) return;
+
+            featuredEl.innerHTML = `
+                <div class="featured-section">
+                    <div class="featured-card" data-id="${featured.id}">
+                        <div class="featured-image">
+                            <span class="featured-badge">Featured</span>
+                            <img src="${featured.image}" alt="${featured.title}">
+                        </div>
+                        <div class="featured-content">
+                            <div class="category">${featured.category}</div>
+                            <h3>${featured.title}</h3>
+                            <p class="description">${featured.description}</p>
+                            <span class="featured-cta">View Recipe →</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         // Render recipes
         function renderRecipes() {
-            const gridEl = document.getElementById('recipes-grid');
+            const containerEl = document.getElementById('recipes-container');
+            const featuredId = 6; // Exclude featured from grid when showing all
+
             const filtered = activeCategory === 'all'
                 ? recipes
                 : recipes.filter(r => r.category === activeCategory);
 
             if (filtered.length === 0) {
-                gridEl.innerHTML = '<div class="empty-state">No recipes found in this category.</div>';
+                containerEl.innerHTML = '<div class="empty-state">No recipes found in this category.</div>';
                 return;
             }
 
-            gridEl.innerHTML = filtered.map(recipe => `
-                <div class="recipe-card" data-id="${recipe.id}">
-                    <div class="category">${recipe.category}</div>
-                    <h3>${recipe.title}</h3>
-                    <p class="description">${recipe.description}</p>
-                </div>
-            `).join('');
+            // If showing all, group by category
+            if (activeCategory === 'all') {
+                const grouped = {};
+                filtered.forEach(recipe => {
+                    if (recipe.id === featuredId) return; // Skip featured
+                    if (!grouped[recipe.category]) {
+                        grouped[recipe.category] = [];
+                    }
+                    grouped[recipe.category].push(recipe);
+                });
+
+                // Order categories
+                const categoryOrder = ['breakfast', 'dinner', 'desserts', 'salads', 'snacks'];
+
+                containerEl.innerHTML = categoryOrder
+                    .filter(cat => grouped[cat] && grouped[cat].length > 0)
+                    .map(cat => {
+                        const info = categoryInfo[cat] || { icon: '📌', label: cat };
+                        return `
+                            <div class="category-section">
+                                <div class="category-header">
+                                    <div class="category-icon" style="background: ${info.color}">${info.icon}</div>
+                                    <h2>${info.label}</h2>
+                                    <span class="category-count">${grouped[cat].length} recipe${grouped[cat].length > 1 ? 's' : ''}</span>
+                                </div>
+                                <div class="recipes-grid">
+                                    ${grouped[cat].map(recipe => renderRecipeCard(recipe)).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+            } else {
+                // Single category view
+                containerEl.innerHTML = `
+                    <div class="recipes-grid">
+                        ${filtered.map(recipe => renderRecipeCard(recipe)).join('')}
+                    </div>
+                `;
+            }
+
+            renderFeatured();
         }
 
-        // Open modal
-        function openModal(recipeId) {
+        function renderRecipeCard(recipe) {
+            return `
+                <div class="recipe-card" data-id="${recipe.id}">
+                    <div class="recipe-image">
+                        <img src="${recipe.image}" alt="${recipe.title}">
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="category">${recipe.category}</div>
+                        <h3>${recipe.title}</h3>
+                        <p class="description">${recipe.description}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Current recipe being viewed
+        let currentRecipeId = null;
+
+        // Open full page recipe view
+        function openRecipe(recipeId) {
             const recipe = recipes.find(r => r.id === recipeId);
             if (!recipe) return;
 
-            document.getElementById('modal-category').textContent = recipe.category;
-            document.getElementById('modal-title').textContent = recipe.title;
-            document.getElementById('modal-description').textContent = recipe.description;
+            currentRecipeId = recipeId;
 
-            document.getElementById('modal-ingredients').innerHTML =
+            document.getElementById('recipe-hero-img').src = recipe.image;
+            document.getElementById('recipe-hero-img').alt = recipe.title;
+            document.getElementById('recipe-category').textContent = recipe.category;
+            document.getElementById('recipe-title').textContent = recipe.title;
+            document.getElementById('recipe-description').textContent = recipe.description;
+
+            document.getElementById('recipe-ingredients').innerHTML =
                 recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
 
-            document.getElementById('modal-instructions').innerHTML =
+            document.getElementById('recipe-instructions').innerHTML =
                 recipe.instructions.map(inst => `<li>${inst}</li>`).join('');
 
-            document.getElementById('modal-meta').textContent = recipe.meta;
-            document.getElementById('modal-source').href = recipe.source;
+            const metaEl = document.getElementById('recipe-meta');
+            if (recipe.meta) {
+                metaEl.textContent = recipe.meta;
+                metaEl.style.display = 'block';
+            } else {
+                metaEl.style.display = 'none';
+            }
 
-            document.getElementById('modal-overlay').classList.add('active');
+            document.getElementById('recipe-source').href = recipe.source;
+
+            document.getElementById('recipe-page').classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Scroll to top of recipe page
+            document.getElementById('recipe-page').scrollTop = 0;
         }
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('modal-overlay').classList.remove('active');
+        // Close recipe page
+        function closeRecipe() {
+            document.getElementById('recipe-page').classList.remove('active');
             document.body.style.overflow = '';
+            currentRecipeId = null;
         }
 
         // Event listeners
@@ -1484,23 +1959,27 @@
             }
         });
 
-        document.getElementById('recipes-grid').addEventListener('click', (e) => {
+        document.getElementById('recipes-container').addEventListener('click', (e) => {
             const card = e.target.closest('.recipe-card');
             if (card) {
-                openModal(parseInt(card.dataset.id));
+                openRecipe(parseInt(card.dataset.id));
             }
         });
 
-        document.getElementById('close-btn').addEventListener('click', closeModal);
-        document.getElementById('modal-overlay').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) closeModal();
+        document.getElementById('featured-section').addEventListener('click', (e) => {
+            const card = e.target.closest('.featured-card');
+            if (card) {
+                openRecipe(parseInt(card.dataset.id));
+            }
         });
+
+        document.getElementById('back-btn').addEventListener('click', closeRecipe);
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (document.getElementById('cook-overlay').classList.contains('active')) {
                     closeCookMode();
-                } else {
-                    closeModal();
+                } else if (document.getElementById('recipe-page').classList.contains('active')) {
+                    closeRecipe();
                 }
             }
         });
@@ -1517,8 +1996,8 @@
             currentStep = 0;
             checkedIngredients.clear();
 
-            // Close the recipe modal
-            closeModal();
+            // Close the recipe page
+            closeRecipe();
 
             // Set up the cook mode UI
             document.getElementById('cook-recipe-title').textContent = currentCookRecipe.title;
@@ -1639,15 +2118,8 @@
 
         // Cook Mode Event Listeners
         document.getElementById('start-cook-mode').addEventListener('click', () => {
-            const recipeId = parseInt(document.querySelector('.recipe-card[data-id]')?.dataset.id) ||
-                             parseInt(document.getElementById('modal-title').textContent &&
-                             recipes.find(r => r.title === document.getElementById('modal-title').textContent)?.id);
-
-            // Find recipe by title shown in modal
-            const title = document.getElementById('modal-title').textContent;
-            const recipe = recipes.find(r => r.title === title);
-            if (recipe) {
-                startCookMode(recipe.id);
+            if (currentRecipeId) {
+                startCookMode(currentRecipeId);
             }
         });
 
