@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --card: #ffffff;
+            --text: #2d2d2d;
+            --text-light: #6b6b6b;
+            --accent: #e07a5f;
+            --accent-light: #f4d1c7;
+            --border: #e8e6e3;
+            --shadow: rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Category Filter */
+        .filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: capitalize;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        /* Recipe Grid */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recipe-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recipe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px var(--shadow);
+        }
+
+        .recipe-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .recipe-card .category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .recipe-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .recipe-card .description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--card);
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--card);
+            z-index: 10;
+        }
+
+        .modal-header .category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header .description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: var(--bg);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+
+        .close-btn:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .modal-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .modal-body h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .ingredients-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .ingredients-list li:last-child {
+            border-bottom: none;
+        }
+
+        .instructions-list {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .instructions-list li {
+            padding: 1rem 0;
+            padding-left: 3rem;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .instructions-list li:last-child {
+            border-bottom: none;
+        }
+
+        .instructions-list li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .source-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .source-link:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .meta {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        /* Cook Mode Button */
+        .cook-mode-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            margin-right: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cook-mode-btn:hover {
+            background: #c9684f;
+            transform: scale(1.02);
+        }
+
+        .cook-mode-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Cook Mode Overlay */
+        .cook-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cook-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cook-header {
+            padding: 1.5rem 2rem;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .cook-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cook-exit-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--bg);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+
+        .cook-exit-btn:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .cook-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .cook-progress {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cook-progress-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .cook-progress-bar {
+            width: 120px;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .cook-progress-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .cook-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .cook-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .cook-step-container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cook-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .cook-step-text {
+            font-size: 1.75rem;
+            line-height: 1.5;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .cook-step-ingredients {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .cook-step-ingredients h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .cook-step-ingredients p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .cook-nav {
+            padding: 1.5rem 2rem;
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .cook-nav-btn {
+            padding: 1rem 2rem;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cook-nav-btn:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .cook-nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .cook-nav-btn.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .cook-nav-btn.primary:hover:not(:disabled) {
+            background: #c9684f;
+            border-color: #c9684f;
+            color: white;
+        }
+
+        .cook-nav-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Ingredients Panel (toggleable) */
+        .cook-ingredients-toggle {
+            position: fixed;
+            bottom: 7rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: var(--card);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text);
+            transition: all 0.2s ease;
+            z-index: 10;
+            border: 1px solid var(--border);
+        }
+
+        .cook-ingredients-toggle:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .cook-ingredients-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 350px;
+            height: 100%;
+            background: var(--card);
+            border-left: 1px solid var(--border);
+            z-index: 2001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cook-ingredients-panel.active {
+            right: 0;
+        }
+
+        .cook-ingredients-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cook-ingredients-header h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .cook-ingredients-close {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--bg);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+
+        .cook-ingredients-close:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .cook-ingredients-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .cook-ingredient-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .cook-ingredient-item:last-child {
+            border-bottom: none;
+        }
+
+        .cook-ingredient-item.checked {
+            opacity: 0.5;
+        }
+
+        .cook-ingredient-item.checked span {
+            text-decoration: line-through;
+        }
+
+        .cook-ingredient-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            margin-top: 1px;
+        }
+
+        .cook-ingredient-item.checked .cook-ingredient-checkbox {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .cook-ingredient-item span {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        /* Complete screen */
+        .cook-complete {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .cook-complete.active {
+            display: flex;
+        }
+
+        .cook-complete-icon {
+            width: 6rem;
+            height: 6rem;
+            background: #d4edda;
+            color: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cook-complete h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .cook-complete p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .cook-complete-btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cook-complete-btn:hover {
+            background: #c9684f;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .modal {
+                max-height: 90vh;
+                border-radius: 16px 16px 0 0;
+            }
+
+            .modal-header, .modal-body {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .cook-header {
+                padding: 1rem 1.25rem;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .cook-title {
+                font-size: 0.95rem;
+            }
+
+            .cook-progress-bar {
+                width: 80px;
+            }
+
+            .cook-step-number {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cook-step-text {
+                font-size: 1.35rem;
+            }
+
+            .cook-nav {
+                padding: 1rem 1.25rem;
+            }
+
+            .cook-nav-btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .cook-ingredients-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .cook-ingredients-toggle {
+                bottom: 6.5rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Book</h1>
+        <p>Simple recipes for everyday cooking</p>
+    </header>
+
+    <div class="container">
+        <div class="filters" id="filters"></div>
+        <div class="recipes-grid" id="recipes-grid"></div>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <button class="close-btn" id="close-btn">&times;</button>
+                <div class="category" id="modal-category"></div>
+                <h2 id="modal-title"></h2>
+                <p class="description" id="modal-description"></p>
+            </div>
+            <div class="modal-body">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-list" id="modal-ingredients"></ul>
+
+                <h3>Instructions</h3>
+                <ol class="instructions-list" id="modal-instructions"></ol>
+
+                <div class="meta" id="modal-meta"></div>
+                <button class="cook-mode-btn" id="start-cook-mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Start Cook Mode
+                </button>
+                <a class="source-link" id="modal-source" href="#" target="_blank">View Original Recipe</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cook Mode Overlay -->
+    <div class="cook-overlay" id="cook-overlay">
+        <div class="cook-header">
+            <div class="cook-header-left">
+                <button class="cook-exit-btn" id="cook-exit-btn">&times;</button>
+                <span class="cook-title" id="cook-recipe-title"></span>
+            </div>
+            <div class="cook-progress">
+                <span class="cook-progress-text" id="cook-progress-text">Step 1 of 5</span>
+                <div class="cook-progress-bar">
+                    <div class="cook-progress-fill" id="cook-progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cook-body">
+            <div class="cook-main" id="cook-main">
+                <div class="cook-step-container" id="cook-step-container">
+                    <div class="cook-step-number" id="cook-step-number">1</div>
+                    <p class="cook-step-text" id="cook-step-text"></p>
+                </div>
+
+                <div class="cook-complete" id="cook-complete">
+                    <div class="cook-complete-icon">&#10003;</div>
+                    <h2>All Done!</h2>
+                    <p id="cook-complete-message">Your dish is ready to enjoy.</p>
+                    <button class="cook-complete-btn" id="cook-complete-btn">Back to Recipe</button>
+                </div>
+            </div>
+
+            <button class="cook-ingredients-toggle" id="cook-ingredients-toggle" title="View Ingredients">
+                &#9776;
+            </button>
+        </div>
+
+        <div class="cook-nav" id="cook-nav">
+            <button class="cook-nav-btn" id="cook-prev-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                Previous
+            </button>
+            <button class="cook-nav-btn primary" id="cook-next-btn">
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Ingredients Panel -->
+        <div class="cook-ingredients-panel" id="cook-ingredients-panel">
+            <div class="cook-ingredients-header">
+                <h3>Ingredients</h3>
+                <button class="cook-ingredients-close" id="cook-ingredients-close">&times;</button>
+            </div>
+            <div class="cook-ingredients-list" id="cook-ingredients-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const recipes = [
+            {
+                id: 1,
+                title: "Banana Chocolate Pecan Muffins",
+                category: "breakfast",
+                description: "Fluffy, 1-bowl vegan + gluten-free banana muffins generously studded with pecans and chocolate chips. Perfect for a lazy weekend breakfast or take-along snack!",
+                ingredients: [
+                    "2 Tbsp flaxseed meal",
+                    "1/4 cup water",
+                    "2 medium ripe bananas",
+                    "1/2 cup maple syrup",
+                    "1/4 cup avocado oil, melted coconut oil, or vegan butter",
+                    "1 1/2 tsp baking soda",
+                    "1 tsp vanilla extract",
+                    "1/2 tsp sea salt",
+                    "1 cup gluten-free flour blend",
+                    "1 cup almond flour",
+                    "2/3 cup raw pecans, chopped",
+                    "2/3 cup dark chocolate chips"
+                ],
+                instructions: [
+                    "Preheat oven to 350°F and grease a muffin tin or add paper liners.",
+                    "Mix flaxseed meal and water; let sit 5 minutes to thicken (flax eggs).",
+                    "Add bananas and mash until mostly smooth.",
+                    "Add maple syrup, oil, baking soda, vanilla, and sea salt. Whisk 30 seconds.",
+                    "Stir in gluten-free flour and almond flour until just combined. Fold in pecans and chocolate chips.",
+                    "Divide batter among muffin tins, filling almost to tops.",
+                    "Bake 25-28 minutes until golden brown and a toothpick comes out clean.",
+                    "Cool 5 minutes in tin, then transfer to cooling rack.",
+                    "Store in covered container at room temperature (3-4 days), refrigerator (1 week), or freezer (up to 1 month)."
+                ],
+                meta: "Yield: 10 muffins | Prep Time: 15 minutes | Cook Time: 25 minutes",
+                source: "https://minimalistbaker.com/banana-chocolate-pecan-muffins-vegan-gf/"
+            },
+            {
+                id: 2,
+                title: "Pumpkin Baked Oatmeal",
+                category: "breakfast",
+                description: "Perfect baked oatmeal with pumpkin puree, warm spices and maple syrup, studded with pecans and cranberries. Made in just 1 bowl with 10 ingredients.",
+                ingredients: [
+                    "2 flax eggs",
+                    "1/3 cup pumpkin puree",
+                    "1/4 cup maple syrup",
+                    "2 Tbsp avocado or melted coconut oil",
+                    "1/4 tsp sea salt",
+                    "1 1/2 tsp pumpkin pie spice",
+                    "1/2 tsp cinnamon",
+                    "2 cups dairy-free milk",
+                    "2 1/2 cups gluten-free rolled oats",
+                    "3/4 cup chopped pecans",
+                    "1/3 cup fresh or frozen cranberries (optional)"
+                ],
+                instructions: [
+                    "Preheat oven to 350°F and grease a 2-quart baking dish.",
+                    "Prepare flax eggs, then mix in pumpkin, maple syrup, oil, salt, pumpkin pie spice, and cinnamon.",
+                    "Add milk and oats with pecans; stir to combine. Transfer to baking dish and top with additional pecans and optional cranberries.",
+                    "Bake 30-35 minutes until golden brown with slight caramelization at edges.",
+                    "Serve warm with coconut whipped cream and maple syrup drizzle.",
+                    "Store leftovers refrigerated 3-4 days or frozen up to 1 month."
+                ],
+                meta: "",
+                source: "https://minimalistbaker.com/pumpkin-baked-oatmeal/"
+            },
+            {
+                id: 3,
+                title: "Creamy Vegan White Bean Chili",
+                category: "dinner",
+                description: "Creamy, comforting vegan white bean chili with green chiles, corn, and leafy greens. A 30-minute meal perfect for meal prep or weeknights!",
+                ingredients: [
+                    "2 cups water",
+                    "2/3 cup raw cashews",
+                    "2 Tbsp olive oil (or avocado oil)",
+                    "1 cup diced white or yellow onion",
+                    "4 cloves garlic, minced",
+                    "1 tsp ground cumin",
+                    "3/4-1 tsp sea salt",
+                    "1/4 tsp black pepper",
+                    "1 pinch cayenne",
+                    "2 (4-oz.) cans diced green chiles",
+                    "3 (15-oz.) cans white beans, drained and rinsed",
+                    "1 cup frozen corn",
+                    "2 cups baby spinach, baby kale, or chopped kale"
+                ],
+                instructions: [
+                    "Blend water and cashews on high until smooth (~1-2 minutes) to create cashew milk.",
+                    "Heat a large pot over medium heat. Add olive oil, onions, and garlic; cook until softened, about 5 minutes.",
+                    "Add cumin, sea salt, black pepper, and cayenne. Cook 1 more minute until fragrant.",
+                    "Add green chiles, drained beans, and corn. Stir to combine.",
+                    "Pour in cashew milk and bring to a light boil. Lower heat and simmer 10 minutes, stirring occasionally.",
+                    "Taste and adjust seasonings. Remove from heat and stir in greens until wilted.",
+                    "Serve warm with cornbread, cilantro, green onions, and hot sauce as desired."
+                ],
+                meta: "Yield: 6 servings | Time: 30 minutes",
+                source: "https://minimalistbaker.com/creamy-vegan-white-bean-chili/"
+            },
+            {
+                id: 4,
+                title: "Cherry Tomato White Bean Pasta",
+                category: "dinner",
+                description: "A quick, plant-based weeknight dish featuring sauteed garlic and shallot with burst cherry tomatoes, kale, kalamata olives, and white beans. Ready in approximately 25 minutes.",
+                ingredients: [
+                    "3 tablespoons olive oil",
+                    "5 medium garlic cloves, sliced",
+                    "1 small shallot, minced",
+                    "4 cups cherry tomatoes",
+                    "1/2 cup water (or white wine)",
+                    "1/2 teaspoon red pepper flakes",
+                    "1/2-3/4 teaspoon sea salt",
+                    "1 (12 oz.) pasta package",
+                    "1/2 bunch kale, stems removed, leaves chopped",
+                    "1 (15 oz.) can white beans, drained",
+                    "1/2 cup chopped kalamata olives",
+                    "1/2-3/4 cup reserved pasta water"
+                ],
+                instructions: [
+                    "Bring a large pot of water to boil for pasta.",
+                    "Heat olive oil in a large skillet over medium heat. Add garlic and shallot; saute until translucent. Add tomatoes, water/wine, red pepper flakes, and salt. Cover and cook 5 minutes until tomato skins begin bursting.",
+                    "Cook pasta according to package directions; reserve 3/4 cup pasta water before draining.",
+                    "Remove sauce lid; add kale, white beans, and olives. Saute 5 minutes until liquid reduces. Add 1/2 cup pasta water and cook 1-2 minutes. Add cooked pasta to sauce; adjust consistency with remaining pasta water as needed.",
+                    "Top with vegan parmesan if desired. Refrigerate leftovers up to 4-5 days."
+                ],
+                meta: "",
+                source: "https://minimalistbaker.com/cherry-tomato-white-bean-pasta/"
+            },
+            {
+                id: 5,
+                title: "Golden Curry Lentil Soup",
+                category: "dinner",
+                description: "A comforting, one-pot curried lentil soup that's rich with flavor, fiber, and protein. Vegan, gluten-free, and features warm spices with coconut milk.",
+                ingredients: [
+                    "1/4 cup water (or oil)",
+                    "1/4 cup thinly sliced shallot or onion",
+                    "3 cloves garlic, minced",
+                    "1 Tbsp ginger, minced",
+                    "1 small serrano pepper (seeds removed, minced)",
+                    "2 cups thinly sliced carrots",
+                    "Sea salt",
+                    "3 cups vegetable broth",
+                    "3/4 cup canned light coconut milk",
+                    "1 cup uncooked rinsed red or golden lentils",
+                    "2 Tbsp coconut aminos",
+                    "1 Tbsp curry powder",
+                    "Fresh lemon or lime juice",
+                    "Cilantro (for garnish)"
+                ],
+                instructions: [
+                    "Saute shallot in water/oil over medium heat for 3 minutes until softened.",
+                    "Add garlic, ginger, serrano pepper, carrots, and salt; cook 1-2 minutes.",
+                    "Add broth and coconut milk; bring to low boil, then add lentils.",
+                    "Reduce heat to low simmer; add coconut aminos and curry powder.",
+                    "Simmer uncovered 12-16 minutes until carrots and lentils are tender.",
+                    "Adjust seasoning as needed; serve garnished with cilantro and citrus."
+                ],
+                meta: "Time: 30 minutes",
+                source: "https://minimalistbaker.com/1-pot-golden-curry-lentil-soup/"
+            },
+            {
+                id: 6,
+                title: "Shiitake Mushroom Risotto",
+                category: "dinner",
+                description: "Easy-to-make vegan risotto infused with sauteed shallot and caramelized shiitake mushrooms! Hearty, flavorful, and incredibly satisfying.",
+                ingredients: [
+                    "3 1/2 - 4 cups vegetable broth",
+                    "2 Tbsp avocado or olive oil",
+                    "3/4 cup thinly sliced shallot",
+                    "1/4 tsp each sea salt and black pepper",
+                    "2 cups sliced shiitake mushrooms",
+                    "1 Tbsp coconut aminos",
+                    "1 Tbsp fresh thyme (or dried)",
+                    "1 cup arborio rice",
+                    "1/4 cup dry white wine",
+                    "1/4 cup vegan parmesan cheese",
+                    "Fresh chopped parsley"
+                ],
+                instructions: [
+                    "Heat vegetable broth in a saucepan over medium heat, then reduce to low to maintain warmth.",
+                    "In a large pan, heat oil with shallot over medium heat; season with salt and pepper. Saute 3-4 minutes, stirring frequently. Add mushrooms and coconut aminos; continue cooking until golden and caramelized.",
+                    "Add thyme and arborio rice; cook 1 minute while stirring. Pour in white wine and cook about 2 minutes until mostly absorbed.",
+                    "Using a ladle, add warmed broth 1/2 cup at a time while stirring constantly. Maintain a gentle simmer throughout the 15-20 minute cooking process until rice reaches al dente.",
+                    "Remove from heat; stir in vegan parmesan. Taste and adjust seasonings as desired.",
+                    "Divide into bowls and top with reserved mushrooms, additional cheese, and fresh parsley."
+                ],
+                meta: "Storage: Refrigerate up to 4-5 days or freeze up to 1 month",
+                source: "https://minimalistbaker.com/caramelized-shiitake-mushroom-risotto/"
+            },
+            {
+                id: 7,
+                title: "Tempeh Stir-Fry",
+                category: "dinner",
+                description: "A hearty tempeh stir fry with bold flavors ready in 30 minutes, designed for weeknight dinners using leftover vegetables.",
+                ingredients: [
+                    "3-4 tsp chili garlic sauce",
+                    "4 Tbsp creamy peanut butter",
+                    "4 tsp sesame oil (plus 4 tsp more for cooking)",
+                    "1/3 cup coconut aminos",
+                    "4 tsp lime juice",
+                    "3 tsp freshly grated ginger",
+                    "1 tsp maple syrup",
+                    "3-4 Tbsp water",
+                    "8 oz tempeh, chopped into bite-size pieces",
+                    "2/3 cup chopped green onion",
+                    "4 cups mixed vegetables (bell pepper, broccoli, carrots, kale)",
+                    "3 cups cooked quinoa, brown rice, or cauliflower rice"
+                ],
+                instructions: [
+                    "Combine chili garlic sauce, peanut butter, sesame oil, coconut aminos, lime juice, ginger, and maple syrup in a bowl and whisk together.",
+                    "Add water until sauce reaches pourable consistency. Taste and adjust seasonings.",
+                    "Coat tempeh pieces in glaze, cover, and refrigerate 15 minutes (or up to 48 hours).",
+                    "Heat cast iron skillet over medium heat. Saute tempeh 3-4 minutes per side until browned. Set aside.",
+                    "Add sesame oil, green onion, and mixed vegetables to skillet with coconut aminos. Cover and cook 4-5 minutes until tender.",
+                    "Add grains and greens, cooking 3-4 minutes. Return tempeh with remaining glaze and cook 1-2 minutes until heated through."
+                ],
+                meta: "Storage: Refrigerate leftovers up to 4-5 days, or freeze up to 1 month",
+                source: "https://minimalistbaker.com/simple-vegetable-tempeh-stir-fry/"
+            },
+            {
+                id: 8,
+                title: "Moroccan Eggplant & Tomato Stew",
+                category: "dinner",
+                description: "A flavorful, satisfying 10-ingredient meal inspired by zaalouk featuring roasted eggplant, smoky spices, and chickpeas.",
+                ingredients: [
+                    "1 large eggplant (~1.2 lb), unpeeled and cubed",
+                    "2 Tbsp olive or melted coconut oil (for roasting)",
+                    "1/2 tsp sea salt (for roasting)",
+                    "2 Tbsp olive or coconut oil (for sauteing)",
+                    "1 large white or yellow onion, thinly sliced",
+                    "3 cloves garlic, minced",
+                    "1 Tbsp ground cumin",
+                    "1 Tbsp smoked paprika",
+                    "2 cans (14.5 oz each) diced fire-roasted tomatoes",
+                    "1/2 cup water or vegetable broth",
+                    "1 cup cooked chickpeas (optional)",
+                    "1 Tbsp maple syrup or coconut sugar",
+                    "2 Tbsp harissa paste"
+                ],
+                instructions: [
+                    "Preheat oven to 425°F. Toss cubed eggplant with oil and salt; roast for 30-35 minutes, stirring halfway through.",
+                    "Heat oil in large pan over medium heat. Cook onions 4-5 minutes until soft, then add garlic, cumin, and paprika for 1 minute.",
+                    "Add tomatoes with juices and water/broth. Cover and simmer 4 minutes.",
+                    "Stir in chickpeas, maple syrup, and harissa paste.",
+                    "Add roasted eggplant. Cover and simmer 10 minutes on medium-low heat.",
+                    "Taste and balance heat, smokiness, and salt as desired.",
+                    "Serve with rice, grain, pasta, or roasted vegetables. Top with fresh lemon, cilantro, or parsley."
+                ],
+                meta: "Storage: Refrigerate up to 5 days or freeze up to 1 month",
+                source: "https://minimalistbaker.com/moroccan-spiced-eggplant-and-tomato-stew/"
+            },
+            {
+                id: 9,
+                title: "Chickpea Shakshuka",
+                category: "dinner",
+                description: "A savory, flavorful plant-based dish prepared in a single pot within 30 minutes. This vegan adaptation substitutes chickpeas for eggs.",
+                ingredients: [
+                    "1 Tbsp olive or avocado oil",
+                    "1/2 cup diced white onion or shallot",
+                    "1/2 medium red bell pepper, chopped",
+                    "3 cloves garlic, minced",
+                    "1 (28-ounce) can crushed tomatoes",
+                    "1-3 Tbsp tomato paste",
+                    "2-3 tsp coconut sugar or maple syrup",
+                    "2 tsp smoked or sweet paprika",
+                    "1 tsp ground cumin",
+                    "2 tsp chili powder",
+                    "1/4 tsp ground cinnamon",
+                    "1 1/2 (15-ounce) cans chickpeas, drained",
+                    "4-5 kalamata or green olives (optional)"
+                ],
+                instructions: [
+                    "Heat oil in a large skillet over medium heat. Add onion, bell pepper, and garlic; saute 4-5 minutes until soft and fragrant.",
+                    "Combine crushed tomatoes, tomato paste, sweetener, salt, paprika, cumin, chili powder, cinnamon, and optional spices.",
+                    "Bring to a simmer over medium heat for 2-3 minutes, stirring frequently.",
+                    "Add chickpeas and olives; stir. Reduce heat to medium-low and simmer 15-20 minutes.",
+                    "Taste and modify spice levels as desired.",
+                    "Serve alongside bread, pasta, or rice. Garnish with lemon juice, olives, cilantro, or parsley."
+                ],
+                meta: "Storage: Refrigerate leftovers up to 4 days or freeze up to 1 month",
+                source: "https://minimalistbaker.com/1-pot-chickpea-shakshuka/"
+            },
+            {
+                id: 10,
+                title: "Cauliflower Banh Mi",
+                category: "dinner",
+                description: "A plant-based Vietnamese-inspired sandwich featuring savory, caramelized cauliflower, sriracha mayo, and quick-pickled vegetables.",
+                ingredients: [
+                    "2/3 cup rice wine vinegar",
+                    "1/3 cup hot water",
+                    "1/2 tsp sea salt",
+                    "1 Tbsp organic cane sugar",
+                    "2/3 cup shredded carrot",
+                    "1/3 cup shredded daikon radish",
+                    "2 Tbsp chili garlic sauce",
+                    "5 Tbsp coconut aminos",
+                    "1 Tbsp maple syrup",
+                    "1 Tbsp lime juice",
+                    "1 Tbsp sesame or avocado oil",
+                    "4 cups cauliflower florets",
+                    "1/2 cup vegan mayo",
+                    "1 Tbsp sriracha",
+                    "2 small baguettes"
+                ],
+                instructions: [
+                    "Preheat oven to 450°F.",
+                    "Combine vinegar, hot water, salt, and sugar in a jar; stir to dissolve. Add carrot and radish, refrigerate until ready to serve.",
+                    "Mix chili garlic sauce, coconut aminos, maple syrup, lime juice, and oil in a bowl. Toss cauliflower to coat.",
+                    "Heat an oven-safe skillet over medium-high heat. Saute cauliflower until lightly browned, then add remaining marinade and transfer to oven for about 15 minutes.",
+                    "Prepare aioli by combining vegan mayo, maple syrup, and sriracha.",
+                    "Toast baguette halves, spread aioli on both sides, add cauliflower with extra marinade, then layer with pickled vegetables.",
+                    "Serve fresh; store components separately in refrigerator."
+                ],
+                meta: "Time: 30 minutes",
+                source: "https://minimalistbaker.com/cauliflower-banh-mi/"
+            },
+            {
+                id: 11,
+                title: "Gluten-Free Pumpkin Bread",
+                category: "desserts",
+                description: "The ULTIMATE gluten-free pumpkin bread: FLUFFY, tender, spice-filled, and so classic! Dairy-free, simple methods, and just 1 bowl required.",
+                ingredients: [
+                    "1/2 cup avocado oil",
+                    "1 1/4 cup organic cane sugar",
+                    "3 large eggs",
+                    "1 (15 oz) can pumpkin puree",
+                    "2/3 cup almond flour",
+                    "1 1/3 cup GF flour blend",
+                    "1 1/2 tsp baking soda",
+                    "1 tsp sea salt",
+                    "1 1/2 tsp ground cinnamon",
+                    "1 tsp pumpkin pie spice"
+                ],
+                instructions: [
+                    "Position oven rack in the center, preheat to 325°F, and line a loaf pan with parchment paper.",
+                    "In a large mixing bowl, combine oil, sugar, and eggs; whisk until silky. Add pumpkin puree and mix thoroughly. Then incorporate dry ingredients and whisk until smooth.",
+                    "Transfer batter to prepared loaf pan and bake for 75-90 minutes until a toothpick inserted into the center comes out completely clean.",
+                    "Cool in the pan for ~10 minutes, then use parchment edges to lift onto a cooling rack. Allow 2-3 hours for complete cooling before slicing.",
+                    "Store at room temperature for 2-3 days, refrigerate up to 1 week, or freeze for up to 1 month."
+                ],
+                meta: "Yield: 12 slices | Prep Time: 10 minutes | Cook Time: 85 minutes",
+                source: "https://minimalistbaker.com/best-gluten-free-pumpkin-bread/"
+            },
+            {
+                id: 12,
+                title: "Monster Cookies",
+                category: "desserts",
+                description: "Chewy, tender, peanut buttery, incredibly delicious Monster Cookies that are vegan, gluten-free, flourless, and made in one bowl.",
+                ingredients: [
+                    "1 cup natural creamy peanut butter",
+                    "2/3 cup maple syrup",
+                    "1 tsp vanilla extract",
+                    "1/2 tsp baking powder",
+                    "1/2 tsp baking soda",
+                    "1/4 tsp sea salt",
+                    "2 cups rolled oats (certified gluten-free)",
+                    "1/2 cup natural colored candy-coated chocolate",
+                    "1/2 cup mini semi-sweet chocolate chips"
+                ],
+                instructions: [
+                    "Preheat oven to 350°F (176°C). Line two baking sheets with parchment paper.",
+                    "In a large bowl, combine peanut butter, maple syrup, vanilla, baking powder, baking soda, and sea salt. Stir thoroughly.",
+                    "Add rolled oats, candy-coated chocolate, and mini chocolate chips. Stir until evenly distributed.",
+                    "Scoop approximately 1 1/2 tablespoons of dough per cookie onto baking sheets. Flatten slightly with your palm.",
+                    "Bake 11-13 minutes until lightly golden. Cool slightly before serving.",
+                    "Store cooled cookies in an airtight container for 2-3 days."
+                ],
+                meta: "Yield: 24 cookies",
+                source: "https://minimalistbaker.com/easy-gluten-free-monster-cookies/"
+            },
+            {
+                id: 13,
+                title: "Vegan Chocolate Chip Cookies",
+                category: "desserts",
+                description: "Perfect vegan chocolate chip cookies made with simple methods and 9 ingredients. Tender, sweet, studded with chocolate, and undetectably gluten-free.",
+                ingredients: [
+                    "1 1/4 cup almond flour",
+                    "1/4 cup vegan dark chocolate chips",
+                    "1/3 cup gluten-free flour blend",
+                    "1/2 tsp baking powder",
+                    "1/4 tsp sea salt",
+                    "1/3 cup organic brown sugar",
+                    "1/4 cup aquafaba",
+                    "3 Tbsp coconut oil, melted",
+                    "1/2 tsp vanilla extract"
+                ],
+                instructions: [
+                    "Mix almond flour, chocolate chips, gluten-free flour, baking powder, salt, and brown sugar in a large bowl.",
+                    "In a separate bowl, beat aquafaba with a handheld mixer until light and fluffy peaks form.",
+                    "Add melted coconut oil and vanilla to the aquafaba, then combine with dry ingredients until just mixed.",
+                    "Chill dough for 30 minutes. Preheat oven to 375°F and line baking sheet with parchment paper.",
+                    "Scoop 1 1/2-tablespoon portions onto the sheet and gently flatten. Makes about 11 cookies.",
+                    "Bake 12-15 minutes until edges are golden brown.",
+                    "Cool on pan for 5 minutes, then transfer. Store in sealed container up to 4 days."
+                ],
+                meta: "Yield: 11 cookies | Total Time: 57 minutes",
+                source: "https://minimalistbaker.com/perfect-vegan-gluten-free-chocolate-chip-cookies/"
+            },
+            {
+                id: 14,
+                title: "Raw Carrot Cake",
+                category: "desserts",
+                description: "Raw vegan carrot cake made with 10 wholesome ingredients! Tender, 30 minutes to make, and topped with an optional cashew cream cheese frosting!",
+                ingredients: [
+                    "2 cups finely shredded carrots",
+                    "2 cups packed pitted medjool dates",
+                    "2 1/2 cups raw walnuts",
+                    "2 tsp vanilla extract",
+                    "1/4 tsp sea salt",
+                    "1 1/4 tsp ground cinnamon",
+                    "3/4 tsp ground ginger",
+                    "1 pinch nutmeg",
+                    "1/2 cup coconut flour",
+                    "1/4 cup raisins",
+                    "1 1/4 cup raw cashews (for frosting)",
+                    "1/2 cup coconut cream (for frosting)",
+                    "2 Tbsp lemon juice (for frosting)",
+                    "3 Tbsp maple syrup (for frosting)"
+                ],
+                instructions: [
+                    "For frosting: Soak cashews in hot water 30 minutes to 1 hour. Rinse, drain, and blend with coconut cream, lemon juice, maple syrup, and vanilla until creamy. Refrigerate.",
+                    "Grate carrots using a box grater or food processor attachment.",
+                    "Blend pitted dates until small bits remain or a ball forms. Set aside.",
+                    "Add walnuts, vanilla, salt, and spices to food processor and blend until semi-fine meal forms.",
+                    "Add dates and shredded carrots back in; pulse gently until loose dough forms. Transfer to mixing bowl, add coconut flour and raisins, stir gently to combine.",
+                    "Line a 7-9 inch springform pan with parchment paper. Press cake mixture evenly into pan.",
+                    "Add frosting, tap out air bubbles, and freeze 3-4 hours until semi-firm.",
+                    "Let thaw 30 minutes before cutting with a hot knife."
+                ],
+                meta: "Storage: Keep covered in refrigerator up to 1 week or freeze up to 1 month",
+                source: "https://minimalistbaker.com/raw-carrot-cake-with-vegan-cream-cheese-frosting/"
+            },
+            {
+                id: 15,
+                title: "Lemony Quinoa Kale Salad",
+                category: "salads",
+                description: "A hearty salad combining quinoa, massaged kale, and roasted chickpeas with a tangy lemon dressing, ready in about 30 minutes.",
+                ingredients: [
+                    "1 1/2 cups cooked quinoa",
+                    "4 cups chopped kale",
+                    "1/4 cup sunflower seeds (roasted unsalted)",
+                    "1/4 cup goat cheese crumbles",
+                    "1 (15 oz) can chickpeas, drained and rinsed",
+                    "1 1/2 Tbsp olive oil or avocado oil",
+                    "1/4 tsp each sea salt and black pepper",
+                    "2 cups day-old sturdy bread, torn into pieces",
+                    "1/4 cup chopped sun-dried tomatoes",
+                    "2-3 Tbsp fresh lemon juice",
+                    "2 Tbsp olive oil",
+                    "1-1 1/2 Tbsp maple syrup",
+                    "1/2 tsp Dijon mustard"
+                ],
+                instructions: [
+                    "Preheat oven to 425°F. Line a baking sheet with parchment. Prepare quinoa if needed.",
+                    "Toss drained chickpeas with oil, salt, and pepper on baking sheet.",
+                    "Bake chickpeas 15-20 minutes until crispy. Add bread pieces at the 8-minute mark; bake 7-10 minutes until crusty.",
+                    "Whisk together lemon juice, oil, maple syrup, mustard, salt, and pepper. Add kale and massage for several minutes.",
+                    "Add quinoa, sun-dried tomatoes, sunflower seeds, and cheese. Toss to combine.",
+                    "Once cooled slightly, add roasted chickpeas and croutons. Serve immediately."
+                ],
+                meta: "Storage: Refrigerate leftovers up to 2 days; store chickpeas and croutons separately",
+                source: "https://minimalistbaker.com/lemony-quinoa-kale-salad-with-chickpeas/"
+            },
+            {
+                id: 16,
+                title: "Golden Milk Snack Bites",
+                category: "snacks",
+                description: "Quick and easy, 5-ingredient snack bites with cashew butter, coconut, anti-inflammatory golden milk spices, and naturally sweetened with maple syrup.",
+                ingredients: [
+                    "1/2 cup unsalted cashew butter",
+                    "2-3 Tbsp maple syrup (plus more to taste)",
+                    "2 Tbsp hemp seeds",
+                    "1 Tbsp Golden Milk Mix (or individual spices)",
+                    "1 pinch sea salt (optional)",
+                    "1/3 cup coconut flour",
+                    "2 Tbsp coconut butter"
+                ],
+                instructions: [
+                    "Combine cashew butter, maple syrup, hemp seeds, golden milk mix, and salt in a medium bowl; stir to blend.",
+                    "Add coconut flour gradually until reaching a firm, moldable dough consistency.",
+                    "Adjust flavoring as needed with additional golden milk mix or maple syrup.",
+                    "Optionally swirl in softened coconut butter for a marbled effect.",
+                    "Scoop tablespoon-sized portions and gently roll into balls (yields approximately 12 pieces).",
+                    "Enjoy immediately, roll in shredded coconut, or refrigerate for 10-15 minutes.",
+                    "Store refrigerated up to one week or freeze for one month."
+                ],
+                meta: "Yield: 12 pieces",
+                source: "https://minimalistbaker.com/5-ingredient-golden-milk-snack-bites/"
+            }
+        ];
+
+        // Get unique categories
+        const categories = ['all', ...new Set(recipes.map(r => r.category))];
+        let activeCategory = 'all';
+
+        // Render filters
+        function renderFilters() {
+            const filtersEl = document.getElementById('filters');
+            filtersEl.innerHTML = categories.map(cat =>
+                `<button class="filter-btn ${cat === activeCategory ? 'active' : ''}" data-category="${cat}">${cat}</button>`
+            ).join('');
+        }
+
+        // Render recipes
+        function renderRecipes() {
+            const gridEl = document.getElementById('recipes-grid');
+            const filtered = activeCategory === 'all'
+                ? recipes
+                : recipes.filter(r => r.category === activeCategory);
+
+            if (filtered.length === 0) {
+                gridEl.innerHTML = '<div class="empty-state">No recipes found in this category.</div>';
+                return;
+            }
+
+            gridEl.innerHTML = filtered.map(recipe => `
+                <div class="recipe-card" data-id="${recipe.id}">
+                    <div class="category">${recipe.category}</div>
+                    <h3>${recipe.title}</h3>
+                    <p class="description">${recipe.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Open modal
+        function openModal(recipeId) {
+            const recipe = recipes.find(r => r.id === recipeId);
+            if (!recipe) return;
+
+            document.getElementById('modal-category').textContent = recipe.category;
+            document.getElementById('modal-title').textContent = recipe.title;
+            document.getElementById('modal-description').textContent = recipe.description;
+
+            document.getElementById('modal-ingredients').innerHTML =
+                recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
+
+            document.getElementById('modal-instructions').innerHTML =
+                recipe.instructions.map(inst => `<li>${inst}</li>`).join('');
+
+            document.getElementById('modal-meta').textContent = recipe.meta;
+            document.getElementById('modal-source').href = recipe.source;
+
+            document.getElementById('modal-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Event listeners
+        document.getElementById('filters').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                activeCategory = e.target.dataset.category;
+                renderFilters();
+                renderRecipes();
+            }
+        });
+
+        document.getElementById('recipes-grid').addEventListener('click', (e) => {
+            const card = e.target.closest('.recipe-card');
+            if (card) {
+                openModal(parseInt(card.dataset.id));
+            }
+        });
+
+        document.getElementById('close-btn').addEventListener('click', closeModal);
+        document.getElementById('modal-overlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (document.getElementById('cook-overlay').classList.contains('active')) {
+                    closeCookMode();
+                } else {
+                    closeModal();
+                }
+            }
+        });
+
+        // ==================== COOK MODE ====================
+        let currentCookRecipe = null;
+        let currentStep = 0;
+        let checkedIngredients = new Set();
+
+        function startCookMode(recipeId) {
+            currentCookRecipe = recipes.find(r => r.id === recipeId);
+            if (!currentCookRecipe) return;
+
+            currentStep = 0;
+            checkedIngredients.clear();
+
+            // Close the recipe modal
+            closeModal();
+
+            // Set up the cook mode UI
+            document.getElementById('cook-recipe-title').textContent = currentCookRecipe.title;
+            renderCookStep();
+            renderCookIngredients();
+
+            // Show cook overlay
+            document.getElementById('cook-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Hide complete screen, show steps
+            document.getElementById('cook-complete').classList.remove('active');
+            document.getElementById('cook-step-container').style.display = 'block';
+            document.getElementById('cook-nav').style.display = 'flex';
+        }
+
+        function closeCookMode() {
+            document.getElementById('cook-overlay').classList.remove('active');
+            document.getElementById('cook-ingredients-panel').classList.remove('active');
+            document.body.style.overflow = '';
+            currentCookRecipe = null;
+            currentStep = 0;
+        }
+
+        function renderCookStep() {
+            if (!currentCookRecipe) return;
+
+            const totalSteps = currentCookRecipe.instructions.length;
+            const stepText = currentCookRecipe.instructions[currentStep];
+
+            // Update step display
+            document.getElementById('cook-step-number').textContent = currentStep + 1;
+            document.getElementById('cook-step-text').textContent = stepText;
+
+            // Update progress
+            document.getElementById('cook-progress-text').textContent = `Step ${currentStep + 1} of ${totalSteps}`;
+            const progressPercent = ((currentStep + 1) / totalSteps) * 100;
+            document.getElementById('cook-progress-fill').style.width = `${progressPercent}%`;
+
+            // Update nav buttons
+            document.getElementById('cook-prev-btn').disabled = currentStep === 0;
+
+            const nextBtn = document.getElementById('cook-next-btn');
+            if (currentStep === totalSteps - 1) {
+                nextBtn.innerHTML = `
+                    Finish
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                `;
+            } else {
+                nextBtn.innerHTML = `
+                    Next
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                `;
+            }
+        }
+
+        function renderCookIngredients() {
+            if (!currentCookRecipe) return;
+
+            const listEl = document.getElementById('cook-ingredients-list');
+            listEl.innerHTML = currentCookRecipe.ingredients.map((ing, idx) => `
+                <div class="cook-ingredient-item ${checkedIngredients.has(idx) ? 'checked' : ''}" data-idx="${idx}">
+                    <div class="cook-ingredient-checkbox">
+                        ${checkedIngredients.has(idx) ? '&#10003;' : ''}
+                    </div>
+                    <span>${ing}</span>
+                </div>
+            `).join('');
+        }
+
+        function goToNextStep() {
+            if (!currentCookRecipe) return;
+
+            const totalSteps = currentCookRecipe.instructions.length;
+
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                renderCookStep();
+            } else {
+                // Show completion screen
+                showCookComplete();
+            }
+        }
+
+        function goToPrevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                renderCookStep();
+            }
+        }
+
+        function showCookComplete() {
+            document.getElementById('cook-step-container').style.display = 'none';
+            document.getElementById('cook-nav').style.display = 'none';
+            document.getElementById('cook-complete').classList.add('active');
+            document.getElementById('cook-complete-message').textContent =
+                `Your ${currentCookRecipe.title} is ready to enjoy!`;
+            document.getElementById('cook-progress-text').textContent = 'Complete!';
+            document.getElementById('cook-progress-fill').style.width = '100%';
+        }
+
+        function toggleIngredient(idx) {
+            if (checkedIngredients.has(idx)) {
+                checkedIngredients.delete(idx);
+            } else {
+                checkedIngredients.add(idx);
+            }
+            renderCookIngredients();
+        }
+
+        function toggleIngredientsPanel() {
+            document.getElementById('cook-ingredients-panel').classList.toggle('active');
+        }
+
+        // Cook Mode Event Listeners
+        document.getElementById('start-cook-mode').addEventListener('click', () => {
+            const recipeId = parseInt(document.querySelector('.recipe-card[data-id]')?.dataset.id) ||
+                             parseInt(document.getElementById('modal-title').textContent &&
+                             recipes.find(r => r.title === document.getElementById('modal-title').textContent)?.id);
+
+            // Find recipe by title shown in modal
+            const title = document.getElementById('modal-title').textContent;
+            const recipe = recipes.find(r => r.title === title);
+            if (recipe) {
+                startCookMode(recipe.id);
+            }
+        });
+
+        document.getElementById('cook-exit-btn').addEventListener('click', closeCookMode);
+        document.getElementById('cook-next-btn').addEventListener('click', goToNextStep);
+        document.getElementById('cook-prev-btn').addEventListener('click', goToPrevStep);
+        document.getElementById('cook-complete-btn').addEventListener('click', closeCookMode);
+        document.getElementById('cook-ingredients-toggle').addEventListener('click', toggleIngredientsPanel);
+        document.getElementById('cook-ingredients-close').addEventListener('click', toggleIngredientsPanel);
+
+        document.getElementById('cook-ingredients-list').addEventListener('click', (e) => {
+            const item = e.target.closest('.cook-ingredient-item');
+            if (item) {
+                toggleIngredient(parseInt(item.dataset.idx));
+            }
+        });
+
+        // Keyboard navigation for cook mode
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('cook-overlay').classList.contains('active')) return;
+
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                goToNextStep();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goToPrevStep();
+            } else if (e.key === 'i' || e.key === 'I') {
+                toggleIngredientsPanel();
+            }
+        });
+
+        // Initial render
+        renderFilters();
+        renderRecipes();
+    </script>
+</body>
+</html>
