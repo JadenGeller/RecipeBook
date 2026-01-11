@@ -652,12 +652,12 @@
             border-style: solid;
         }
 
-        .recipe-step.highlight {
-            animation: step-highlight 1s ease-out;
+        .recipe-step.highlight .step-content {
+            animation: step-highlight 1.5s ease-out;
         }
 
         @keyframes step-highlight {
-            0%, 30% { background: var(--accent); }
+            0%, 20% { background: var(--accent-secondary); }
             100% { background: transparent; }
         }
 
