@@ -1943,6 +1943,42 @@
         let currentStep = 0;
         let checkedIngredients = new Set();
 
+        // Helper functions to work with both YAML and markdown recipe formats
+        function getTotalSteps(recipe) {
+            if (recipe.format === 'yaml') {
+                return recipe.stepOrder.length;
+            }
+            return recipe.instructions?.length || 0;
+        }
+
+        function getStepText(recipe, stepIndex) {
+            if (recipe.format === 'yaml') {
+                const stepName = recipe.stepOrder[stepIndex];
+                const step = recipe.steps[stepName];
+
+                // Build readable instruction from step data
+                let text = '';
+                if (step.technique?.name) {
+                    // "Whisk flax eggs" or "Press tofu"
+                    text = `${capitalize(step.technique.name)} ${stepName}`;
+                    if (step.technique.for) {
+                        text += ` for ${step.technique.for}`;
+                    }
+                    if (step.technique.until) {
+                        text += ` until ${step.technique.until}`;
+                    }
+                } else {
+                    text = capitalize(stepName);
+                }
+                return text;
+            }
+            return recipe.instructions?.[stepIndex] || '';
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
         function startCookMode(recipeId) {
             currentCookRecipe = recipes.find(r => r.id === recipeId);
             if (!currentCookRecipe) return;
@@ -1979,8 +2015,8 @@
         function renderCookStep() {
             if (!currentCookRecipe) return;
 
-            const totalSteps = currentCookRecipe.instructions.length;
-            const stepText = currentCookRecipe.instructions[currentStep];
+            const totalSteps = getTotalSteps(currentCookRecipe);
+            const stepText = getStepText(currentCookRecipe, currentStep);
 
             // Update step display
             document.getElementById('cook-step-number').textContent = currentStep + 1;
@@ -2029,7 +2065,7 @@
         function goToNextStep() {
             if (!currentCookRecipe) return;
 
-            const totalSteps = currentCookRecipe.instructions.length;
+            const totalSteps = getTotalSteps(currentCookRecipe);
 
             if (currentStep < totalSteps - 1) {
                 currentStep++;
@@ -2279,7 +2315,7 @@
         function speakCurrentStep() {
             if (!currentCookRecipe || !voiceEnabled) return;
 
-            const stepText = currentCookRecipe.instructions[currentStep];
+            const stepText = getStepText(currentCookRecipe, currentStep);
             const stepNumber = currentStep + 1;
             speakText(`Step ${stepNumber}. ${stepText}`);
         }
@@ -2310,7 +2346,7 @@
         goToNextStep = function() {
             originalGoToNextStep();
             // Speak after navigation if voice is enabled and not on complete screen
-            if (voiceEnabled && currentCookRecipe && currentStep < currentCookRecipe.instructions.length) {
+            if (voiceEnabled && currentCookRecipe && currentStep < getTotalSteps(currentCookRecipe)) {
                 speakCurrentStep();
             }
         };
