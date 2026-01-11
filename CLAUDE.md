@@ -25,7 +25,7 @@ bun run build    # Generate recipes.js from markdown files
 ```markdown
 ---
 title: Recipe Name
-category: dinner|breakfast|salads
+category: hot meals|cold meals|desserts
 image: images/filename.jpg
 description: One-line description
 meta: "Yield: 4 servings | Prep: 10 min | Cook: 20 min"

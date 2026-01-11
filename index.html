@@ -1611,11 +1611,9 @@
 
         // Category display info
         const categoryInfo = {
-            breakfast: { icon: '🌅', label: 'Breakfast', color: '#ffeb3b' },
-            dinner: { icon: '🍽️', label: 'Dinner', color: '#ff5722' },
-            desserts: { icon: '🍰', label: 'Desserts', color: '#e91e63' },
-            salads: { icon: '🥬', label: 'Salads', color: '#4caf50' },
-            snacks: { icon: '🥜', label: 'Snacks', color: '#ff9800' }
+            'hot meals': { icon: '🍲', label: 'Hot Meals', color: '#ff5722' },
+            'cold meals': { icon: '🥗', label: 'Cold Meals', color: '#4caf50' },
+            'desserts': { icon: '🍰', label: 'Desserts', color: '#e91e63' }
         };
 
         // Render featured recipe
@@ -1675,7 +1673,7 @@
                 });
 
                 // Order categories
-                const categoryOrder = ['breakfast', 'dinner', 'desserts', 'salads', 'snacks'];
+                const categoryOrder = ['hot meals', 'cold meals', 'desserts'];
 
                 containerEl.innerHTML = categoryOrder
                     .filter(cat => grouped[cat] && grouped[cat].length > 0)

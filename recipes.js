@@ -3,7 +3,7 @@ const recipes = [
   {
     "id": 1,
     "title": "Pan Fried Sesame Tofu with Broccoli",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/sesame-tofu-broccoli.jpg",
     "description": "Seriously crispy pan-fried tofu drenched in a tangy sesame sauce with broccoli florets - a delicious plant-based meal!",
     "steps": {
@@ -363,7 +363,7 @@ const recipes = [
   {
     "id": 2,
     "title": "My Go-To Vegan Soup",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/go-to-vegan-soup.jpg",
     "description": "A simple 20-minute white bean and kale soup packed full of veggies, made with ingredients you likely already have on hand!",
     "steps": {
@@ -672,7 +672,7 @@ const recipes = [
   {
     "id": 3,
     "title": "Creamy Lentil Vegetable Soup",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/creamy-lentil-soup.jpg",
     "description": "A cozy medley of colors, flavors, and textures - this creamy lentil vegetable soup is hearty, inexpensive, and vegan!",
     "steps": {
@@ -970,7 +970,7 @@ const recipes = [
   {
     "id": 4,
     "title": "Spanish Rice and Beans",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/spanish-rice-beans.jpg",
     "description": "Rich and flavorful Spanish rice and beans - the perfect one-pot weeknight dinner that's naturally gluten-free and vegan!",
     "steps": {
@@ -1280,7 +1280,7 @@ const recipes = [
   {
     "id": 5,
     "title": "Southwest Tofu Scramble",
-    "category": "breakfast",
+    "category": "hot meals",
     "image": "images/southwest-tofu-scramble.jpg",
     "description": "Savory, Southwest-inspired tofu scramble with lots of veggies and a simple 5-ingredient sauce. Just 10 ingredients, 30 minutes, and 1 pan!",
     "steps": {
@@ -1541,7 +1541,7 @@ const recipes = [
   {
     "id": 6,
     "title": "Tempeh Stir-Fry",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/tempeh-stir-fry.jpg",
     "description": "Peanut-ginger glaze over crispy tempeh. Works with any vegetables and grains you have.",
     "steps": {
@@ -1896,7 +1896,7 @@ const recipes = [
   {
     "id": 7,
     "title": "Creamy Coconut Curry Lentils with Spinach",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/coconut-curry-lentils.jpg",
     "description": "Rich, creamy, and earthy coconut curry lentils with spinach - an easy and delicious vegan dinner option perfect for meal prep!",
     "steps": {
@@ -2199,7 +2199,7 @@ const recipes = [
   {
     "id": 8,
     "title": "Quinoa and Veggie Power Bowls",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/quinoa-power-bowls.jpg",
     "description": "Nutritious power bowls with maple chipotle Brussels sprouts, smoky butternut squash, and fluffy quinoa - perfect for meal prep!",
     "steps": {
@@ -2629,7 +2629,7 @@ const recipes = [
   {
     "id": 9,
     "title": "Vegan Winter Lentil Stew",
-    "category": "dinner",
+    "category": "hot meals",
     "image": "images/vegan-lentil-stew.jpg",
     "description": "A rich and hearty medley of vegetables, lentils, and herbs - this freezer-friendly vegan lentil stew is the perfect cold-weather comfort food.",
     "steps": {
@@ -3008,7 +3008,7 @@ const recipes = [
   {
     "id": 10,
     "title": "Edamame Salad with Peanut Sauce",
-    "category": "salads",
+    "category": "cold meals",
     "image": "images/edamame-salad.jpg",
     "description": "A protein-packed edamame salad with crunchy colorful vegetables tossed in a Thai-inspired peanut dressing.",
     "steps": {
