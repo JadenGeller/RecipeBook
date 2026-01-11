@@ -485,12 +485,16 @@
         }
 
         .recipe-grid.steps-format .instructions-list li {
-            border-bottom: none;
             padding-left: 0;
             padding-top: 0;
+            border-bottom: none;
         }
 
         .recipe-grid.steps-format .instructions-list li::before {
+            display: none;
+        }
+
+        .recipe-grid.steps-format .instructions-section .recipe-section-title {
             display: none;
         }
 
@@ -576,51 +580,87 @@
             content: "· ";
         }
 
-        /* Recipe steps format - rows with ingredients left, info right */
+        /* Recipe steps format */
         .recipe-step {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 1rem;
             margin-bottom: 2.5rem;
         }
 
-        .step-info {
+        .recipe-step:last-child {
+            margin-bottom: 0;
         }
 
         .step-name {
             font-family: 'Space Mono', monospace;
             font-size: 0.7rem;
             text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
             letter-spacing: 0.05em;
+            color: var(--text);
+            background: var(--accent-secondary);
+            padding: 0.35rem 0.5rem;
+            border: 2px solid var(--border);
+            font-weight: 700;
+            justify-self: end;
+            align-self: start;
+            text-align: right;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border);
+            margin-top: -0.1rem;
+            padding-bottom: 0.2rem;
+        }
+
+        .step-technique {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .step-technique-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .step-technique-params {
+            font-size: 1rem;
+            color: var(--text-light);
         }
 
         .step-inputs {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 0.6rem 0.75rem;
         }
 
-        .step-ingredient,
-        a.step-ref {
+        .step-ingredient {
             padding: 0.5rem 0.75rem;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             background: var(--card);
             border: 2px solid var(--border);
             box-shadow: 2px 2px 0 var(--border);
         }
 
         a.step-ref {
-            color: var(--text);
+            color: var(--text-light);
             text-decoration: none;
             text-transform: capitalize;
-            opacity: 0.7;
+            font-size: 0.85rem;
+            font-style: italic;
         }
 
         a.step-ref:hover {
-            background: var(--accent);
-            opacity: 1;
+            color: var(--text);
+            text-decoration: underline;
         }
 
         .recipe-step.highlight {
@@ -630,33 +670,6 @@
         @keyframes step-highlight {
             0%, 30% { background: var(--accent); }
             100% { background: transparent; }
-        }
-
-        .step-technique {
-            margin-top: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-
-        .step-technique-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .step-technique-params {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            display: flex;
-            flex-direction: column;
-            gap: 0.1rem;
-        }
-
-        .step-technique-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-right: 0.3rem;
         }
 
         .instructions-list {
@@ -1774,23 +1787,25 @@
 
                         const t = step.technique;
 
-                        // Build technique block with structure visible
-                        let techHtml = '';
-                        if (t) {
-                            let params = [];
-                            if (t.for) params.push(`<div><span class="step-technique-label">for</span>${t.for}</div>`);
-                            if (t.until) params.push(`<div><span class="step-technique-label">until</span>${t.until}</div>`);
-                            const paramsHtml = params.length > 0 ? `<div class="step-technique-params">${params.join('')}</div>` : '';
-                            techHtml = `<div class="step-technique"><div class="step-technique-name">${t.name}</div>${paramsHtml}</div>`;
+                        // Build technique params as simple text
+                        let paramsHtml = '';
+                        if (t && (t.for || t.until)) {
+                            let parts = [];
+                            if (t.for) parts.push(`for ${t.for}`);
+                            if (t.until) parts.push(`until ${t.until}`);
+                            paramsHtml = `<span class="step-technique-params">${parts.join(', ')}</span>`;
                         }
 
                         return `
                             <li class="recipe-step" id="step-${stepId}">
-                                <div class="step-info">
-                                    <div class="step-name">${stepName}</div>
-                                    ${techHtml}
+                                <span class="step-name">${stepName}</span>
+                                <div class="step-content">
+                                    ${t ? `<div class="step-technique">
+                                        <span class="step-technique-name">${t.name}</span>
+                                        ${paramsHtml}
+                                    </div>` : ''}
+                                    <div class="step-inputs">${inputsHtml}</div>
                                 </div>
-                                <div class="step-inputs">${inputsHtml}</div>
                             </li>
                         `;
                     }).join('');
