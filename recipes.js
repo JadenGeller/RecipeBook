@@ -2,10 +2,10 @@
 const recipes = [
   {
     "id": 1,
-    "title": "Vegan Chicken & Waffles",
+    "title": "Crispy Tofu & Waffles",
     "category": "hot meals",
     "image": "images/chicken-and-waffles.jpg",
-    "description": "Crispy fried tofu \"chicken\" with rosemary waffles and truffle maple syrup.",
+    "description": "Fried tofu with rosemary waffles and truffle maple syrup.",
     "steps": {
       "flax eggs": {
         "inputs": [
@@ -452,10 +452,10 @@ const recipes = [
   },
   {
     "id": 2,
-    "title": "Pan Fried Sesame Tofu with Broccoli",
+    "title": "Sesame Tofu with Broccoli",
     "category": "hot meals",
     "image": "images/sesame-tofu-broccoli.jpg",
-    "description": "Seriously crispy pan-fried tofu drenched in a tangy sesame sauce with broccoli florets - a delicious plant-based meal!",
+    "description": "Crispy pan-fried tofu and broccoli in a tangy sesame-ginger sauce.",
     "steps": {
       "pressed tofu": {
         "inputs": [
@@ -839,10 +839,10 @@ const recipes = [
   },
   {
     "id": 3,
-    "title": "My Go-To Vegan Soup",
+    "title": "White Bean & Kale Soup",
     "category": "hot meals",
     "image": "images/go-to-vegan-soup.jpg",
-    "description": "A simple 20-minute white bean and kale soup packed full of veggies, made with ingredients you likely already have on hand!",
+    "description": "White beans and kale in a cumin-turmeric broth. Uses pantry staples.",
     "steps": {
       "chopped vegetables": {
         "inputs": [
@@ -1177,7 +1177,7 @@ const recipes = [
     "title": "Creamy Lentil Vegetable Soup",
     "category": "hot meals",
     "image": "images/creamy-lentil-soup.jpg",
-    "description": "A cozy medley of colors, flavors, and textures - this creamy lentil vegetable soup is hearty, inexpensive, and vegan!",
+    "description": "Red lentils blended into a creamy base with carrots, celery, and warm spices.",
     "steps": {
       "sautéed mushrooms": {
         "inputs": [
@@ -1511,7 +1511,7 @@ const recipes = [
     "title": "Spanish Rice and Beans",
     "category": "hot meals",
     "image": "images/spanish-rice-beans.jpg",
-    "description": "Rich and flavorful Spanish rice and beans - the perfect one-pot weeknight dinner that's naturally gluten-free and vegan!",
+    "description": "Tomato-spiced rice with black beans and corn. One pot.",
     "steps": {
       "soaked rice": {
         "inputs": [
@@ -1878,7 +1878,7 @@ const recipes = [
     "title": "Southwest Tofu Scramble",
     "category": "hot meals",
     "image": "images/southwest-tofu-scramble.jpg",
-    "description": "Savory, Southwest-inspired tofu scramble with lots of veggies and a simple 5-ingredient sauce. Just 10 ingredients, 30 minutes, and 1 pan!",
+    "description": "Crumbled tofu with peppers, onions, and a smoky southwest sauce.",
     "steps": {
       "pressed tofu": {
         "inputs": [
@@ -2199,7 +2199,7 @@ const recipes = [
   },
   {
     "id": 7,
-    "title": "Vegan Coffee Cake",
+    "title": "Coffee Cake",
     "category": "desserts",
     "image": "images/coffee-cake.jpg",
     "description": "Classic cinnamon streusel coffee cake. Tender crumb with brown sugar swirl.",
@@ -2846,7 +2846,7 @@ const recipes = [
     "title": "Peanut Butter Overnight Oats",
     "category": "cold meals",
     "image": "images/overnight-oats.jpg",
-    "description": "Creamy make-ahead oats with peanut butter swirls. Perfect grab-and-go breakfast.",
+    "description": "Creamy oats with peanut butter swirls and maple syrup.",
     "steps": {
       "wet mixture": {
         "inputs": [
@@ -3795,10 +3795,10 @@ const recipes = [
   },
   {
     "id": 12,
-    "title": "Creamy Coconut Curry Lentils with Spinach",
+    "title": "Coconut Curry Lentils",
     "category": "hot meals",
     "image": "images/coconut-curry-lentils.jpg",
-    "description": "Rich, creamy, and earthy coconut curry lentils with spinach - an easy and delicious vegan dinner option perfect for meal prep!",
+    "description": "Brown lentils in coconut milk curry with spinach. Serve over rice.",
     "steps": {
       "rice": {
         "inputs": [
@@ -4137,10 +4137,10 @@ const recipes = [
   },
   {
     "id": 13,
-    "title": "Quinoa and Veggie Power Bowls",
+    "title": "Quinoa Power Bowls",
     "category": "hot meals",
     "image": "images/quinoa-power-bowls.jpg",
-    "description": "Nutritious power bowls with maple chipotle Brussels sprouts, smoky butternut squash, and fluffy quinoa - perfect for meal prep!",
+    "description": "Roasted Brussels sprouts and butternut squash over quinoa with maple mustard dressing.",
     "steps": {
       "preheat oven": {
         "inputs": [],
@@ -4609,7 +4609,7 @@ const recipes = [
     "title": "Peanut Butter Protein Bars",
     "category": "desserts",
     "image": "images/protein-bars.jpg",
-    "description": "5-ingredient no-bake bars with chocolate drizzle. Perfect post-workout snack.",
+    "description": "No-bake bars with peanut butter, dates, and seeds. Chocolate drizzle on top.",
     "steps": {
       "base": {
         "inputs": [
@@ -4863,10 +4863,10 @@ const recipes = [
   },
   {
     "id": 15,
-    "title": "Vegan Winter Lentil Stew",
+    "title": "Winter Lentil Stew",
     "category": "hot meals",
     "image": "images/vegan-lentil-stew.jpg",
-    "description": "A rich and hearty medley of vegetables, lentils, and herbs - this freezer-friendly vegan lentil stew is the perfect cold-weather comfort food.",
+    "description": "Lentils, potatoes, and peas in a rosemary-Dijon broth. Freezes well.",
     "steps": {
       "diced onion": {
         "inputs": [
@@ -5251,7 +5251,7 @@ const recipes = [
     "title": "Edamame Salad with Peanut Sauce",
     "category": "cold meals",
     "image": "images/edamame-salad.jpg",
-    "description": "A protein-packed edamame salad with crunchy colorful vegetables tossed in a Thai-inspired peanut dressing.",
+    "description": "Edamame and crunchy vegetables in a Thai-inspired peanut dressing.",
     "steps": {
       "edamame": {
         "inputs": [
@@ -5589,7 +5589,7 @@ const recipes = [
     "title": "No-Bake Chocolate Cake Bites",
     "category": "desserts",
     "image": "images/chocolate-cake-bites.jpg",
-    "description": "Fudgy date-based truffles with chocolate glaze. No oven required.",
+    "description": "Fudgy date-based truffles with chocolate glaze.",
     "steps": {
       "date paste": {
         "inputs": [
