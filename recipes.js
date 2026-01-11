@@ -1063,7 +1063,8 @@ const recipes = [
           "name": "simmer",
           "for": "15 min",
           "until": "fluffy"
-        }
+        },
+        "duration": "15 min"
       },
       "glaze": {
         "inputs": [
@@ -1128,7 +1129,8 @@ const recipes = [
           "name": "whisk",
           "for": null,
           "until": "smooth"
-        }
+        },
+        "duration": "2 min"
       },
       "marinated tempeh": {
         "inputs": [
@@ -1150,7 +1152,42 @@ const recipes = [
           "name": "marinate",
           "for": "15 min",
           "until": null
-        }
+        },
+        "duration": "15 min"
+      },
+      "chopped vegetables": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "carrots",
+            "amount": "2",
+            "unit": "medium",
+            "prep": null,
+            "raw": "2 medium carrots"
+          },
+          {
+            "type": "raw",
+            "name": "pepper",
+            "amount": "1",
+            "unit": "bell",
+            "prep": null,
+            "raw": "1 bell pepper"
+          },
+          {
+            "type": "raw",
+            "name": "onions",
+            "amount": "4",
+            "unit": "green",
+            "prep": null,
+            "raw": "4 green onions"
+          }
+        ],
+        "technique": {
+          "name": "chop",
+          "for": null,
+          "until": null
+        },
+        "duration": "10 min"
       },
       "stir-fry": {
         "technique": {
@@ -1180,20 +1217,9 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "raw",
-                "name": "green onions",
-                "amount": "2/3",
-                "unit": "cup",
-                "prep": "chopped",
-                "raw": "2/3 cup green onions, chopped"
-              },
-              {
-                "type": "raw",
-                "name": "mixed vegetables",
-                "amount": "4",
-                "unit": "cups",
-                "prep": null,
-                "raw": "4 cups mixed vegetables"
+                "type": "ref",
+                "name": "chopped vegetables",
+                "raw": "chopped vegetables"
               },
               {
                 "type": "raw",
@@ -1225,13 +1251,15 @@ const recipes = [
             "for": null,
             "until": null
           }
-        ]
+        ],
+        "duration": "12 min"
       }
     },
     "stepOrder": [
       "quinoa",
       "glaze",
       "marinated tempeh",
+      "chopped vegetables",
       "stir-fry"
     ],
     "ingredients": [
@@ -1317,27 +1345,35 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "carrots",
+        "amount": "2",
+        "unit": "medium",
+        "prep": null,
+        "raw": "2 medium carrots"
+      },
+      {
+        "type": "raw",
+        "name": "pepper",
+        "amount": "1",
+        "unit": "bell",
+        "prep": null,
+        "raw": "1 bell pepper"
+      },
+      {
+        "type": "raw",
+        "name": "onions",
+        "amount": "4",
+        "unit": "green",
+        "prep": null,
+        "raw": "4 green onions"
+      },
+      {
+        "type": "raw",
         "name": "sesame oil",
         "amount": "4",
         "unit": "tsp",
         "prep": null,
         "raw": "4 tsp sesame oil"
-      },
-      {
-        "type": "raw",
-        "name": "green onions",
-        "amount": "2/3",
-        "unit": "cup",
-        "prep": "chopped",
-        "raw": "2/3 cup green onions, chopped"
-      },
-      {
-        "type": "raw",
-        "name": "mixed vegetables",
-        "amount": "4",
-        "unit": "cups",
-        "prep": null,
-        "raw": "4 cups mixed vegetables"
       },
       {
         "type": "raw",

@@ -13,6 +13,7 @@ steps:
     do: simmer
     for: 15 min
     until: fluffy
+    duration: 15 min
 
   glaze:
     with:
@@ -25,6 +26,7 @@ steps:
       - 4 Tbsp water
     do: whisk
     until: smooth
+    duration: 2 min
 
   marinated tempeh:
     with:
@@ -32,9 +34,19 @@ steps:
       - glaze
     do: marinate
     for: 15 min
+    duration: 15 min
+
+  chopped vegetables:
+    with:
+      - 2 medium carrots
+      - 1 bell pepper
+      - 4 green onions
+    do: chop
+    duration: 10 min
 
   stir-fry:
     do: sauté
+    duration: 12 min
     sequence:
       - with:
           - marinated tempeh
@@ -42,8 +54,7 @@ steps:
         for: 3-4 min per side
         until: browned
       - add:
-          - 2/3 cup green onions, chopped
-          - 4 cups mixed vegetables
+          - chopped vegetables
           - 4 tsp coconut aminos
         for: 4-5 min
         until: tender

@@ -80,7 +80,8 @@ function parseYamlRecipe(filePath, id) {
 
         steps[stepName] = {
           technique: { name: stepData.do },
-          sequence
+          sequence,
+          duration: stepData.duration || null
         };
       } else {
         // Simple step with inputs and technique
@@ -91,7 +92,7 @@ function parseYamlRecipe(filePath, id) {
           until: stepData.until || null
         } : null;
 
-        steps[stepName] = { inputs, technique };
+        steps[stepName] = { inputs, technique, duration: stepData.duration || null };
       }
       stepOrder.push(stepName);
     }
