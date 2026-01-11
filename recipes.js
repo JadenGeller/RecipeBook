@@ -1099,14 +1099,11 @@ const recipes = [
             "raw": "4 Tbsp water"
           }
         ],
-        "action": "whisk until smooth and pourable",
-        "techniques": [
-          "whisk"
-        ],
-        "equipment": [
-          "mixing bowl",
-          "whisk"
-        ]
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "smooth"
+        }
       },
       "marinated tempeh": {
         "inputs": [
@@ -1124,15 +1121,11 @@ const recipes = [
             "raw": "glaze"
           }
         ],
-        "action": "coat tempeh in glaze, refrigerate 15 min",
-        "techniques": [
-          "coat",
-          "refrigerate"
-        ],
-        "equipment": [
-          "container with lid",
-          "refrigerator"
-        ]
+        "technique": {
+          "name": "marinate",
+          "for": "15 min",
+          "until": null
+        }
       },
       "cooked tempeh": {
         "inputs": [
@@ -1150,14 +1143,11 @@ const recipes = [
             "raw": "4 tsp sesame oil"
           }
         ],
-        "action": "heat skillet, sauté 3-4 min per side until browned",
-        "techniques": [
-          "sauté"
-        ],
-        "equipment": [
-          "skillet",
-          "spatula"
-        ]
+        "technique": {
+          "name": "sauté",
+          "for": "3-4 min per side",
+          "until": "browned"
+        }
       },
       "vegetables": {
         "inputs": [
@@ -1186,14 +1176,11 @@ const recipes = [
             "raw": "4 tsp coconut aminos"
           }
         ],
-        "action": "sauté until tender, 4-5 min",
-        "techniques": [
-          "sauté"
-        ],
-        "equipment": [
-          "skillet",
-          "spatula"
-        ]
+        "technique": {
+          "name": "sauté",
+          "for": "4-5 min",
+          "until": "tender"
+        }
       },
       "dish": {
         "inputs": [
@@ -1221,14 +1208,11 @@ const recipes = [
             "raw": "3 cups quinoa"
           }
         ],
-        "action": "combine everything, serve over grains",
-        "techniques": [
-          "combine",
-          "serve"
-        ],
-        "equipment": [
-          "serving dish"
-        ]
+        "technique": {
+          "name": "serve",
+          "for": null,
+          "until": null
+        }
       }
     },
     "stepOrder": [
@@ -1342,43 +1326,6 @@ const recipes = [
         "unit": "cups",
         "prep": null,
         "raw": "3 cups quinoa"
-      }
-    ],
-    "equipment": [
-      {
-        "name": "container with lid",
-        "kind": "container",
-        "prep": null
-      },
-      {
-        "name": "mixing bowl",
-        "kind": "container",
-        "prep": null
-      },
-      {
-        "name": "refrigerator",
-        "kind": "appliance",
-        "prep": null
-      },
-      {
-        "name": "serving dish",
-        "kind": "container",
-        "prep": null
-      },
-      {
-        "name": "skillet",
-        "kind": "cookware",
-        "prep": null
-      },
-      {
-        "name": "spatula",
-        "kind": "utensil",
-        "prep": null
-      },
-      {
-        "name": "whisk",
-        "kind": "utensil",
-        "prep": null
       }
     ],
     "meta": "Yield: 4 servings | Prep: 20 min | Cook: 10 min",

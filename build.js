@@ -14,41 +14,44 @@ const ingredientRegistry = JSON.parse(fs.readFileSync(ingredientsFile, 'utf-8'))
 const techniquesRegistry = JSON.parse(fs.readFileSync(techniquesFile, 'utf-8'));
 const equipmentRegistry = JSON.parse(fs.readFileSync(equipmentFile, 'utf-8'));
 
-// Derive equipment from a list of techniques (walking up parent hierarchy)
-function getEquipmentForTechniques(techniques) {
+// Derive equipment from a technique name (walking up parent hierarchy)
+function getEquipmentForTechnique(techniqueName) {
   const equipment = new Set();
-  const prep = {};
+  let current = techniqueName;
+  const visited = new Set();
 
-  for (const techniqueName of techniques) {
-    let current = techniqueName;
-    const visited = new Set();
+  while (current && !visited.has(current)) {
+    visited.add(current);
+    const technique = techniquesRegistry[current];
+    if (!technique) break;
 
-    // Walk up the parent chain
-    while (current && !visited.has(current)) {
-      visited.add(current);
-      const technique = techniquesRegistry[current];
-      if (!technique) break;
-
-      // Add equipment from this technique
-      for (const equip of technique.equipment || []) {
-        equipment.add(equip);
-      }
-
-      // Track prep requirements
-      if (technique.prep) {
-        for (const [equip, prepAction] of Object.entries(technique.prep)) {
-          prep[equip] = prepAction;
-        }
-      }
-
-      current = technique.parent;
+    for (const equip of technique.equipment || []) {
+      equipment.add(equip);
     }
+    current = technique.parent;
   }
 
-  return {
-    list: Array.from(equipment).sort(),
-    prep
-  };
+  return Array.from(equipment).sort();
+}
+
+// Generate action text from structured technique
+function generateActionText(techniqueName, params) {
+  const parts = [techniqueName];
+
+  if (params.duration) {
+    parts.push(params.duration);
+  }
+  if (params.until) {
+    parts.push(`until ${params.until}`);
+  }
+  if (params.with) {
+    parts.push(`over ${params.with}`);
+  }
+  if (params.note) {
+    parts.push(`(${params.note})`);
+  }
+
+  return parts.join(', ');
 }
 
 // Known units for parsing
@@ -111,32 +114,18 @@ function parseYamlRecipe(filePath, id) {
   // Parse steps
   const steps = {};
   const stepOrder = [];
-  const allEquipment = new Set();
-  const allPrep = {};
 
   if (data.steps) {
     for (const [stepName, stepData] of Object.entries(data.steps)) {
-      const inputs = (stepData.in || []).map(parseIngredient);
-      const action = stepData.do || null;
-      const techniques = stepData.techniques || [];
+      const inputs = (stepData.with || []).map(parseIngredient);
 
-      // Derive equipment from techniques
-      const equipmentResult = getEquipmentForTechniques(techniques);
+      const technique = stepData.do ? {
+        name: stepData.do,
+        for: stepData.for || null,
+        until: stepData.until || null
+      } : null;
 
-      // Add to recipe-wide equipment
-      for (const equip of equipmentResult.list) {
-        allEquipment.add(equip);
-      }
-      for (const [equip, prepAction] of Object.entries(equipmentResult.prep)) {
-        allPrep[equip] = prepAction;
-      }
-
-      steps[stepName] = {
-        inputs,
-        action,
-        techniques,
-        equipment: equipmentResult.list
-      };
+      steps[stepName] = { inputs, technique };
       stepOrder.push(stepName);
     }
   }
@@ -151,16 +140,6 @@ function parseYamlRecipe(filePath, id) {
     }
   }
 
-  // Build equipment list with metadata
-  const equipmentList = Array.from(allEquipment).sort().map(name => {
-    const meta = equipmentRegistry[name] || {};
-    return {
-      name,
-      kind: meta.kind || 'other',
-      prep: allPrep[name] || null
-    };
-  });
-
   return {
     id,
     title: data.title,
@@ -169,8 +148,7 @@ function parseYamlRecipe(filePath, id) {
     description: data.description || '',
     steps,
     stepOrder,
-    ingredients: allIngredients, // flat list for backwards compat
-    equipment: equipmentList,
+    ingredients: allIngredients,
     meta: data.meta || '',
     source: data.source || '',
     format: 'yaml'
