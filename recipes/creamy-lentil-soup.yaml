@@ -10,16 +10,16 @@ steps:
     with:
       - 16 oz mushrooms, sliced
       - 2 Tbsp cooking oil
-      - pinch of salt
-      - pinch of pepper
+      - 1 pinch salt
+      - 1 pinch pepper
     do: sauté
     until: water released and evaporated
     duration: 8 min
 
   aromatics:
     with:
-      - sautéed mushrooms
-      - 3 carrots, diced
+      - "@sautéed mushrooms"
+      - 3 medium carrots, diced
       - 3 ribs celery, diced
       - 1 yellow onion, diced
       - 2 cloves garlic, minced
@@ -32,7 +32,7 @@ steps:
 
   lentil soup:
     with:
-      - aromatics
+      - "@aromatics"
       - 1 cup brown lentils
       - 3 cups vegetable broth
     do: simmer
@@ -42,7 +42,7 @@ steps:
 
   creamy soup:
     with:
-      - lentil soup
+      - "@lentil soup"
       - 1 (13.5 oz) can full-fat coconut milk
       - 1/2 tsp salt
       - 1/4 tsp pepper

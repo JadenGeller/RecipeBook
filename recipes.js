@@ -56,7 +56,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "flax eggs",
-            "raw": "flax eggs"
+            "prep": null,
+            "raw": "@flax eggs"
           },
           {
             "type": "raw",
@@ -119,17 +120,22 @@ const recipes = [
           {
             "type": "ref",
             "name": "tofu",
-            "raw": "tofu"
+            "prep": null,
+            "raw": "@tofu"
           },
           {
             "type": "ref",
             "name": "breading station",
-            "raw": "breading station"
+            "prep": null,
+            "raw": "@breading station"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "vegetable oil for frying",
-            "raw": "vegetable oil for frying"
+            "amount": "2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "2 cups vegetable oil for frying"
           }
         ],
         "technique": {
@@ -210,7 +216,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "waffle batter",
-            "raw": "waffle batter"
+            "prep": null,
+            "raw": "@waffle batter"
           }
         ],
         "technique": {
@@ -231,8 +238,11 @@ const recipes = [
             "raw": "3/4 cup maple syrup"
           },
           {
-            "type": "ref",
-            "name": "1-2 tsp truffle oil",
+            "type": "raw",
+            "name": "truffle oil",
+            "amount": "1-2",
+            "unit": "tsp",
+            "prep": null,
             "raw": "1-2 tsp truffle oil"
           }
         ],
@@ -248,17 +258,20 @@ const recipes = [
           {
             "type": "ref",
             "name": "waffles",
-            "raw": "waffles"
+            "prep": null,
+            "raw": "@waffles"
           },
           {
             "type": "ref",
             "name": "fried tofu",
-            "raw": "fried tofu"
+            "prep": null,
+            "raw": "@fried tofu"
           },
           {
             "type": "ref",
             "name": "truffle maple syrup",
-            "raw": "truffle maple syrup"
+            "prep": null,
+            "raw": "@truffle maple syrup"
           }
         ],
         "technique": {
@@ -354,6 +367,14 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "vegetable oil for frying",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups vegetable oil for frying"
+      },
+      {
+        "type": "raw",
         "name": "flour",
         "amount": "1 1/2",
         "unit": "cups",
@@ -415,6 +436,14 @@ const recipes = [
         "unit": "cup",
         "prep": null,
         "raw": "3/4 cup maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "truffle oil",
+        "amount": "1-2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1-2 tsp truffle oil"
       }
     ],
     "meta": "Yield: 4 servings | Prep: 20 min | Cook: 30 min",
@@ -533,12 +562,16 @@ const recipes = [
           {
             "type": "ref",
             "name": "pressed tofu",
-            "raw": "pressed tofu, cubed 1-inch"
+            "prep": "cubed 1-inch",
+            "raw": "@pressed tofu, cubed 1-inch"
           },
           {
-            "type": "ref",
-            "name": "pinch of salt",
-            "raw": "pinch of salt"
+            "type": "raw",
+            "name": "salt",
+            "amount": "1",
+            "unit": "pinch",
+            "prep": null,
+            "raw": "1 pinch salt"
           },
           {
             "type": "raw",
@@ -584,7 +617,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "coated tofu",
-                "raw": "coated tofu"
+                "prep": null,
+                "raw": "@coated tofu"
               },
               {
                 "type": "raw",
@@ -619,7 +653,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "sauce",
-                "raw": "sauce"
+                "prep": null,
+                "raw": "@sauce"
               }
             ],
             "isAddition": true,
@@ -634,16 +669,21 @@ const recipes = [
           {
             "type": "ref",
             "name": "stir-fry",
-            "raw": "stir-fry"
+            "prep": null,
+            "raw": "@stir-fry"
           },
           {
             "type": "ref",
             "name": "cooked rice",
-            "raw": "cooked rice"
+            "prep": null,
+            "raw": "@cooked rice"
           },
           {
-            "type": "ref",
-            "name": "3-4 green onions",
+            "type": "raw",
+            "name": "onions",
+            "amount": "3-4",
+            "unit": "green",
+            "prep": "sliced",
             "raw": "3-4 green onions, sliced"
           }
         ],
@@ -746,6 +786,14 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "salt",
+        "amount": "1",
+        "unit": "pinch",
+        "prep": null,
+        "raw": "1 pinch salt"
+      },
+      {
+        "type": "raw",
         "name": "cornstarch",
         "amount": "2",
         "unit": "Tbsp",
@@ -775,6 +823,14 @@ const recipes = [
         "unit": "lb",
         "prep": null,
         "raw": "1/2 lb frozen broccoli florets"
+      },
+      {
+        "type": "raw",
+        "name": "onions",
+        "amount": "3-4",
+        "unit": "green",
+        "prep": "sliced",
+        "raw": "3-4 green onions, sliced"
       }
     ],
     "meta": "Yield: 3 servings | Prep: 45 min | Cook: 15 min",
@@ -843,7 +899,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "chopped vegetables",
-            "raw": "chopped vegetables"
+            "prep": null,
+            "raw": "@chopped vegetables"
           }
         ],
         "technique": {
@@ -858,7 +915,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "sautéed vegetables",
-            "raw": "sautéed vegetables"
+            "prep": null,
+            "raw": "@sautéed vegetables"
           },
           {
             "type": "raw",
@@ -929,7 +987,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "soup base",
-            "raw": "soup base"
+            "prep": null,
+            "raw": "@soup base"
           },
           {
             "type": "raw",
@@ -952,17 +1011,24 @@ const recipes = [
           {
             "type": "ref",
             "name": "soup",
-            "raw": "soup"
+            "prep": null,
+            "raw": "@soup"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "salt to taste",
-            "raw": "salt to taste"
+            "amount": "1/2",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1/2 tsp salt to taste"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "vegan parmesan (optional)",
-            "raw": "vegan parmesan (optional)"
+            "amount": "1/4",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/4 cup vegan parmesan (optional)"
           }
         ],
         "technique": {
@@ -1084,6 +1150,22 @@ const recipes = [
         "unit": "cups",
         "prep": "finely shredded",
         "raw": "4 cups kale, finely shredded"
+      },
+      {
+        "type": "raw",
+        "name": "salt to taste",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp salt to taste"
+      },
+      {
+        "type": "raw",
+        "name": "vegan parmesan (optional)",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup vegan parmesan (optional)"
       }
     ],
     "meta": "Yield: 6 servings | Prep: 5 min | Cook: 15 min",
@@ -1116,14 +1198,20 @@ const recipes = [
             "raw": "2 Tbsp cooking oil"
           },
           {
-            "type": "ref",
-            "name": "pinch of salt",
-            "raw": "pinch of salt"
+            "type": "raw",
+            "name": "salt",
+            "amount": "1",
+            "unit": "pinch",
+            "prep": null,
+            "raw": "1 pinch salt"
           },
           {
-            "type": "ref",
-            "name": "pinch of pepper",
-            "raw": "pinch of pepper"
+            "type": "raw",
+            "name": "pepper",
+            "amount": "1",
+            "unit": "pinch",
+            "prep": null,
+            "raw": "1 pinch pepper"
           }
         ],
         "technique": {
@@ -1138,12 +1226,16 @@ const recipes = [
           {
             "type": "ref",
             "name": "sautéed mushrooms",
-            "raw": "sautéed mushrooms"
+            "prep": null,
+            "raw": "@sautéed mushrooms"
           },
           {
-            "type": "ref",
-            "name": "3 carrots",
-            "raw": "3 carrots, diced"
+            "type": "raw",
+            "name": "carrots",
+            "amount": "3",
+            "unit": "medium",
+            "prep": "diced",
+            "raw": "3 medium carrots, diced"
           },
           {
             "type": "raw",
@@ -1206,7 +1298,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "aromatics",
-            "raw": "aromatics"
+            "prep": null,
+            "raw": "@aromatics"
           },
           {
             "type": "raw",
@@ -1237,7 +1330,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "lentil soup",
-            "raw": "lentil soup"
+            "prep": null,
+            "raw": "@lentil soup"
           },
           {
             "type": "raw",
@@ -1294,6 +1388,30 @@ const recipes = [
         "unit": "Tbsp",
         "prep": null,
         "raw": "2 Tbsp cooking oil"
+      },
+      {
+        "type": "raw",
+        "name": "salt",
+        "amount": "1",
+        "unit": "pinch",
+        "prep": null,
+        "raw": "1 pinch salt"
+      },
+      {
+        "type": "raw",
+        "name": "pepper",
+        "amount": "1",
+        "unit": "pinch",
+        "prep": null,
+        "raw": "1 pinch pepper"
+      },
+      {
+        "type": "raw",
+        "name": "carrots",
+        "amount": "3",
+        "unit": "medium",
+        "prep": "diced",
+        "raw": "3 medium carrots, diced"
       },
       {
         "type": "raw",
@@ -1406,9 +1524,12 @@ const recipes = [
             "raw": "1 1/2 cups white rice, uncooked"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "water",
-            "raw": "water"
+            "amount": "3",
+            "unit": "cups",
+            "prep": null,
+            "raw": "3 cups water"
           }
         ],
         "technique": {
@@ -1457,8 +1578,11 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "3-4 garlic cloves",
+                "type": "raw",
+                "name": "cloves",
+                "amount": "3-4",
+                "unit": "garlic",
+                "prep": "minced",
                 "raw": "3-4 garlic cloves, minced"
               },
               {
@@ -1494,14 +1618,20 @@ const recipes = [
                 "raw": "1/2 tsp smoked paprika"
               },
               {
-                "type": "ref",
-                "name": "pinch of red pepper flakes",
-                "raw": "pinch of red pepper flakes"
+                "type": "raw",
+                "name": "red pepper flakes",
+                "amount": "1",
+                "unit": "pinch",
+                "prep": null,
+                "raw": "1 pinch red pepper flakes"
               },
               {
-                "type": "ref",
-                "name": "salt and black pepper to taste",
-                "raw": "salt and black pepper to taste"
+                "type": "raw",
+                "name": "salt and black pepper",
+                "amount": "1/2",
+                "unit": "tsp",
+                "prep": null,
+                "raw": "1/2 tsp salt and black pepper"
               }
             ],
             "isAddition": true,
@@ -1521,7 +1651,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "soaked rice",
-                "raw": "soaked rice"
+                "prep": null,
+                "raw": "@soaked rice"
               },
               {
                 "type": "raw",
@@ -1558,7 +1689,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "simmered rice",
-            "raw": "simmered rice"
+            "prep": null,
+            "raw": "@simmered rice"
           },
           {
             "type": "raw",
@@ -1577,9 +1709,12 @@ const recipes = [
             "raw": "1/2 cup green olives, halved (optional)"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "fresh cilantro or parsley for garnish",
-            "raw": "fresh cilantro or parsley for garnish"
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp fresh cilantro or parsley for garnish"
           }
         ],
         "technique": {
@@ -1607,6 +1742,14 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "water",
+        "amount": "3",
+        "unit": "cups",
+        "prep": null,
+        "raw": "3 cups water"
+      },
+      {
+        "type": "raw",
         "name": "oil",
         "amount": "1",
         "unit": "Tbsp",
@@ -1628,6 +1771,14 @@ const recipes = [
         "unit": "medium",
         "prep": "chopped",
         "raw": "1 medium red bell pepper, chopped"
+      },
+      {
+        "type": "raw",
+        "name": "cloves",
+        "amount": "3-4",
+        "unit": "garlic",
+        "prep": "minced",
+        "raw": "3-4 garlic cloves, minced"
       },
       {
         "type": "raw",
@@ -1663,6 +1814,22 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "red pepper flakes",
+        "amount": "1",
+        "unit": "pinch",
+        "prep": null,
+        "raw": "1 pinch red pepper flakes"
+      },
+      {
+        "type": "raw",
+        "name": "salt and black pepper",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp salt and black pepper"
+      },
+      {
+        "type": "raw",
         "name": "salsa",
         "amount": "1 1/4",
         "unit": "cups",
@@ -1692,6 +1859,14 @@ const recipes = [
         "unit": "cup",
         "prep": "halved (optional)",
         "raw": "1/2 cup green olives, halved (optional)"
+      },
+      {
+        "type": "raw",
+        "name": "fresh cilantro or parsley for garnish",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp fresh cilantro or parsley for garnish"
       }
     ],
     "meta": "Yield: 4 servings | Prep: 15 min | Cook: 20 min",
@@ -1766,9 +1941,12 @@ const recipes = [
             "raw": "1/4 tsp turmeric (optional)"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "water to thin",
-            "raw": "water to thin"
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp water to thin"
           }
         ],
         "technique": {
@@ -1802,8 +1980,11 @@ const recipes = [
                 "raw": "1/2 medium red bell pepper, thinly sliced"
               },
               {
-                "type": "ref",
-                "name": "1-2 tbsp olive oil",
+                "type": "raw",
+                "name": "olive oil",
+                "amount": "1-2",
+                "unit": "Tbsp",
+                "prep": null,
                 "raw": "1-2 Tbsp olive oil"
               }
             ],
@@ -1831,7 +2012,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "pressed tofu",
-                "raw": "pressed tofu, crumbled"
+                "prep": "crumbled",
+                "raw": "@pressed tofu, crumbled"
               }
             ],
             "isAddition": true,
@@ -1843,7 +2025,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "spice sauce",
-                "raw": "spice sauce"
+                "prep": null,
+                "raw": "@spice sauce"
               }
             ],
             "isAddition": true,
@@ -1857,18 +2040,33 @@ const recipes = [
         "inputs": [
           {
             "type": "ref",
+            "name": "scramble",
+            "prep": null,
+            "raw": "@scramble"
+          },
+          {
+            "type": "raw",
             "name": "salsa",
-            "raw": "salsa"
+            "amount": "1/4",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/4 cup salsa"
           },
           {
-            "type": "ref",
-            "name": "cilantro",
-            "raw": "cilantro"
+            "type": "raw",
+            "name": "fresh cilantro",
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp fresh cilantro"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "hot sauce",
-            "raw": "hot sauce"
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp hot sauce"
           }
         ],
         "technique": null,
@@ -1932,6 +2130,14 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "water to thin",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp water to thin"
+      },
+      {
+        "type": "raw",
         "name": "red onion",
         "amount": "1/4",
         "unit": "medium",
@@ -1948,11 +2154,43 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "olive oil",
+        "amount": "1-2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1-2 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
         "name": "kale",
         "amount": "2",
         "unit": "cups",
         "prep": "loosely chopped",
         "raw": "2 cups kale, loosely chopped"
+      },
+      {
+        "type": "raw",
+        "name": "salsa",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup salsa"
+      },
+      {
+        "type": "raw",
+        "name": "fresh cilantro",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp fresh cilantro"
+      },
+      {
+        "type": "raw",
+        "name": "hot sauce",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp hot sauce"
       }
     ],
     "meta": "Yield: 2 servings | Prep: 10 min | Cook: 20 min",
@@ -2065,7 +2303,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "buttermilk",
-            "raw": "buttermilk"
+            "prep": null,
+            "raw": "@buttermilk"
           },
           {
             "type": "raw",
@@ -2104,12 +2343,14 @@ const recipes = [
           {
             "type": "ref",
             "name": "dry ingredients",
-            "raw": "dry ingredients"
+            "prep": null,
+            "raw": "@dry ingredients"
           },
           {
             "type": "ref",
             "name": "wet ingredients",
-            "raw": "wet ingredients"
+            "prep": null,
+            "raw": "@wet ingredients"
           }
         ],
         "technique": {
@@ -2119,7 +2360,7 @@ const recipes = [
         },
         "duration": "2 min"
       },
-      "assemble": {
+      "assembled cake": {
         "technique": {
           "name": "layer in greased 9x13 pan"
         },
@@ -2127,9 +2368,12 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "half of batter",
-                "raw": "half of batter"
+                "type": "raw",
+                "name": "batter",
+                "amount": "1/2",
+                "unit": "of",
+                "prep": null,
+                "raw": "1/2 of batter"
               }
             ],
             "isAddition": false,
@@ -2139,9 +2383,12 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "half of cinnamon streusel",
-                "raw": "half of cinnamon streusel"
+                "type": "raw",
+                "name": "cinnamon streusel",
+                "amount": "1/2",
+                "unit": "of",
+                "prep": null,
+                "raw": "1/2 of cinnamon streusel"
               }
             ],
             "isAddition": true,
@@ -2151,9 +2398,12 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "remaining batter",
-                "raw": "remaining batter"
+                "type": "raw",
+                "name": "batter",
+                "amount": "1/2",
+                "unit": "of",
+                "prep": null,
+                "raw": "1/2 of batter"
               }
             ],
             "isAddition": true,
@@ -2163,9 +2413,12 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "remaining cinnamon streusel",
-                "raw": "remaining cinnamon streusel"
+                "type": "raw",
+                "name": "cinnamon streusel",
+                "amount": "1/2",
+                "unit": "of",
+                "prep": null,
+                "raw": "1/2 of cinnamon streusel"
               }
             ],
             "isAddition": true,
@@ -2195,7 +2448,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "assembled cake",
-            "raw": "assembled cake"
+            "prep": null,
+            "raw": "@assembled cake"
           }
         ],
         "technique": {
@@ -2212,7 +2466,7 @@ const recipes = [
       "dry ingredients",
       "wet ingredients",
       "batter",
-      "assemble",
+      "assembled cake",
       "bake"
     ],
     "ingredients": [
@@ -2306,6 +2560,38 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "batter",
+        "amount": "1/2",
+        "unit": "of",
+        "prep": null,
+        "raw": "1/2 of batter"
+      },
+      {
+        "type": "raw",
+        "name": "cinnamon streusel",
+        "amount": "1/2",
+        "unit": "of",
+        "prep": null,
+        "raw": "1/2 of cinnamon streusel"
+      },
+      {
+        "type": "raw",
+        "name": "batter",
+        "amount": "1/2",
+        "unit": "of",
+        "prep": null,
+        "raw": "1/2 of batter"
+      },
+      {
+        "type": "raw",
+        "name": "cinnamon streusel",
+        "amount": "1/2",
+        "unit": "of",
+        "prep": null,
+        "raw": "1/2 of cinnamon streusel"
+      },
+      {
+        "type": "raw",
         "name": "melted vegan butter",
         "amount": "2",
         "unit": "Tbsp",
@@ -2361,14 +2647,20 @@ const recipes = [
             "raw": "1 Tbsp maple syrup"
           },
           {
-            "type": "ref",
-            "name": "pinch sea salt",
-            "raw": "pinch sea salt"
+            "type": "raw",
+            "name": "sea salt",
+            "amount": "1",
+            "unit": "pinch",
+            "prep": null,
+            "raw": "1 pinch sea salt"
           },
           {
-            "type": "ref",
-            "name": "pinch black pepper",
-            "raw": "pinch black pepper"
+            "type": "raw",
+            "name": "black pepper",
+            "amount": "1",
+            "unit": "pinch",
+            "prep": null,
+            "raw": "1 pinch black pepper"
           },
           {
             "type": "raw",
@@ -2397,9 +2689,12 @@ const recipes = [
             "raw": "7 oz arugula"
           },
           {
-            "type": "ref",
-            "name": "2 apples",
-            "raw": "2 apples, thinly sliced"
+            "type": "raw",
+            "name": "apples",
+            "amount": "2",
+            "unit": "medium",
+            "prep": "thinly sliced",
+            "raw": "2 medium apples, thinly sliced"
           },
           {
             "type": "raw",
@@ -2420,7 +2715,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "toasted pecans",
-            "raw": "toasted pecans"
+            "prep": null,
+            "raw": "@toasted pecans"
           }
         ],
         "technique": {
@@ -2435,12 +2731,14 @@ const recipes = [
           {
             "type": "ref",
             "name": "salad",
-            "raw": "salad"
+            "prep": null,
+            "raw": "@salad"
           },
           {
             "type": "ref",
             "name": "lemon dressing",
-            "raw": "lemon dressing"
+            "prep": null,
+            "raw": "@lemon dressing"
           }
         ],
         "technique": {
@@ -2484,6 +2782,22 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "sea salt",
+        "amount": "1",
+        "unit": "pinch",
+        "prep": null,
+        "raw": "1 pinch sea salt"
+      },
+      {
+        "type": "raw",
+        "name": "black pepper",
+        "amount": "1",
+        "unit": "pinch",
+        "prep": null,
+        "raw": "1 pinch black pepper"
+      },
+      {
+        "type": "raw",
         "name": "olive oil",
         "amount": "3",
         "unit": "Tbsp",
@@ -2497,6 +2811,14 @@ const recipes = [
         "unit": "oz",
         "prep": null,
         "raw": "7 oz arugula"
+      },
+      {
+        "type": "raw",
+        "name": "apples",
+        "amount": "2",
+        "unit": "medium",
+        "prep": "thinly sliced",
+        "raw": "2 medium apples, thinly sliced"
       },
       {
         "type": "raw",
@@ -2573,7 +2895,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "wet mixture",
-            "raw": "wet mixture"
+            "prep": null,
+            "raw": "@wet mixture"
           },
           {
             "type": "raw",
@@ -2596,7 +2919,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "oats",
-            "raw": "oats"
+            "prep": null,
+            "raw": "@oats"
           }
         ],
         "technique": {
@@ -2610,23 +2934,33 @@ const recipes = [
         "inputs": [
           {
             "type": "ref",
-            "name": "oats",
-            "raw": "oats"
+            "name": "chill",
+            "prep": null,
+            "raw": "@chill"
           },
           {
-            "type": "ref",
-            "name": "sliced banana (optional)",
-            "raw": "sliced banana (optional)"
+            "type": "raw",
+            "name": "banana",
+            "amount": "1/2",
+            "unit": "medium",
+            "prep": "sliced (optional)",
+            "raw": "1/2 medium banana, sliced (optional)"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "berries (optional)",
-            "raw": "berries (optional)"
+            "amount": "1/4",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/4 cup berries (optional)"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "granola (optional)",
-            "raw": "granola (optional)"
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp granola (optional)"
           }
         ],
         "technique": {
@@ -2683,6 +3017,30 @@ const recipes = [
         "unit": "cup",
         "prep": null,
         "raw": "1/2 cup rolled oats"
+      },
+      {
+        "type": "raw",
+        "name": "banana",
+        "amount": "1/2",
+        "unit": "medium",
+        "prep": "sliced (optional)",
+        "raw": "1/2 medium banana, sliced (optional)"
+      },
+      {
+        "type": "raw",
+        "name": "berries (optional)",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup berries (optional)"
+      },
+      {
+        "type": "raw",
+        "name": "granola (optional)",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp granola (optional)"
       }
     ],
     "meta": "Yield: 1 serving | Prep: 5 min | Chill: 6 hours",
@@ -2801,7 +3159,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "glaze",
-            "raw": "glaze"
+            "prep": null,
+            "raw": "@glaze"
           }
         ],
         "technique": {
@@ -2855,7 +3214,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "marinated tempeh",
-                "raw": "marinated tempeh"
+                "prep": null,
+                "raw": "@marinated tempeh"
               },
               {
                 "type": "raw",
@@ -2875,7 +3235,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "chopped vegetables",
-                "raw": "chopped vegetables"
+                "prep": null,
+                "raw": "@chopped vegetables"
               },
               {
                 "type": "raw",
@@ -2895,12 +3256,14 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "quinoa",
-                "raw": "quinoa"
+                "prep": null,
+                "raw": "@quinoa"
               },
               {
                 "type": "ref",
                 "name": "glaze",
-                "raw": "glaze"
+                "prep": null,
+                "raw": "@glaze"
               }
             ],
             "isAddition": true,
@@ -3126,7 +3489,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "toasted walnuts",
-            "raw": "toasted walnuts"
+            "prep": null,
+            "raw": "@toasted walnuts"
           },
           {
             "type": "raw",
@@ -3207,22 +3571,26 @@ const recipes = [
           {
             "type": "ref",
             "name": "brown rice",
-            "raw": "brown rice"
+            "prep": null,
+            "raw": "@brown rice"
           },
           {
             "type": "ref",
             "name": "walnut spice mixture",
-            "raw": "walnut spice mixture"
+            "prep": null,
+            "raw": "@walnut spice mixture"
           },
           {
             "type": "ref",
             "name": "sauteed onion",
-            "raw": "sauteed onion"
+            "prep": null,
+            "raw": "@sauteed onion"
           },
           {
             "type": "ref",
             "name": "mashed beans",
-            "raw": "mashed beans"
+            "prep": null,
+            "raw": "@mashed beans"
           },
           {
             "type": "raw",
@@ -3233,8 +3601,11 @@ const recipes = [
             "raw": "1/3 cup panko bread crumbs"
           },
           {
-            "type": "ref",
-            "name": "3-4 tbsp vegan bbq sauce",
+            "type": "raw",
+            "name": "vegan bbq sauce",
+            "amount": "3-4",
+            "unit": "Tbsp",
+            "prep": null,
             "raw": "3-4 Tbsp vegan BBQ sauce"
           }
         ],
@@ -3250,7 +3621,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "burger mixture",
-            "raw": "burger mixture"
+            "prep": null,
+            "raw": "@burger mixture"
           }
         ],
         "technique": {
@@ -3265,12 +3637,16 @@ const recipes = [
           {
             "type": "ref",
             "name": "patties",
-            "raw": "patties"
+            "prep": null,
+            "raw": "@patties"
           },
           {
-            "type": "ref",
+            "type": "raw",
             "name": "avocado oil",
-            "raw": "avocado oil"
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp avocado oil"
           }
         ],
         "technique": {
@@ -3395,6 +3771,22 @@ const recipes = [
         "unit": "cup",
         "prep": null,
         "raw": "1/3 cup panko bread crumbs"
+      },
+      {
+        "type": "raw",
+        "name": "vegan bbq sauce",
+        "amount": "3-4",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3-4 Tbsp vegan BBQ sauce"
+      },
+      {
+        "type": "raw",
+        "name": "avocado oil",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp avocado oil"
       }
     ],
     "meta": "Yield: 5 burgers | Prep: 25 min | Cook: 10 min",
@@ -3476,9 +3868,20 @@ const recipes = [
                 "raw": "2 Tbsp olive oil"
               },
               {
-                "type": "ref",
-                "name": "aromatics prep (garlic and ginger only)",
-                "raw": "aromatics prep (garlic and ginger only)"
+                "type": "raw",
+                "name": "garlic",
+                "amount": "2",
+                "unit": "cloves",
+                "prep": "minced",
+                "raw": "2 cloves garlic, minced"
+              },
+              {
+                "type": "raw",
+                "name": "fresh ginger",
+                "amount": "1",
+                "unit": "tsp",
+                "prep": "minced",
+                "raw": "1 tsp fresh ginger, minced"
               }
             ],
             "isAddition": false,
@@ -3488,9 +3891,12 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "aromatics prep (onion)",
-                "raw": "aromatics prep (onion)"
+                "type": "raw",
+                "name": "yellow onion",
+                "amount": "1",
+                "unit": "small",
+                "prep": "diced",
+                "raw": "1 small yellow onion, diced"
               }
             ],
             "isAddition": true,
@@ -3582,7 +3988,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "rice",
-            "raw": "rice"
+            "prep": null,
+            "raw": "@rice"
           },
           {
             "type": "raw",
@@ -3650,6 +4057,30 @@ const recipes = [
         "unit": "Tbsp",
         "prep": null,
         "raw": "2 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
+        "name": "garlic",
+        "amount": "2",
+        "unit": "cloves",
+        "prep": "minced",
+        "raw": "2 cloves garlic, minced"
+      },
+      {
+        "type": "raw",
+        "name": "fresh ginger",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": "minced",
+        "raw": "1 tsp fresh ginger, minced"
+      },
+      {
+        "type": "raw",
+        "name": "yellow onion",
+        "amount": "1",
+        "unit": "small",
+        "prep": "diced",
+        "raw": "1 small yellow onion, diced"
       },
       {
         "type": "raw",
@@ -3723,8 +4154,11 @@ const recipes = [
       "maple chipotle brussels sprouts": {
         "inputs": [
           {
-            "type": "ref",
-            "name": "14-16 oz brussels sprouts",
+            "type": "raw",
+            "name": "brussels sprouts",
+            "amount": "14-16",
+            "unit": "oz",
+            "prep": "trimmed and halved",
             "raw": "14-16 oz Brussels sprouts, trimmed and halved"
           },
           {
@@ -3822,12 +4256,14 @@ const recipes = [
           {
             "type": "ref",
             "name": "maple chipotle brussels sprouts",
-            "raw": "maple chipotle brussels sprouts"
+            "prep": null,
+            "raw": "@maple chipotle brussels sprouts"
           },
           {
             "type": "ref",
             "name": "smoky butternut squash",
-            "raw": "smoky butternut squash"
+            "prep": null,
+            "raw": "@smoky butternut squash"
           }
         ],
         "technique": {
@@ -3868,11 +4304,15 @@ const recipes = [
           {
             "type": "ref",
             "name": "quinoa",
-            "raw": "quinoa"
+            "prep": null,
+            "raw": "@quinoa"
           },
           {
-            "type": "ref",
-            "name": "2-3 handfuls chopped kale",
+            "type": "raw",
+            "name": "chopped kale",
+            "amount": "2-3",
+            "unit": "handfuls",
+            "prep": null,
             "raw": "2-3 handfuls chopped kale"
           }
         ],
@@ -3943,7 +4383,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "quinoa with kale",
-                "raw": "quinoa with kale"
+                "prep": null,
+                "raw": "@quinoa with kale"
               }
             ],
             "isAddition": false,
@@ -3955,7 +4396,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "roasted vegetables",
-                "raw": "roasted vegetables"
+                "prep": null,
+                "raw": "@roasted vegetables"
               }
             ],
             "isAddition": true,
@@ -3967,7 +4409,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "dressing",
-                "raw": "dressing"
+                "prep": null,
+                "raw": "@dressing"
               }
             ],
             "isAddition": true,
@@ -3977,9 +4420,12 @@ const recipes = [
           {
             "inputs": [
               {
-                "type": "ref",
-                "name": "sliced avocado (optional)",
-                "raw": "sliced avocado (optional)"
+                "type": "raw",
+                "name": "avocado",
+                "amount": "1",
+                "unit": "medium",
+                "prep": "sliced (optional)",
+                "raw": "1 medium avocado, sliced (optional)"
               }
             ],
             "isAddition": true,
@@ -4001,6 +4447,14 @@ const recipes = [
       "power bowls"
     ],
     "ingredients": [
+      {
+        "type": "raw",
+        "name": "brussels sprouts",
+        "amount": "14-16",
+        "unit": "oz",
+        "prep": "trimmed and halved",
+        "raw": "14-16 oz Brussels sprouts, trimmed and halved"
+      },
       {
         "type": "raw",
         "name": "extra-virgin olive oil",
@@ -4091,6 +4545,14 @@ const recipes = [
       },
       {
         "type": "raw",
+        "name": "chopped kale",
+        "amount": "2-3",
+        "unit": "handfuls",
+        "prep": null,
+        "raw": "2-3 handfuls chopped kale"
+      },
+      {
+        "type": "raw",
         "name": "extra-virgin olive oil",
         "amount": "1/4",
         "unit": "cup",
@@ -4128,6 +4590,14 @@ const recipes = [
         "unit": "tsp",
         "prep": null,
         "raw": "1/4 tsp kosher salt"
+      },
+      {
+        "type": "raw",
+        "name": "avocado",
+        "amount": "1",
+        "unit": "medium",
+        "prep": "sliced (optional)",
+        "raw": "1 medium avocado, sliced (optional)"
       }
     ],
     "meta": "Yield: 4 servings | Prep: 20 min | Cook: 25 min",
@@ -4172,7 +4642,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "base",
-            "raw": "base"
+            "prep": null,
+            "raw": "@base"
           },
           {
             "type": "raw",
@@ -4206,12 +4677,13 @@ const recipes = [
         },
         "duration": "2 min"
       },
-      "press": {
+      "pressed bars": {
         "inputs": [
           {
             "type": "ref",
             "name": "mixture",
-            "raw": "mixture"
+            "prep": null,
+            "raw": "@mixture"
           }
         ],
         "technique": {
@@ -4221,12 +4693,13 @@ const recipes = [
         },
         "duration": "3 min"
       },
-      "chill": {
+      "chilled bars": {
         "inputs": [
           {
             "type": "ref",
             "name": "pressed bars",
-            "raw": "pressed bars"
+            "prep": null,
+            "raw": "@pressed bars"
           }
         ],
         "technique": {
@@ -4262,17 +4735,19 @@ const recipes = [
         },
         "duration": "2 min"
       },
-      "finish": {
+      "finished bars": {
         "inputs": [
           {
             "type": "ref",
-            "name": "bars",
-            "raw": "bars"
+            "name": "chilled bars",
+            "prep": null,
+            "raw": "@chilled bars"
           },
           {
             "type": "ref",
             "name": "chocolate topping",
-            "raw": "chocolate topping"
+            "prep": null,
+            "raw": "@chocolate topping"
           },
           {
             "type": "raw",
@@ -4295,7 +4770,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "finished bars",
-            "raw": "finished bars"
+            "prep": null,
+            "raw": "@finished bars"
           }
         ],
         "technique": {
@@ -4309,10 +4785,10 @@ const recipes = [
     "stepOrder": [
       "base",
       "mixture",
-      "press",
-      "chill",
+      "pressed bars",
+      "chilled bars",
       "chocolate topping",
-      "finish",
+      "finished bars",
       "cut"
     ],
     "ingredients": [
@@ -4495,12 +4971,14 @@ const recipes = [
           {
             "type": "ref",
             "name": "diced onion",
-            "raw": "diced onion"
+            "prep": null,
+            "raw": "@diced onion"
           },
           {
             "type": "ref",
             "name": "minced garlic",
-            "raw": "minced garlic"
+            "prep": null,
+            "raw": "@minced garlic"
           }
         ],
         "technique": {
@@ -4520,12 +4998,14 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "aromatics",
-                "raw": "aromatics"
+                "prep": null,
+                "raw": "@aromatics"
               },
               {
                 "type": "ref",
                 "name": "diced celery",
-                "raw": "diced celery"
+                "prep": null,
+                "raw": "@diced celery"
               }
             ],
             "isAddition": false,
@@ -4537,7 +5017,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "diced carrots",
-                "raw": "diced carrots"
+                "prep": null,
+                "raw": "@diced carrots"
               }
             ],
             "isAddition": true,
@@ -4549,7 +5030,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "cubed potatoes",
-                "raw": "cubed potatoes"
+                "prep": null,
+                "raw": "@cubed potatoes"
               },
               {
                 "type": "raw",
@@ -4915,12 +5397,14 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "edamame",
-                "raw": "edamame"
+                "prep": null,
+                "raw": "@edamame"
               },
               {
                 "type": "ref",
                 "name": "chopped vegetables",
-                "raw": "chopped vegetables"
+                "prep": null,
+                "raw": "@chopped vegetables"
               }
             ],
             "isAddition": false,
@@ -4932,7 +5416,8 @@ const recipes = [
               {
                 "type": "ref",
                 "name": "peanut dressing",
-                "raw": "peanut dressing"
+                "prep": null,
+                "raw": "@peanut dressing"
               }
             ],
             "isAddition": true,
@@ -4962,7 +5447,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "salad",
-            "raw": "salad"
+            "prep": null,
+            "raw": "@salad"
           }
         ],
         "technique": {
@@ -5162,12 +5648,14 @@ const recipes = [
           {
             "type": "ref",
             "name": "date paste",
-            "raw": "date paste"
+            "prep": null,
+            "raw": "@date paste"
           },
           {
             "type": "ref",
             "name": "dry mixture",
-            "raw": "dry mixture"
+            "prep": null,
+            "raw": "@dry mixture"
           },
           {
             "type": "raw",
@@ -5206,7 +5694,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "dough",
-            "raw": "dough"
+            "prep": null,
+            "raw": "@dough"
           }
         ],
         "technique": {
@@ -5216,12 +5705,13 @@ const recipes = [
         },
         "duration": "5 min"
       },
-      "freeze": {
+      "frozen bites": {
         "inputs": [
           {
             "type": "ref",
             "name": "bites",
-            "raw": "bites"
+            "prep": null,
+            "raw": "@bites"
           }
         ],
         "technique": {
@@ -5273,17 +5763,19 @@ const recipes = [
         },
         "duration": "2 min"
       },
-      "dip": {
+      "dipped bites": {
         "inputs": [
           {
             "type": "ref",
-            "name": "bites",
-            "raw": "bites"
+            "name": "frozen bites",
+            "prep": null,
+            "raw": "@frozen bites"
           },
           {
             "type": "ref",
             "name": "chocolate glaze",
-            "raw": "chocolate glaze"
+            "prep": null,
+            "raw": "@chocolate glaze"
           }
         ],
         "technique": {
@@ -5298,7 +5790,8 @@ const recipes = [
           {
             "type": "ref",
             "name": "dipped bites",
-            "raw": "dipped bites"
+            "prep": null,
+            "raw": "@dipped bites"
           }
         ],
         "technique": {
@@ -5314,9 +5807,9 @@ const recipes = [
       "dry mixture",
       "dough",
       "bites",
-      "freeze",
+      "frozen bites",
       "chocolate glaze",
-      "dip",
+      "dipped bites",
       "set"
     ],
     "ingredients": [

@@ -18,8 +18,8 @@ steps:
     with:
       - 3 Tbsp fresh lemon juice
       - 1 Tbsp maple syrup
-      - pinch sea salt
-      - pinch black pepper
+      - 1 pinch sea salt
+      - 1 pinch black pepper
       - 3 Tbsp olive oil
     do: whisk
     until: emulsified
@@ -28,17 +28,17 @@ steps:
   salad:
     with:
       - 7 oz arugula
-      - 2 apples, thinly sliced
+      - 2 medium apples, thinly sliced
       - 1/4 red onion, thinly sliced
       - 2 Tbsp dried cranberries (optional)
-      - toasted pecans
+      - "@toasted pecans"
     do: toss
     until: combined
     duration: 3 min
 
   dress:
     with:
-      - salad
-      - lemon dressing
+      - "@salad"
+      - "@lemon dressing"
     do: toss
     until: evenly coated

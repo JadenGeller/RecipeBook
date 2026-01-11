@@ -24,8 +24,8 @@ steps:
 
   dough:
     with:
-      - date paste
-      - dry mixture
+      - "@date paste"
+      - "@dry mixture"
       - 2 tsp vanilla extract
       - 4 Tbsp maple syrup
       - 1 Tbsp coconut cream
@@ -35,14 +35,14 @@ steps:
 
   bites:
     with:
-      - dough
+      - "@dough"
     do: roll into 1.5 Tbsp balls
     until: 15 balls formed
     duration: 5 min
 
-  freeze:
+  frozen bites:
     with:
-      - bites
+      - "@bites"
     do: freeze
     for: 10 min
     until: firm
@@ -58,17 +58,17 @@ steps:
     until: smooth glaze
     duration: 2 min
 
-  dip:
+  dipped bites:
     with:
-      - bites
-      - chocolate glaze
+      - "@frozen bites"
+      - "@chocolate glaze"
     do: dip with fork
     until: coated
     duration: 5 min
 
   set:
     with:
-      - dipped bites
+      - "@dipped bites"
     do: freeze
     for: 10 min
     until: glaze set

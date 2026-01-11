@@ -9,7 +9,7 @@ steps:
   soaked rice:
     with:
       - 1 1/2 cups white rice, uncooked
-      - water
+      - 3 cups water
     do: soak
     for: 10-30 min
     until: drained
@@ -25,8 +25,8 @@ steps:
       - 1 tsp sweet paprika
       - 1 tsp dried oregano
       - 1/2 tsp smoked paprika
-      - pinch of red pepper flakes
-      - salt and black pepper to taste
+      - 1 pinch red pepper flakes
+      - 1/2 tsp salt and black pepper
     do: saute
     duration: 5 min
     sequence:
@@ -41,14 +41,14 @@ steps:
           - 1 tsp sweet paprika
           - 1 tsp dried oregano
           - 1/2 tsp smoked paprika
-          - pinch of red pepper flakes
-          - salt and black pepper to taste
+          - 1 pinch red pepper flakes
+          - 1/2 tsp salt and black pepper
         for: 1 min
 
   simmered rice:
     with:
-      - soaked rice
-      - sauteed aromatics
+      - "@soaked rice"
+      - "@sauteed aromatics"
       - 1 1/4 cups vegetable broth
       - 1 1/4 cups salsa
     do: simmer
@@ -57,7 +57,7 @@ steps:
     duration: 20 min
     sequence:
       - with:
-          - soaked rice
+          - "@soaked rice"
           - 1 1/4 cups salsa
           - 1 1/4 cups vegetable broth
         until: boiling
@@ -67,10 +67,10 @@ steps:
 
   finished dish:
     with:
-      - simmered rice
+      - "@simmered rice"
       - 1 (15 oz) can kidney beans, drained and rinsed
       - 1/2 cup green olives, halved (optional)
-      - fresh cilantro or parsley for garnish
+      - 2 Tbsp fresh cilantro or parsley for garnish
     do: fold in
     until: combined
     duration: 2 min

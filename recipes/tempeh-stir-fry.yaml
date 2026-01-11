@@ -31,7 +31,7 @@ steps:
   marinated tempeh:
     with:
       - 8 oz tempeh, cubed
-      - glaze
+      - "@glaze"
     do: marinate
     for: 15 min
     duration: 15 min
@@ -49,15 +49,15 @@ steps:
     duration: 12 min
     sequence:
       - with:
-          - marinated tempeh
+          - "@marinated tempeh"
           - 4 tsp sesame oil
         for: 3-4 min per side
         until: browned
       - add:
-          - chopped vegetables
+          - "@chopped vegetables"
           - 4 tsp coconut aminos
         for: 4-5 min
         until: tender
       - add:
-          - quinoa
-          - glaze
+          - "@quinoa"
+          - "@glaze"

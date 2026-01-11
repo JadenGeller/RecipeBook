@@ -39,8 +39,8 @@ steps:
   aromatics:
     with:
       - 2 Tbsp olive oil
-      - diced onion
-      - minced garlic
+      - "@diced onion"
+      - "@minced garlic"
     do: sauté
     until: fragrant
     duration: 3 min
@@ -50,15 +50,15 @@ steps:
     duration: 35 min
     sequence:
       - with:
-          - aromatics
-          - diced celery
+          - "@aromatics"
+          - "@diced celery"
         for: 2 min
         until: softened
       - add:
-          - diced carrots
+          - "@diced carrots"
         for: 2 min
       - add:
-          - cubed potatoes
+          - "@cubed potatoes"
           - 1 cup brown lentils
           - 1 tsp dried rosemary
           - 1/2 tsp dried thyme

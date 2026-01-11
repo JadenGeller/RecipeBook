@@ -21,16 +21,19 @@ steps:
     duration: 5 min
 
   sauté aromatics:
+    with:
+      - "@aromatics prep"
     do: sauté
     duration: 5 min
     sequence:
       - with:
           - 2 Tbsp olive oil
-          - aromatics prep (garlic and ginger only)
+          - 2 cloves garlic, minced
+          - 1 tsp fresh ginger, minced
         for: 1 min
         until: fragrant
       - add:
-          - aromatics prep (onion)
+          - 1 small yellow onion, diced
         until: soft and translucent
       - add:
           - 1 Tbsp curry powder
@@ -63,6 +66,6 @@ steps:
 
   serve:
     with:
-      - rice
+      - "@rice"
       - 1/4 cup chopped fresh cilantro (optional)
     do: plate

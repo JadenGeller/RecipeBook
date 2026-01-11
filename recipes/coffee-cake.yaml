@@ -35,7 +35,7 @@ steps:
 
   wet ingredients:
     with:
-      - buttermilk
+      - "@buttermilk"
       - 1/2 cup canola oil
       - 1/2 cup applesauce
       - 2 tsp vanilla extract
@@ -45,27 +45,30 @@ steps:
 
   batter:
     with:
-      - dry ingredients
-      - wet ingredients
+      - "@dry ingredients"
+      - "@wet ingredients"
     do: stir
     until: just combined
     duration: 2 min
 
-  assemble:
+  assembled cake:
+    with:
+      - "@batter"
+      - "@cinnamon streusel"
     do: layer in greased 9x13 pan
     duration: 5 min
     sequence:
       - with:
-          - half of batter
+          - 1/2 of batter
         until: spread in pan
       - add:
-          - half of cinnamon streusel
+          - 1/2 of cinnamon streusel
         until: sprinkled evenly
       - add:
-          - remaining batter
+          - 1/2 of batter
         until: spread on top
       - add:
-          - remaining cinnamon streusel
+          - 1/2 of cinnamon streusel
         until: topped
       - add:
           - 2 Tbsp melted vegan butter
@@ -73,7 +76,7 @@ steps:
 
   bake:
     with:
-      - assembled cake
+      - "@assembled cake"
     do: bake at 350F
     for: 40-45 min
     until: toothpick comes out clean

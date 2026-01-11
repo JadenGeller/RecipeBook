@@ -23,7 +23,7 @@ steps:
 
   breading station:
     with:
-      - flax eggs
+      - "@flax eggs"
       - 1 cup cold almond milk
       - 1 cup hot sauce
       - 2 cups all-purpose flour
@@ -36,9 +36,9 @@ steps:
 
   fried tofu:
     with:
-      - tofu
-      - breading station
-      - vegetable oil for frying
+      - "@tofu"
+      - "@breading station"
+      - 2 cups vegetable oil for frying
     do: fry
     for: 2-3 min per side
     until: golden and crispy
@@ -59,7 +59,7 @@ steps:
 
   waffles:
     with:
-      - waffle batter
+      - "@waffle batter"
     do: cook in waffle iron
     until: golden brown
     duration: 15 min
@@ -74,8 +74,8 @@ steps:
 
   serve:
     with:
-      - waffles
-      - fried tofu
-      - truffle maple syrup
+      - "@waffles"
+      - "@fried tofu"
+      - "@truffle maple syrup"
     do: plate
     until: assembled

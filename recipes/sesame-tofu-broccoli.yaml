@@ -31,8 +31,8 @@ steps:
 
   coated tofu:
     with:
-      - pressed tofu, cubed 1-inch
-      - pinch of salt
+      - "@pressed tofu, cubed 1-inch"
+      - 1 pinch salt
       - 2 Tbsp cornstarch
     do: coat
     until: evenly covered
@@ -49,7 +49,7 @@ steps:
     duration: 15 min
     sequence:
       - with:
-          - coated tofu
+          - "@coated tofu"
           - 2 Tbsp neutral oil
         for: 5-7 min
         until: golden brown on all sides
@@ -58,14 +58,14 @@ steps:
         for: 3-4 min
         until: slightly browned on edges
       - add:
-          - sauce
+          - "@sauce"
         for: 2-3 min
         until: bubbles and thickens
 
   serve:
     with:
-      - stir-fry
-      - cooked rice
+      - "@stir-fry"
+      - "@cooked rice"
       - 3-4 green onions, sliced
     do: plate
     duration: 2 min

@@ -18,7 +18,7 @@ steps:
   sautéed vegetables:
     with:
       - 1 Tbsp olive oil
-      - chopped vegetables
+      - "@chopped vegetables"
     do: sauté
     for: 5 min
     until: vegetables begin to soften
@@ -26,7 +26,7 @@ steps:
 
   soup base:
     with:
-      - sautéed vegetables
+      - "@sautéed vegetables"
       - 6 cups vegetable broth
       - 2 (19 oz) cans white kidney beans, drained and rinsed
       - 1 tsp dried thyme
@@ -40,7 +40,7 @@ steps:
 
   soup:
     with:
-      - soup base
+      - "@soup base"
       - 4 cups kale, finely shredded
     do: simmer
     for: 5 min
@@ -49,8 +49,8 @@ steps:
 
   serve:
     with:
-      - soup
-      - salt to taste
-      - vegan parmesan (optional)
+      - "@soup"
+      - 1/2 tsp salt to taste
+      - 1/4 cup vegan parmesan (optional)
     do: serve
     until: hot

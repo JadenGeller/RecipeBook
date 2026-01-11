@@ -21,7 +21,7 @@ steps:
       - 1/2 tsp ground cumin
       - 1/4 tsp chili powder
       - 1/4 tsp turmeric (optional)
-      - water to thin
+      - 1 Tbsp water to thin
     do: whisk
     until: pourable
     duration: 2 min
@@ -42,15 +42,16 @@ steps:
         for: 2 min
         until: wilted
       - add:
-          - pressed tofu, crumbled
+          - "@pressed tofu, crumbled"
         for: 2 min
       - add:
-          - spice sauce
+          - "@spice sauce"
         for: 5-7 min
         until: lightly browned
 
   serve:
     with:
-      - salsa
-      - cilantro
-      - hot sauce
+      - "@scramble"
+      - 1/4 cup salsa
+      - 2 Tbsp fresh cilantro
+      - 1 Tbsp hot sauce

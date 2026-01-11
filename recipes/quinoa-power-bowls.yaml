@@ -35,8 +35,8 @@ steps:
 
   roasted vegetables:
     with:
-      - maple chipotle brussels sprouts
-      - smoky butternut squash
+      - "@maple chipotle brussels sprouts"
+      - "@smoky butternut squash"
     do: roast
     for: 25 min
     until: caramelized and tender, stirring halfway
@@ -53,7 +53,7 @@ steps:
 
   quinoa with kale:
     with:
-      - quinoa
+      - "@quinoa"
       - 2-3 handfuls chopped kale
     do: stir
     until: kale wilted
@@ -75,13 +75,13 @@ steps:
     duration: 5 min
     sequence:
       - with:
-          - quinoa with kale
+          - "@quinoa with kale"
         do: divide among four bowls
       - add:
-          - roasted vegetables
+          - "@roasted vegetables"
       - add:
-          - dressing
+          - "@dressing"
         do: drizzle
       - add:
-          - sliced avocado (optional)
+          - 1 medium avocado, sliced (optional)
         do: garnish

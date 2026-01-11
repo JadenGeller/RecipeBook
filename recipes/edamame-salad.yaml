@@ -41,11 +41,11 @@ steps:
     duration: 5 min
     sequence:
       - with:
-          - edamame
-          - chopped vegetables
+          - "@edamame"
+          - "@chopped vegetables"
         until: combined
       - add:
-          - peanut dressing
+          - "@peanut dressing"
         until: evenly coated
       - add:
           - 1/2 cup chopped peanuts or cashews
@@ -53,7 +53,7 @@ steps:
 
   chill:
     with:
-      - salad
+      - "@salad"
     do: refrigerate
     for: 1 hour
     until: chilled
