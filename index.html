@@ -546,39 +546,6 @@
             border-bottom: none;
         }
 
-        /* Ingredient with purpose - expands on hover */
-        .ingredient-with-tip {
-            display: block;
-        }
-
-        .ingredient-tooltip {
-            display: none;
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text);
-            opacity: 0.75;
-        }
-
-        .ingredient-with-tip:hover .ingredient-tooltip {
-            display: block;
-        }
-
-        .tooltip-purpose {
-            display: inline;
-        }
-
-        .tooltip-kind {
-            display: inline;
-            margin-left: 0.5rem;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            opacity: 0.6;
-        }
-
-        .tooltip-kind::before {
-            content: "· ";
-        }
 
         /* Recipe steps format */
         .recipe-step {
@@ -1594,32 +1561,17 @@
         const recipesById = Object.fromEntries(recipes.map(r => [r.id, r]));
 
         // Format ingredient for display
-        function formatIngredient(ing, withTooltip = false) {
+        function formatIngredient(ing) {
             // Handle old string format for backwards compatibility
             if (typeof ing === 'string') return ing;
 
-            // ingredientId is the display name (e.g., "peanut butter")
-            const name = ing.ingredientId || 'Unknown';
+            const name = ing.name || 'Unknown';
             let text = '';
             if (ing.amount) text += ing.amount + ' ';
             if (ing.unit) text += ing.unit + ' ';
             text += name;
             if (ing.prep) text += ', ' + ing.prep;
-            if (ing.note) text += ' (' + ing.note + ')';
-
-            if (!withTooltip || !ing.purpose) return text;
-
-            // Build tooltip content
-            const kind = ingredients[ing.ingredientId]?.kind || '';
-            const essential = ing.essential ? '' : ' (optional)';
-
-            return `<span class="ingredient-with-tip" data-purpose="${ing.purpose}" data-kind="${kind}" data-essential="${ing.essential}">
-                ${text}${essential}
-                <span class="ingredient-tooltip">
-                    <span class="tooltip-purpose">${ing.purpose}</span>
-                    ${kind ? `<span class="tooltip-kind">${kind}</span>` : ''}
-                </span>
-            </span>`;
+            return text;
         }
 
 
@@ -1843,7 +1795,7 @@
                 document.querySelector('.recipe-grid').classList.remove('steps-format');
                 document.querySelector('.ingredients-section').style.display = 'block';
                 document.getElementById('recipe-ingredients').innerHTML =
-                    recipe.ingredients.map(ing => `<li>${formatIngredient(ing, true)}</li>`).join('');
+                    recipe.ingredients.map(ing => `<li>${formatIngredient(ing)}</li>`).join('');
                 document.getElementById('recipe-instructions').innerHTML =
                     (recipe.instructions || []).map(inst => `<li>${inst}</li>`).join('');
             }
