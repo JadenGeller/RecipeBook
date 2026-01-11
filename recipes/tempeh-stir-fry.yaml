@@ -1,11 +1,19 @@
-title: 30-Minute Tempeh Stir-Fry
+title: Tempeh Stir-Fry
 category: dinner
 image: images/tempeh-stir-fry.jpg
-description: A hearty tempeh stir fry with BIG flavor! Perfect for weeknight dinners.
+description: Peanut-ginger glaze over crispy tempeh. Works with any vegetables and grains you have.
 meta: "Yield: 4 servings | Prep: 20 min | Cook: 10 min"
 source: https://minimalistbaker.com/simple-vegetable-tempeh-stir-fry/
 
 steps:
+  quinoa:
+    with:
+      - 1 cup quinoa
+      - 2 cups water
+    do: simmer
+    for: 15 min
+    until: fluffy
+
   glaze:
     with:
       - 4 Tbsp peanut butter
@@ -25,27 +33,20 @@ steps:
     do: marinate
     for: 15 min
 
-  cooked tempeh:
-    with:
-      - marinated tempeh
-      - 4 tsp sesame oil
+  stir-fry:
     do: sauté
-    for: 3-4 min per side
-    until: browned
-
-  vegetables:
-    with:
-      - 2/3 cup green onions, chopped
-      - 4 cups mixed vegetables
-      - 4 tsp coconut aminos
-    do: sauté
-    for: 4-5 min
-    until: tender
-
-  dish:
-    with:
-      - cooked tempeh
-      - vegetables
-      - glaze
-      - 3 cups quinoa
-    do: serve
+    sequence:
+      - with:
+          - marinated tempeh
+          - 4 tsp sesame oil
+        for: 3-4 min per side
+        until: browned
+      - add:
+          - 2/3 cup green onions, chopped
+          - 4 cups mixed vegetables
+          - 4 tsp coconut aminos
+        for: 4-5 min
+        until: tender
+      - add:
+          - quinoa
+          - glaze

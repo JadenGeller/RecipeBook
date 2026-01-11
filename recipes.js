@@ -1035,11 +1035,36 @@ const recipes = [
   },
   {
     "id": 9,
-    "title": "30-Minute Tempeh Stir-Fry",
+    "title": "Tempeh Stir-Fry",
     "category": "dinner",
     "image": "images/tempeh-stir-fry.jpg",
-    "description": "A hearty tempeh stir fry with BIG flavor! Perfect for weeknight dinners.",
+    "description": "Peanut-ginger glaze over crispy tempeh. Works with any vegetables and grains you have.",
     "steps": {
+      "quinoa": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "quinoa",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup quinoa"
+          },
+          {
+            "type": "raw",
+            "name": "water",
+            "amount": "2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "2 cups water"
+          }
+        ],
+        "technique": {
+          "name": "simmer",
+          "for": "15 min",
+          "until": "fluffy"
+        }
+      },
       "glaze": {
         "inputs": [
           {
@@ -1127,102 +1152,105 @@ const recipes = [
           "until": null
         }
       },
-      "cooked tempeh": {
-        "inputs": [
-          {
-            "type": "ref",
-            "name": "marinated tempeh",
-            "raw": "marinated tempeh"
-          },
-          {
-            "type": "raw",
-            "name": "sesame oil",
-            "amount": "4",
-            "unit": "tsp",
-            "prep": null,
-            "raw": "4 tsp sesame oil"
-          }
-        ],
+      "stir-fry": {
         "technique": {
-          "name": "sauté",
-          "for": "3-4 min per side",
-          "until": "browned"
-        }
-      },
-      "vegetables": {
-        "inputs": [
+          "name": "sauté"
+        },
+        "sequence": [
           {
-            "type": "raw",
-            "name": "green onions",
-            "amount": "2/3",
-            "unit": "cup",
-            "prep": "chopped",
-            "raw": "2/3 cup green onions, chopped"
+            "inputs": [
+              {
+                "type": "ref",
+                "name": "marinated tempeh",
+                "raw": "marinated tempeh"
+              },
+              {
+                "type": "raw",
+                "name": "sesame oil",
+                "amount": "4",
+                "unit": "tsp",
+                "prep": null,
+                "raw": "4 tsp sesame oil"
+              }
+            ],
+            "isAddition": false,
+            "for": "3-4 min per side",
+            "until": "browned"
           },
           {
-            "type": "raw",
-            "name": "mixed vegetables",
-            "amount": "4",
-            "unit": "cups",
-            "prep": null,
-            "raw": "4 cups mixed vegetables"
+            "inputs": [
+              {
+                "type": "raw",
+                "name": "green onions",
+                "amount": "2/3",
+                "unit": "cup",
+                "prep": "chopped",
+                "raw": "2/3 cup green onions, chopped"
+              },
+              {
+                "type": "raw",
+                "name": "mixed vegetables",
+                "amount": "4",
+                "unit": "cups",
+                "prep": null,
+                "raw": "4 cups mixed vegetables"
+              },
+              {
+                "type": "raw",
+                "name": "coconut aminos",
+                "amount": "4",
+                "unit": "tsp",
+                "prep": null,
+                "raw": "4 tsp coconut aminos"
+              }
+            ],
+            "isAddition": true,
+            "for": "4-5 min",
+            "until": "tender"
           },
           {
-            "type": "raw",
-            "name": "coconut aminos",
-            "amount": "4",
-            "unit": "tsp",
-            "prep": null,
-            "raw": "4 tsp coconut aminos"
+            "inputs": [
+              {
+                "type": "ref",
+                "name": "quinoa",
+                "raw": "quinoa"
+              },
+              {
+                "type": "ref",
+                "name": "glaze",
+                "raw": "glaze"
+              }
+            ],
+            "isAddition": true,
+            "for": null,
+            "until": null
           }
-        ],
-        "technique": {
-          "name": "sauté",
-          "for": "4-5 min",
-          "until": "tender"
-        }
-      },
-      "dish": {
-        "inputs": [
-          {
-            "type": "ref",
-            "name": "cooked tempeh",
-            "raw": "cooked tempeh"
-          },
-          {
-            "type": "ref",
-            "name": "vegetables",
-            "raw": "vegetables"
-          },
-          {
-            "type": "ref",
-            "name": "glaze",
-            "raw": "glaze"
-          },
-          {
-            "type": "raw",
-            "name": "quinoa",
-            "amount": "3",
-            "unit": "cups",
-            "prep": null,
-            "raw": "3 cups quinoa"
-          }
-        ],
-        "technique": {
-          "name": "serve",
-          "for": null,
-          "until": null
-        }
+        ]
       }
     },
     "stepOrder": [
+      "quinoa",
       "glaze",
       "marinated tempeh",
-      "cooked tempeh",
-      "vegetables",
-      "dish"
+      "stir-fry"
     ],
     "ingredients": [
+      {
+        "type": "raw",
+        "name": "quinoa",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup quinoa"
+      },
+      {
+        "type": "raw",
+        "name": "water",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups water"
+      },
       {
         "type": "raw",
         "name": "peanut butter",
@@ -1318,14 +1346,6 @@ const recipes = [
         "unit": "tsp",
         "prep": null,
         "raw": "4 tsp coconut aminos"
-      },
-      {
-        "type": "raw",
-        "name": "quinoa",
-        "amount": "3",
-        "unit": "cups",
-        "prep": null,
-        "raw": "3 cups quinoa"
       }
     ],
     "meta": "Yield: 4 servings | Prep: 20 min | Cook: 10 min",

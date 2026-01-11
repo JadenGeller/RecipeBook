@@ -69,15 +69,30 @@ function parseYamlRecipe(filePath, id) {
 
   if (data.steps) {
     for (const [stepName, stepData] of Object.entries(data.steps)) {
-      const inputs = (stepData.with || []).map(parseIngredient);
+      // Handle sequence-based steps (e.g., sauté with multiple additions)
+      if (stepData.sequence) {
+        const sequence = stepData.sequence.map(phase => ({
+          inputs: (phase.with || phase.add || []).map(parseIngredient),
+          isAddition: !!phase.add,
+          for: phase.for || null,
+          until: phase.until || null
+        }));
 
-      const technique = stepData.do ? {
-        name: stepData.do,
-        for: stepData.for || null,
-        until: stepData.until || null
-      } : null;
+        steps[stepName] = {
+          technique: { name: stepData.do },
+          sequence
+        };
+      } else {
+        // Simple step with inputs and technique
+        const inputs = (stepData.with || []).map(parseIngredient);
+        const technique = stepData.do ? {
+          name: stepData.do,
+          for: stepData.for || null,
+          until: stepData.until || null
+        } : null;
 
-      steps[stepName] = { inputs, technique };
+        steps[stepName] = { inputs, technique };
+      }
       stepOrder.push(stepName);
     }
   }
@@ -85,9 +100,19 @@ function parseYamlRecipe(filePath, id) {
   // Extract all raw ingredients (for shopping list)
   const allIngredients = [];
   for (const step of Object.values(steps)) {
-    for (const input of step.inputs) {
-      if (input.type === 'raw') {
-        allIngredients.push(input);
+    if (step.sequence) {
+      for (const phase of step.sequence) {
+        for (const input of phase.inputs) {
+          if (input.type === 'raw') {
+            allIngredients.push(input);
+          }
+        }
+      }
+    } else if (step.inputs) {
+      for (const input of step.inputs) {
+        if (input.type === 'raw') {
+          allIngredients.push(input);
+        }
       }
     }
   }
