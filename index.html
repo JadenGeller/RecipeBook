@@ -1088,6 +1088,29 @@
             box-shadow: 8px 8px 0 var(--border);
         }
 
+        .cook-step-duration {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .cook-step-duration:empty {
+            display: none;
+        }
+
+        .cook-step-next {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: var(--text);
+            opacity: 0.6;
+            margin-top: 1.5rem;
+        }
+
+        .cook-step-next:empty {
+            display: none;
+        }
+
         .cook-step-ingredients {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -1547,6 +1570,8 @@
                 <div class="cook-step-container" id="cook-step-container">
                     <div class="cook-step-number" id="cook-step-number">1</div>
                     <p class="cook-step-text" id="cook-step-text"></p>
+                    <p class="cook-step-duration" id="cook-step-duration"></p>
+                    <p class="cook-step-next" id="cook-step-next"></p>
                 </div>
 
                 <div class="cook-complete" id="cook-complete">
@@ -1979,6 +2004,22 @@
             return str.charAt(0).toUpperCase() + str.slice(1);
         }
 
+        function getStepDuration(recipe, stepIndex) {
+            if (recipe.format === 'yaml') {
+                const stepName = recipe.stepOrder[stepIndex];
+                const step = recipe.steps[stepName];
+                return step.duration || null;
+            }
+            return null;
+        }
+
+        function getStepName(recipe, stepIndex) {
+            if (recipe.format === 'yaml') {
+                return recipe.stepOrder[stepIndex] || null;
+            }
+            return null;
+        }
+
         function startCookMode(recipeId) {
             currentCookRecipe = recipes.find(r => r.id === recipeId);
             if (!currentCookRecipe) return;
@@ -2021,6 +2062,14 @@
             // Update step display
             document.getElementById('cook-step-number').textContent = currentStep + 1;
             document.getElementById('cook-step-text').textContent = stepText;
+
+            // Update duration
+            const duration = getStepDuration(currentCookRecipe, currentStep);
+            document.getElementById('cook-step-duration').textContent = duration ? `⏱ ${duration}` : '';
+
+            // Update "up next" preview
+            const nextStepName = getStepName(currentCookRecipe, currentStep + 1);
+            document.getElementById('cook-step-next').textContent = nextStepName ? `Up next: ${nextStepName}` : '';
 
             // Update progress
             document.getElementById('cook-progress-text').textContent = `Step ${currentStep + 1} of ${totalSteps}`;
