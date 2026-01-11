@@ -1,0 +1,87 @@
+title: Quinoa and Veggie Power Bowls
+category: dinner
+image: images/quinoa-power-bowls.jpg
+description: Nutritious power bowls with maple chipotle Brussels sprouts, smoky butternut squash, and fluffy quinoa - perfect for meal prep!
+meta: "Yield: 4 servings | Prep: 20 min | Cook: 25 min"
+source: https://dishingouthealth.com/quinoa-power-bowls-with-maple-chipotle-brussels-and-smoky-butternut-squash/
+
+steps:
+  preheat oven:
+    do: preheat
+    until: 425°F
+    duration: 10 min
+
+  maple chipotle brussels sprouts:
+    with:
+      - 14-16 oz Brussels sprouts, trimmed and halved
+      - 1 Tbsp extra-virgin olive oil
+      - 1 Tbsp adobo sauce
+      - 1 Tbsp maple syrup
+      - 1/2 tsp kosher salt
+    do: toss
+    until: evenly coated
+    duration: 3 min
+
+  smoky butternut squash:
+    with:
+      - 3 cups cubed butternut squash
+      - 1 Tbsp extra-virgin olive oil
+      - 1 tsp smoked paprika
+      - 1 tsp garlic powder
+      - 1/2 tsp kosher salt
+    do: toss
+    until: evenly coated
+    duration: 3 min
+
+  roasted vegetables:
+    with:
+      - maple chipotle brussels sprouts
+      - smoky butternut squash
+    do: roast
+    for: 25 min
+    until: caramelized and tender, stirring halfway
+    duration: 25 min
+
+  quinoa:
+    with:
+      - 1 cup dry quinoa
+      - 2 cups vegetable broth
+    do: simmer
+    for: 15 min
+    until: fluffy
+    duration: 15 min
+
+  quinoa with kale:
+    with:
+      - quinoa
+      - 2-3 handfuls chopped kale
+    do: stir
+    until: kale wilted
+    duration: 2 min
+
+  dressing:
+    with:
+      - 1/4 cup extra-virgin olive oil
+      - 1 Tbsp apple cider vinegar
+      - 1 Tbsp maple syrup
+      - 2 tsp Dijon mustard
+      - 1/4 tsp kosher salt
+    do: whisk
+    until: smooth
+    duration: 2 min
+
+  power bowls:
+    do: assemble
+    duration: 5 min
+    sequence:
+      - with:
+          - quinoa with kale
+        do: divide among four bowls
+      - add:
+          - roasted vegetables
+      - add:
+          - dressing
+        do: drizzle
+      - add:
+          - sliced avocado (optional)
+        do: garnish

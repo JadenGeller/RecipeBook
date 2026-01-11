@@ -1,0 +1,68 @@
+title: Creamy Coconut Curry Lentils with Spinach
+category: dinner
+image: images/coconut-curry-lentils.jpg
+description: Rich, creamy, and earthy coconut curry lentils with spinach - an easy and delicious vegan dinner option perfect for meal prep!
+meta: "Yield: 4 servings | Prep: 5 min | Cook: 40 min"
+source: https://www.budgetbytes.com/creamy-coconut-curry-lentils-with-spinach/
+
+steps:
+  rice:
+    with:
+      - 4 cups cooked rice
+    do: prepare
+    duration: 20 min
+
+  aromatics prep:
+    with:
+      - 2 cloves garlic
+      - 1 tsp fresh ginger
+      - 1 small yellow onion
+    do: chop
+    duration: 5 min
+
+  sauté aromatics:
+    do: sauté
+    duration: 5 min
+    sequence:
+      - with:
+          - 2 Tbsp olive oil
+          - aromatics prep (garlic and ginger only)
+        for: 1 min
+        until: fragrant
+      - add:
+          - aromatics prep (onion)
+        until: soft and translucent
+      - add:
+          - 1 Tbsp curry powder
+        for: 1 min
+        until: toasted
+
+  simmer lentils:
+    with:
+      - 1 cup brown lentils (dry)
+      - 2 cups vegetable broth
+    do: simmer
+    for: 20 min
+    until: tender and broth absorbed
+    duration: 20 min
+
+  coconut milk:
+    with:
+      - 1 (13 oz) can coconut milk
+    do: simmer
+    for: 10 min
+    until: thickened
+    duration: 10 min
+
+  finish:
+    with:
+      - 3 cups fresh baby spinach
+    do: stir
+    until: wilted
+    duration: 2 min
+
+  serve:
+    with:
+      - rice
+      - 1/4 cup chopped fresh cilantro (optional)
+    do: plate

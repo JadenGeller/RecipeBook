@@ -1,0 +1,76 @@
+title: Vegan Winter Lentil Stew
+category: dinner
+image: images/vegan-lentil-stew.jpg
+description: A rich and hearty medley of vegetables, lentils, and herbs - this freezer-friendly vegan lentil stew is the perfect cold-weather comfort food.
+meta: "Yield: 8 servings | Prep: 10 min | Cook: 50 min"
+source: https://www.budgetbytes.com/vegan-winter-lentil-stew/
+
+steps:
+  diced onion:
+    with:
+      - 1 yellow onion
+    do: dice
+    duration: 2 min
+
+  minced garlic:
+    with:
+      - 4 cloves garlic
+    do: mince
+    duration: 1 min
+
+  diced celery:
+    with:
+      - 4 stalks celery
+    do: dice
+    duration: 2 min
+
+  diced carrots:
+    with:
+      - 4 carrots (about 1/2 lb)
+    do: dice
+    duration: 3 min
+
+  cubed potatoes:
+    with:
+      - 2 lbs potatoes
+    do: cube
+    duration: 5 min
+
+  aromatics:
+    with:
+      - 2 Tbsp olive oil
+      - diced onion
+      - minced garlic
+    do: sauté
+    until: fragrant
+    duration: 3 min
+
+  stew:
+    do: simmer
+    duration: 35 min
+    sequence:
+      - with:
+          - aromatics
+          - diced celery
+        for: 2 min
+        until: softened
+      - add:
+          - diced carrots
+        for: 2 min
+      - add:
+          - cubed potatoes
+          - 1 cup brown lentils
+          - 1 tsp dried rosemary
+          - 1/2 tsp dried thyme
+          - 2 Tbsp Dijon mustard
+          - 1.5 Tbsp soy sauce
+          - 1 Tbsp brown sugar
+          - 6 cups vegetable broth
+        do: cover and bring to boil, then reduce heat
+        for: 30 min
+        until: lentils and potatoes are tender
+      - do: mash some potatoes against the pot
+        until: thickened
+      - add:
+          - 1 cup frozen peas
+        until: heated through

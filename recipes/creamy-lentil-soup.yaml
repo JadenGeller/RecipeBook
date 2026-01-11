@@ -1,0 +1,52 @@
+title: Creamy Lentil Vegetable Soup
+category: dinner
+image: images/creamy-lentil-soup.jpg
+description: A cozy medley of colors, flavors, and textures - this creamy lentil vegetable soup is hearty, inexpensive, and vegan!
+meta: "Yield: 4 servings | Prep: 15 min | Cook: 40 min"
+source: https://www.budgetbytes.com/creamy-lentil-vegetable-soup/
+
+steps:
+  sautéed mushrooms:
+    with:
+      - 16 oz mushrooms, sliced
+      - 2 Tbsp cooking oil
+      - pinch of salt
+      - pinch of pepper
+    do: sauté
+    until: water released and evaporated
+    duration: 8 min
+
+  aromatics:
+    with:
+      - sautéed mushrooms
+      - 3 carrots, diced
+      - 3 ribs celery, diced
+      - 1 yellow onion, diced
+      - 2 cloves garlic, minced
+      - 1/2 tsp dried thyme
+      - 1/2 tsp rubbed sage
+      - 1/2 tsp dried rosemary
+    do: sauté
+    until: onions soft and translucent
+    duration: 7 min
+
+  lentil soup:
+    with:
+      - aromatics
+      - 1 cup brown lentils
+      - 3 cups vegetable broth
+    do: simmer
+    for: 20 min
+    until: lentils tender
+    duration: 20 min
+
+  creamy soup:
+    with:
+      - lentil soup
+      - 1 (13.5 oz) can full-fat coconut milk
+      - 1/2 tsp salt
+      - 1/4 tsp pepper
+    do: simmer
+    for: 5 min
+    until: heated through
+    duration: 5 min

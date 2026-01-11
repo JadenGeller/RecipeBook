@@ -1,0 +1,76 @@
+title: Spanish Rice and Beans
+category: dinner
+image: images/spanish-rice-beans.jpg
+description: Rich and flavorful Spanish rice and beans - the perfect one-pot weeknight dinner that's naturally gluten-free and vegan!
+meta: "Yield: 4 servings | Prep: 15 min | Cook: 20 min"
+source: https://elavegan.com/spanish-rice-and-beans/
+
+steps:
+  soaked rice:
+    with:
+      - 1 1/2 cups white rice, uncooked
+      - water
+    do: soak
+    for: 10-30 min
+    until: drained
+    duration: 30 min
+
+  sauteed aromatics:
+    with:
+      - 1 Tbsp oil
+      - 1 medium onion, diced
+      - 1 medium red bell pepper, chopped
+      - 3-4 garlic cloves, minced
+      - 1 tsp ground cumin
+      - 1 tsp sweet paprika
+      - 1 tsp dried oregano
+      - 1/2 tsp smoked paprika
+      - pinch of red pepper flakes
+      - salt and black pepper to taste
+    do: saute
+    duration: 5 min
+    sequence:
+      - with:
+          - 1 Tbsp oil
+          - 1 medium onion, diced
+          - 1 medium red bell pepper, chopped
+        for: 3 min
+      - add:
+          - 3-4 garlic cloves, minced
+          - 1 tsp ground cumin
+          - 1 tsp sweet paprika
+          - 1 tsp dried oregano
+          - 1/2 tsp smoked paprika
+          - pinch of red pepper flakes
+          - salt and black pepper to taste
+        for: 1 min
+
+  simmered rice:
+    with:
+      - soaked rice
+      - sauteed aromatics
+      - 1 1/4 cups vegetable broth
+      - 1 1/4 cups salsa
+    do: simmer
+    for: 15-20 min
+    until: rice is cooked
+    duration: 20 min
+    sequence:
+      - with:
+          - soaked rice
+          - 1 1/4 cups salsa
+          - 1 1/4 cups vegetable broth
+        until: boiling
+      - do: cover and simmer
+        for: 15-20 min
+        until: rice is cooked
+
+  finished dish:
+    with:
+      - simmered rice
+      - 1 (15 oz) can kidney beans, drained and rinsed
+      - 1/2 cup green olives, halved (optional)
+      - fresh cilantro or parsley for garnish
+    do: fold in
+    until: combined
+    duration: 2 min

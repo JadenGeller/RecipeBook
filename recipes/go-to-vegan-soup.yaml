@@ -1,0 +1,56 @@
+title: My Go-To Vegan Soup
+category: dinner
+image: images/go-to-vegan-soup.jpg
+description: A simple 20-minute white bean and kale soup packed full of veggies, made with ingredients you likely already have on hand!
+meta: "Yield: 6 servings | Prep: 5 min | Cook: 15 min"
+source: https://itdoesnttastelikechicken.com/my-go-to-vegan-soup-recipe/
+
+steps:
+  chopped vegetables:
+    with:
+      - 3 medium carrots, peeled
+      - 3 ribs celery
+      - 1 yellow onion
+      - 4 cloves garlic
+    do: chop
+    duration: 5 min
+
+  sautéed vegetables:
+    with:
+      - 1 Tbsp olive oil
+      - chopped vegetables
+    do: sauté
+    for: 5 min
+    until: vegetables begin to soften
+    duration: 5 min
+
+  soup base:
+    with:
+      - sautéed vegetables
+      - 6 cups vegetable broth
+      - 2 (19 oz) cans white kidney beans, drained and rinsed
+      - 1 tsp dried thyme
+      - 1 tsp oregano
+      - 1 tsp cumin
+      - 1/2 tsp ground turmeric
+      - 1/4 tsp black pepper
+    do: simmer
+    for: 5 min
+    duration: 5 min
+
+  soup:
+    with:
+      - soup base
+      - 4 cups kale, finely shredded
+    do: simmer
+    for: 5 min
+    until: kale is wilted and softened
+    duration: 5 min
+
+  serve:
+    with:
+      - soup
+      - salt to taste
+      - vegan parmesan (optional)
+    do: serve
+    until: hot

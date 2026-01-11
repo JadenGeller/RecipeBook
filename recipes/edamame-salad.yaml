@@ -1,0 +1,60 @@
+title: Edamame Salad with Peanut Sauce
+category: salads
+image: images/edamame-salad.jpg
+description: A protein-packed edamame salad with crunchy colorful vegetables tossed in a Thai-inspired peanut dressing.
+meta: "Yield: 6 servings | Prep: 20 min"
+source: https://www.noracooks.com/edamame-salad/
+
+steps:
+  edamame:
+    with:
+      - 16 oz frozen shelled edamame
+    do: cook
+    until: tender
+    duration: 5 min
+
+  peanut dressing:
+    with:
+      - 6 Tbsp creamy peanut butter
+      - 3 Tbsp seasoned rice vinegar
+      - 3 Tbsp low-sodium soy sauce
+      - 3 Tbsp pure maple syrup
+      - 1 tsp toasted sesame oil
+      - 1/4 tsp ground ginger
+      - 1 tsp Sriracha hot sauce
+    do: whisk
+    until: smooth
+    duration: 2 min
+
+  chopped vegetables:
+    with:
+      - 1 cup shredded red cabbage
+      - 1 cup shredded carrots
+      - 1/2 cup chopped green onions
+      - 2 cups chopped kale
+      - 1/4 cup chopped cilantro (optional)
+    do: chop
+    duration: 10 min
+
+  salad:
+    do: toss
+    duration: 5 min
+    sequence:
+      - with:
+          - edamame
+          - chopped vegetables
+        until: combined
+      - add:
+          - peanut dressing
+        until: evenly coated
+      - add:
+          - 1/2 cup chopped peanuts or cashews
+        until: topped
+
+  chill:
+    with:
+      - salad
+    do: refrigerate
+    for: 1 hour
+    until: chilled
+    duration: 60 min

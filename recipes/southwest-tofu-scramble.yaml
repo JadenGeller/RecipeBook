@@ -1,0 +1,56 @@
+title: Southwest Tofu Scramble
+category: breakfast
+image: images/southwest-tofu-scramble.jpg
+description: Savory, Southwest-inspired tofu scramble with lots of veggies and a simple 5-ingredient sauce. Just 10 ingredients, 30 minutes, and 1 pan!
+meta: "Yield: 2 servings | Prep: 10 min | Cook: 20 min"
+source: https://minimalistbaker.com/southwest-tofu-scramble/
+
+steps:
+  pressed tofu:
+    with:
+      - 8 oz extra-firm tofu
+    do: press
+    for: 15 min
+    until: dry
+    duration: 15 min
+
+  spice sauce:
+    with:
+      - 1/2 tsp sea salt
+      - 1/2 tsp garlic powder
+      - 1/2 tsp ground cumin
+      - 1/4 tsp chili powder
+      - 1/4 tsp turmeric (optional)
+      - water to thin
+    do: whisk
+    until: pourable
+    duration: 2 min
+
+  scramble:
+    do: sauté
+    duration: 15 min
+    sequence:
+      - with:
+          - 1/4 medium red onion, thinly sliced
+          - 1/2 medium red bell pepper, thinly sliced
+          - 1-2 Tbsp olive oil
+        for: 5 min
+        until: softened
+      - add:
+          - 2 cups kale, loosely chopped
+        do: steam
+        for: 2 min
+        until: wilted
+      - add:
+          - pressed tofu, crumbled
+        for: 2 min
+      - add:
+          - spice sauce
+        for: 5-7 min
+        until: lightly browned
+
+  serve:
+    with:
+      - salsa
+      - cilantro
+      - hot sauce

@@ -1,0 +1,71 @@
+title: Pan Fried Sesame Tofu with Broccoli
+category: dinner
+image: images/sesame-tofu-broccoli.jpg
+description: Seriously crispy pan-fried tofu drenched in a tangy sesame sauce with broccoli florets - a delicious plant-based meal!
+meta: "Yield: 3 servings | Prep: 45 min | Cook: 15 min"
+source: https://www.budgetbytes.com/pan-fried-sesame-tofu-with-broccoli/
+
+steps:
+  pressed tofu:
+    with:
+      - 14 oz block extra-firm tofu
+    do: press
+    for: 30 min
+    until: water extracted
+    duration: 30 min
+
+  sauce:
+    with:
+      - 1/4 cup soy sauce
+      - 2 Tbsp water
+      - 1 Tbsp toasted sesame oil
+      - 2 Tbsp brown sugar
+      - 2 Tbsp rice vinegar
+      - 1 Tbsp grated fresh ginger
+      - 2 cloves garlic, minced
+      - 2 Tbsp sesame seeds
+      - 1 Tbsp cornstarch
+    do: whisk
+    until: dissolved
+    duration: 3 min
+
+  coated tofu:
+    with:
+      - pressed tofu, cubed 1-inch
+      - pinch of salt
+      - 2 Tbsp cornstarch
+    do: coat
+    until: evenly covered
+    duration: 5 min
+
+  cooked rice:
+    with:
+      - 4 cups cooked rice
+    do: prepare
+    duration: 20 min
+
+  stir-fry:
+    do: sauté
+    duration: 15 min
+    sequence:
+      - with:
+          - coated tofu
+          - 2 Tbsp neutral oil
+        for: 5-7 min
+        until: golden brown on all sides
+      - add:
+          - 1/2 lb frozen broccoli florets
+        for: 3-4 min
+        until: slightly browned on edges
+      - add:
+          - sauce
+        for: 2-3 min
+        until: bubbles and thickens
+
+  serve:
+    with:
+      - stir-fry
+      - cooked rice
+      - 3-4 green onions, sliced
+    do: plate
+    duration: 2 min
