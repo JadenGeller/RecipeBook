@@ -1,0 +1,81 @@
+title: Vegan Chicken & Waffles
+category: hot meals
+image: images/chicken-and-waffles.jpg
+description: Crispy fried tofu "chicken" with rosemary waffles and truffle maple syrup.
+meta: "Yield: 4 servings | Prep: 20 min | Cook: 30 min"
+source: https://www.onegreenplanet.org/vegan-recipe/chicken-and-waffles/
+
+steps:
+  flax eggs:
+    with:
+      - 3 Tbsp ground flax seeds
+      - 9 Tbsp water
+    do: whisk
+    until: combined
+    duration: 2 min
+
+  tofu:
+    with:
+      - 14 oz firm tofu, sliced 1/4 inch thick
+    do: press
+    until: excess water removed
+    duration: 10 min
+
+  breading station:
+    with:
+      - flax eggs
+      - 1 cup cold almond milk
+      - 1 cup hot sauce
+      - 2 cups all-purpose flour
+      - 3 tsp baking powder
+      - 1 tsp sea salt
+      - 1 tsp black pepper
+    do: prepare
+    until: wet and dry bowls ready
+    duration: 5 min
+
+  fried tofu:
+    with:
+      - tofu
+      - breading station
+      - vegetable oil for frying
+    do: fry
+    for: 2-3 min per side
+    until: golden and crispy
+    duration: 15 min
+
+  waffle batter:
+    with:
+      - 1 1/2 cups flour
+      - 2 Tbsp baking powder
+      - 1 Tbsp coconut sugar
+      - 1 tsp sea salt
+      - 2 Tbsp fresh rosemary, minced
+      - 1 cup almond milk
+      - 3 Tbsp coconut oil, melted
+    do: whisk
+    until: just combined
+    duration: 5 min
+
+  waffles:
+    with:
+      - waffle batter
+    do: cook in waffle iron
+    until: golden brown
+    duration: 15 min
+
+  truffle maple syrup:
+    with:
+      - 3/4 cup maple syrup
+      - 1-2 tsp truffle oil
+    do: whisk
+    until: combined
+    duration: 1 min
+
+  serve:
+    with:
+      - waffles
+      - fried tofu
+      - truffle maple syrup
+    do: plate
+    until: assembled

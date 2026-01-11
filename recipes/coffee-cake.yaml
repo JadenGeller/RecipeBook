@@ -1,0 +1,80 @@
+title: Vegan Coffee Cake
+category: desserts
+image: images/coffee-cake.jpg
+description: Classic cinnamon streusel coffee cake. Tender crumb with brown sugar swirl.
+meta: "Yield: 16 servings | Prep: 15 min | Bake: 45 min"
+source: https://www.noracooks.com/vegan-coffee-cake/
+
+steps:
+  buttermilk:
+    with:
+      - 1 1/4 cups soy milk
+      - 1 Tbsp apple cider vinegar
+    do: whisk and rest
+    for: 5 min
+    until: slightly curdled
+    duration: 5 min
+
+  cinnamon streusel:
+    with:
+      - 1 1/2 cups brown sugar
+      - 1 Tbsp cinnamon
+    do: mix
+    until: combined
+    duration: 1 min
+
+  dry ingredients:
+    with:
+      - 3 cups all-purpose flour
+      - 1 Tbsp baking powder
+      - 1/2 tsp salt
+      - 1 cup granulated sugar
+    do: whisk
+    until: combined
+    duration: 2 min
+
+  wet ingredients:
+    with:
+      - buttermilk
+      - 1/2 cup canola oil
+      - 1/2 cup applesauce
+      - 2 tsp vanilla extract
+    do: whisk
+    until: combined
+    duration: 1 min
+
+  batter:
+    with:
+      - dry ingredients
+      - wet ingredients
+    do: stir
+    until: just combined
+    duration: 2 min
+
+  assemble:
+    do: layer in greased 9x13 pan
+    duration: 5 min
+    sequence:
+      - with:
+          - half of batter
+        until: spread in pan
+      - add:
+          - half of cinnamon streusel
+        until: sprinkled evenly
+      - add:
+          - remaining batter
+        until: spread on top
+      - add:
+          - remaining cinnamon streusel
+        until: topped
+      - add:
+          - 2 Tbsp melted vegan butter
+        until: drizzled over top
+
+  bake:
+    with:
+      - assembled cake
+    do: bake at 350F
+    for: 40-45 min
+    until: toothpick comes out clean
+    duration: 45 min

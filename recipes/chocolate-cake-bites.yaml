@@ -1,0 +1,75 @@
+title: No-Bake Chocolate Cake Bites
+category: desserts
+image: images/chocolate-cake-bites.jpg
+description: Fudgy date-based truffles with chocolate glaze. No oven required.
+meta: "Yield: 15 bites | Prep: 30 min"
+source: https://minimalistbaker.com/no-bake-fudgy-chocolate-cake-bites/
+
+steps:
+  date paste:
+    with:
+      - 1 cup pitted medjool dates
+    do: process
+    until: small bits remain or ball forms
+    duration: 2 min
+
+  dry mixture:
+    with:
+      - 1 cup almond flour
+      - 1/3 cup coconut flour
+      - 1/4 cup cacao powder
+    do: blend
+    until: fine meal
+    duration: 1 min
+
+  dough:
+    with:
+      - date paste
+      - dry mixture
+      - 2 tsp vanilla extract
+      - 4 Tbsp maple syrup
+      - 1 Tbsp coconut cream
+    do: process
+    until: tacky dough forms
+    duration: 2 min
+
+  bites:
+    with:
+      - dough
+    do: roll into 1.5 Tbsp balls
+    until: 15 balls formed
+    duration: 5 min
+
+  freeze:
+    with:
+      - bites
+    do: freeze
+    for: 10 min
+    until: firm
+    duration: 10 min
+
+  chocolate glaze:
+    with:
+      - 3 Tbsp coconut butter
+      - 2 Tbsp melted coconut oil
+      - 1 Tbsp cacao powder
+      - 1 Tbsp maple syrup
+    do: whisk
+    until: smooth glaze
+    duration: 2 min
+
+  dip:
+    with:
+      - bites
+      - chocolate glaze
+    do: dip with fork
+    until: coated
+    duration: 5 min
+
+  set:
+    with:
+      - dipped bites
+    do: freeze
+    for: 10 min
+    until: glaze set
+    duration: 10 min

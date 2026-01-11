@@ -1597,8 +1597,9 @@
         }
 
 
-        // Get unique categories
-        const categories = ['all', ...new Set(recipes.map(r => r.category))];
+        // Get unique categories in fixed order
+        const categoryOrder = ['hot meals', 'cold meals', 'desserts'];
+        const categories = ['all', ...categoryOrder.filter(cat => recipes.some(r => r.category === cat))];
         let activeCategory = 'all';
 
         // Render filters
@@ -1672,9 +1673,7 @@
                     grouped[recipe.category].push(recipe);
                 });
 
-                // Order categories
-                const categoryOrder = ['hot meals', 'cold meals', 'desserts'];
-
+                // Order categories (uses categoryOrder defined at top)
                 containerEl.innerHTML = categoryOrder
                     .filter(cat => grouped[cat] && grouped[cat].length > 0)
                     .map(cat => {

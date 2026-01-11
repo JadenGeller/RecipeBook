@@ -2,6 +2,427 @@
 const recipes = [
   {
     "id": 1,
+    "title": "Vegan Chicken & Waffles",
+    "category": "hot meals",
+    "image": "images/chicken-and-waffles.jpg",
+    "description": "Crispy fried tofu \"chicken\" with rosemary waffles and truffle maple syrup.",
+    "steps": {
+      "flax eggs": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "ground flax seeds",
+            "amount": "3",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "3 Tbsp ground flax seeds"
+          },
+          {
+            "type": "raw",
+            "name": "water",
+            "amount": "9",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "9 Tbsp water"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "2 min"
+      },
+      "tofu": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "firm tofu",
+            "amount": "14",
+            "unit": "oz",
+            "prep": "sliced 1/4 inch thick",
+            "raw": "14 oz firm tofu, sliced 1/4 inch thick"
+          }
+        ],
+        "technique": {
+          "name": "press",
+          "for": null,
+          "until": "excess water removed"
+        },
+        "duration": "10 min"
+      },
+      "breading station": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "flax eggs",
+            "raw": "flax eggs"
+          },
+          {
+            "type": "raw",
+            "name": "cold almond milk",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup cold almond milk"
+          },
+          {
+            "type": "raw",
+            "name": "hot sauce",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup hot sauce"
+          },
+          {
+            "type": "raw",
+            "name": "all-purpose flour",
+            "amount": "2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "2 cups all-purpose flour"
+          },
+          {
+            "type": "raw",
+            "name": "baking powder",
+            "amount": "3",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "3 tsp baking powder"
+          },
+          {
+            "type": "raw",
+            "name": "sea salt",
+            "amount": "1",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1 tsp sea salt"
+          },
+          {
+            "type": "raw",
+            "name": "black pepper",
+            "amount": "1",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1 tsp black pepper"
+          }
+        ],
+        "technique": {
+          "name": "prepare",
+          "for": null,
+          "until": "wet and dry bowls ready"
+        },
+        "duration": "5 min"
+      },
+      "fried tofu": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "tofu",
+            "raw": "tofu"
+          },
+          {
+            "type": "ref",
+            "name": "breading station",
+            "raw": "breading station"
+          },
+          {
+            "type": "ref",
+            "name": "vegetable oil for frying",
+            "raw": "vegetable oil for frying"
+          }
+        ],
+        "technique": {
+          "name": "fry",
+          "for": "2-3 min per side",
+          "until": "golden and crispy"
+        },
+        "duration": "15 min"
+      },
+      "waffle batter": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "flour",
+            "amount": "1 1/2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "1 1/2 cups flour"
+          },
+          {
+            "type": "raw",
+            "name": "baking powder",
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp baking powder"
+          },
+          {
+            "type": "raw",
+            "name": "coconut sugar",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp coconut sugar"
+          },
+          {
+            "type": "raw",
+            "name": "sea salt",
+            "amount": "1",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1 tsp sea salt"
+          },
+          {
+            "type": "raw",
+            "name": "fresh rosemary",
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": "minced",
+            "raw": "2 Tbsp fresh rosemary, minced"
+          },
+          {
+            "type": "raw",
+            "name": "almond milk",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup almond milk"
+          },
+          {
+            "type": "raw",
+            "name": "coconut oil",
+            "amount": "3",
+            "unit": "Tbsp",
+            "prep": "melted",
+            "raw": "3 Tbsp coconut oil, melted"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "just combined"
+        },
+        "duration": "5 min"
+      },
+      "waffles": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "waffle batter",
+            "raw": "waffle batter"
+          }
+        ],
+        "technique": {
+          "name": "cook in waffle iron",
+          "for": null,
+          "until": "golden brown"
+        },
+        "duration": "15 min"
+      },
+      "truffle maple syrup": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "maple syrup",
+            "amount": "3/4",
+            "unit": "cup",
+            "prep": null,
+            "raw": "3/4 cup maple syrup"
+          },
+          {
+            "type": "ref",
+            "name": "1-2 tsp truffle oil",
+            "raw": "1-2 tsp truffle oil"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "1 min"
+      },
+      "serve": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "waffles",
+            "raw": "waffles"
+          },
+          {
+            "type": "ref",
+            "name": "fried tofu",
+            "raw": "fried tofu"
+          },
+          {
+            "type": "ref",
+            "name": "truffle maple syrup",
+            "raw": "truffle maple syrup"
+          }
+        ],
+        "technique": {
+          "name": "plate",
+          "for": null,
+          "until": "assembled"
+        },
+        "duration": null
+      }
+    },
+    "stepOrder": [
+      "flax eggs",
+      "tofu",
+      "breading station",
+      "fried tofu",
+      "waffle batter",
+      "waffles",
+      "truffle maple syrup",
+      "serve"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "ground flax seeds",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp ground flax seeds"
+      },
+      {
+        "type": "raw",
+        "name": "water",
+        "amount": "9",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "9 Tbsp water"
+      },
+      {
+        "type": "raw",
+        "name": "firm tofu",
+        "amount": "14",
+        "unit": "oz",
+        "prep": "sliced 1/4 inch thick",
+        "raw": "14 oz firm tofu, sliced 1/4 inch thick"
+      },
+      {
+        "type": "raw",
+        "name": "cold almond milk",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup cold almond milk"
+      },
+      {
+        "type": "raw",
+        "name": "hot sauce",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup hot sauce"
+      },
+      {
+        "type": "raw",
+        "name": "all-purpose flour",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups all-purpose flour"
+      },
+      {
+        "type": "raw",
+        "name": "baking powder",
+        "amount": "3",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "3 tsp baking powder"
+      },
+      {
+        "type": "raw",
+        "name": "sea salt",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp sea salt"
+      },
+      {
+        "type": "raw",
+        "name": "black pepper",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp black pepper"
+      },
+      {
+        "type": "raw",
+        "name": "flour",
+        "amount": "1 1/2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/2 cups flour"
+      },
+      {
+        "type": "raw",
+        "name": "baking powder",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp baking powder"
+      },
+      {
+        "type": "raw",
+        "name": "coconut sugar",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp coconut sugar"
+      },
+      {
+        "type": "raw",
+        "name": "sea salt",
+        "amount": "1",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1 tsp sea salt"
+      },
+      {
+        "type": "raw",
+        "name": "fresh rosemary",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": "minced",
+        "raw": "2 Tbsp fresh rosemary, minced"
+      },
+      {
+        "type": "raw",
+        "name": "almond milk",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup almond milk"
+      },
+      {
+        "type": "raw",
+        "name": "coconut oil",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": "melted",
+        "raw": "3 Tbsp coconut oil, melted"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "3/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "3/4 cup maple syrup"
+      }
+    ],
+    "meta": "Yield: 4 servings | Prep: 20 min | Cook: 30 min",
+    "source": "https://www.onegreenplanet.org/vegan-recipe/chicken-and-waffles/",
+    "format": "yaml"
+  },
+  {
+    "id": 2,
     "title": "Pan Fried Sesame Tofu with Broccoli",
     "category": "hot meals",
     "image": "images/sesame-tofu-broccoli.jpg",
@@ -361,7 +782,7 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "My Go-To Vegan Soup",
     "category": "hot meals",
     "image": "images/go-to-vegan-soup.jpg",
@@ -670,7 +1091,7 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Creamy Lentil Vegetable Soup",
     "category": "hot meals",
     "image": "images/creamy-lentil-soup.jpg",
@@ -968,7 +1389,7 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Spanish Rice and Beans",
     "category": "hot meals",
     "image": "images/spanish-rice-beans.jpg",
@@ -1278,7 +1699,7 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Southwest Tofu Scramble",
     "category": "hot meals",
     "image": "images/southwest-tofu-scramble.jpg",
@@ -1539,7 +1960,737 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 6,
+    "id": 7,
+    "title": "Vegan Coffee Cake",
+    "category": "desserts",
+    "image": "images/coffee-cake.jpg",
+    "description": "Classic cinnamon streusel coffee cake. Tender crumb with brown sugar swirl.",
+    "steps": {
+      "buttermilk": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "soy milk",
+            "amount": "1 1/4",
+            "unit": "cups",
+            "prep": null,
+            "raw": "1 1/4 cups soy milk"
+          },
+          {
+            "type": "raw",
+            "name": "apple cider vinegar",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp apple cider vinegar"
+          }
+        ],
+        "technique": {
+          "name": "whisk and rest",
+          "for": "5 min",
+          "until": "slightly curdled"
+        },
+        "duration": "5 min"
+      },
+      "cinnamon streusel": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "brown sugar",
+            "amount": "1 1/2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "1 1/2 cups brown sugar"
+          },
+          {
+            "type": "raw",
+            "name": "cinnamon",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp cinnamon"
+          }
+        ],
+        "technique": {
+          "name": "mix",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "1 min"
+      },
+      "dry ingredients": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "all-purpose flour",
+            "amount": "3",
+            "unit": "cups",
+            "prep": null,
+            "raw": "3 cups all-purpose flour"
+          },
+          {
+            "type": "raw",
+            "name": "baking powder",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp baking powder"
+          },
+          {
+            "type": "raw",
+            "name": "salt",
+            "amount": "1/2",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1/2 tsp salt"
+          },
+          {
+            "type": "raw",
+            "name": "granulated sugar",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup granulated sugar"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "2 min"
+      },
+      "wet ingredients": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "buttermilk",
+            "raw": "buttermilk"
+          },
+          {
+            "type": "raw",
+            "name": "canola oil",
+            "amount": "1/2",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/2 cup canola oil"
+          },
+          {
+            "type": "raw",
+            "name": "applesauce",
+            "amount": "1/2",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/2 cup applesauce"
+          },
+          {
+            "type": "raw",
+            "name": "vanilla extract",
+            "amount": "2",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "2 tsp vanilla extract"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "1 min"
+      },
+      "batter": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "dry ingredients",
+            "raw": "dry ingredients"
+          },
+          {
+            "type": "ref",
+            "name": "wet ingredients",
+            "raw": "wet ingredients"
+          }
+        ],
+        "technique": {
+          "name": "stir",
+          "for": null,
+          "until": "just combined"
+        },
+        "duration": "2 min"
+      },
+      "assemble": {
+        "technique": {
+          "name": "layer in greased 9x13 pan"
+        },
+        "sequence": [
+          {
+            "inputs": [
+              {
+                "type": "ref",
+                "name": "half of batter",
+                "raw": "half of batter"
+              }
+            ],
+            "isAddition": false,
+            "for": null,
+            "until": "spread in pan"
+          },
+          {
+            "inputs": [
+              {
+                "type": "ref",
+                "name": "half of cinnamon streusel",
+                "raw": "half of cinnamon streusel"
+              }
+            ],
+            "isAddition": true,
+            "for": null,
+            "until": "sprinkled evenly"
+          },
+          {
+            "inputs": [
+              {
+                "type": "ref",
+                "name": "remaining batter",
+                "raw": "remaining batter"
+              }
+            ],
+            "isAddition": true,
+            "for": null,
+            "until": "spread on top"
+          },
+          {
+            "inputs": [
+              {
+                "type": "ref",
+                "name": "remaining cinnamon streusel",
+                "raw": "remaining cinnamon streusel"
+              }
+            ],
+            "isAddition": true,
+            "for": null,
+            "until": "topped"
+          },
+          {
+            "inputs": [
+              {
+                "type": "raw",
+                "name": "melted vegan butter",
+                "amount": "2",
+                "unit": "Tbsp",
+                "prep": null,
+                "raw": "2 Tbsp melted vegan butter"
+              }
+            ],
+            "isAddition": true,
+            "for": null,
+            "until": "drizzled over top"
+          }
+        ],
+        "duration": "5 min"
+      },
+      "bake": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "assembled cake",
+            "raw": "assembled cake"
+          }
+        ],
+        "technique": {
+          "name": "bake at 350F",
+          "for": "40-45 min",
+          "until": "toothpick comes out clean"
+        },
+        "duration": "45 min"
+      }
+    },
+    "stepOrder": [
+      "buttermilk",
+      "cinnamon streusel",
+      "dry ingredients",
+      "wet ingredients",
+      "batter",
+      "assemble",
+      "bake"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "soy milk",
+        "amount": "1 1/4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/4 cups soy milk"
+      },
+      {
+        "type": "raw",
+        "name": "apple cider vinegar",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp apple cider vinegar"
+      },
+      {
+        "type": "raw",
+        "name": "brown sugar",
+        "amount": "1 1/2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/2 cups brown sugar"
+      },
+      {
+        "type": "raw",
+        "name": "cinnamon",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp cinnamon"
+      },
+      {
+        "type": "raw",
+        "name": "all-purpose flour",
+        "amount": "3",
+        "unit": "cups",
+        "prep": null,
+        "raw": "3 cups all-purpose flour"
+      },
+      {
+        "type": "raw",
+        "name": "baking powder",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp baking powder"
+      },
+      {
+        "type": "raw",
+        "name": "salt",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp salt"
+      },
+      {
+        "type": "raw",
+        "name": "granulated sugar",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup granulated sugar"
+      },
+      {
+        "type": "raw",
+        "name": "canola oil",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup canola oil"
+      },
+      {
+        "type": "raw",
+        "name": "applesauce",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup applesauce"
+      },
+      {
+        "type": "raw",
+        "name": "vanilla extract",
+        "amount": "2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "2 tsp vanilla extract"
+      },
+      {
+        "type": "raw",
+        "name": "melted vegan butter",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp melted vegan butter"
+      }
+    ],
+    "meta": "Yield: 16 servings | Prep: 15 min | Bake: 45 min",
+    "source": "https://www.noracooks.com/vegan-coffee-cake/",
+    "format": "yaml"
+  },
+  {
+    "id": 8,
+    "title": "Apple Pecan Arugula Salad",
+    "category": "cold meals",
+    "image": "images/arugula-apple-salad.jpg",
+    "description": "Peppery arugula with crisp apples, toasted pecans, and lemon maple dressing.",
+    "steps": {
+      "toasted pecans": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "raw pecans",
+            "amount": "1/2",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/2 cup raw pecans"
+          }
+        ],
+        "technique": {
+          "name": "bake at 350F",
+          "for": "8-10 min",
+          "until": "fragrant and golden"
+        },
+        "duration": "10 min"
+      },
+      "lemon dressing": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "fresh lemon juice",
+            "amount": "3",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "3 Tbsp fresh lemon juice"
+          },
+          {
+            "type": "raw",
+            "name": "maple syrup",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp maple syrup"
+          },
+          {
+            "type": "ref",
+            "name": "pinch sea salt",
+            "raw": "pinch sea salt"
+          },
+          {
+            "type": "ref",
+            "name": "pinch black pepper",
+            "raw": "pinch black pepper"
+          },
+          {
+            "type": "raw",
+            "name": "olive oil",
+            "amount": "3",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "3 Tbsp olive oil"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "emulsified"
+        },
+        "duration": "2 min"
+      },
+      "salad": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "arugula",
+            "amount": "7",
+            "unit": "oz",
+            "prep": null,
+            "raw": "7 oz arugula"
+          },
+          {
+            "type": "ref",
+            "name": "2 apples",
+            "raw": "2 apples, thinly sliced"
+          },
+          {
+            "type": "raw",
+            "name": "onion",
+            "amount": "1/4",
+            "unit": "red",
+            "prep": "thinly sliced",
+            "raw": "1/4 red onion, thinly sliced"
+          },
+          {
+            "type": "raw",
+            "name": "dried cranberries (optional)",
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp dried cranberries (optional)"
+          },
+          {
+            "type": "ref",
+            "name": "toasted pecans",
+            "raw": "toasted pecans"
+          }
+        ],
+        "technique": {
+          "name": "toss",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "3 min"
+      },
+      "dress": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "salad",
+            "raw": "salad"
+          },
+          {
+            "type": "ref",
+            "name": "lemon dressing",
+            "raw": "lemon dressing"
+          }
+        ],
+        "technique": {
+          "name": "toss",
+          "for": null,
+          "until": "evenly coated"
+        },
+        "duration": null
+      }
+    },
+    "stepOrder": [
+      "toasted pecans",
+      "lemon dressing",
+      "salad",
+      "dress"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "raw pecans",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup raw pecans"
+      },
+      {
+        "type": "raw",
+        "name": "fresh lemon juice",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp fresh lemon juice"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "olive oil",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp olive oil"
+      },
+      {
+        "type": "raw",
+        "name": "arugula",
+        "amount": "7",
+        "unit": "oz",
+        "prep": null,
+        "raw": "7 oz arugula"
+      },
+      {
+        "type": "raw",
+        "name": "onion",
+        "amount": "1/4",
+        "unit": "red",
+        "prep": "thinly sliced",
+        "raw": "1/4 red onion, thinly sliced"
+      },
+      {
+        "type": "raw",
+        "name": "dried cranberries (optional)",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp dried cranberries (optional)"
+      }
+    ],
+    "meta": "Yield: 4 side servings | Prep: 15 min",
+    "source": "https://minimalistbaker.com/apple-pecan-arugula-salad/",
+    "format": "yaml"
+  },
+  {
+    "id": 9,
+    "title": "Peanut Butter Overnight Oats",
+    "category": "cold meals",
+    "image": "images/overnight-oats.jpg",
+    "description": "Creamy make-ahead oats with peanut butter swirls. Perfect grab-and-go breakfast.",
+    "steps": {
+      "wet mixture": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "almond milk",
+            "amount": "1/2",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/2 cup almond milk"
+          },
+          {
+            "type": "raw",
+            "name": "chia seeds",
+            "amount": "3/4",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "3/4 Tbsp chia seeds"
+          },
+          {
+            "type": "raw",
+            "name": "peanut butter",
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp peanut butter"
+          },
+          {
+            "type": "raw",
+            "name": "maple syrup",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp maple syrup"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "loosely combined (leave peanut butter swirls)"
+        },
+        "duration": "2 min"
+      },
+      "oats": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "wet mixture",
+            "raw": "wet mixture"
+          },
+          {
+            "type": "raw",
+            "name": "rolled oats",
+            "amount": "1/2",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/2 cup rolled oats"
+          }
+        ],
+        "technique": {
+          "name": "stir",
+          "for": null,
+          "until": "oats fully moistened"
+        },
+        "duration": "1 min"
+      },
+      "chill": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "oats",
+            "raw": "oats"
+          }
+        ],
+        "technique": {
+          "name": "refrigerate",
+          "for": "6 hours or overnight",
+          "until": "thickened and creamy"
+        },
+        "duration": "360 min"
+      },
+      "serve": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "oats",
+            "raw": "oats"
+          },
+          {
+            "type": "ref",
+            "name": "sliced banana (optional)",
+            "raw": "sliced banana (optional)"
+          },
+          {
+            "type": "ref",
+            "name": "berries (optional)",
+            "raw": "berries (optional)"
+          },
+          {
+            "type": "ref",
+            "name": "granola (optional)",
+            "raw": "granola (optional)"
+          }
+        ],
+        "technique": {
+          "name": "top",
+          "for": null,
+          "until": "ready to enjoy"
+        },
+        "duration": null
+      }
+    },
+    "stepOrder": [
+      "wet mixture",
+      "oats",
+      "chill",
+      "serve"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "almond milk",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup almond milk"
+      },
+      {
+        "type": "raw",
+        "name": "chia seeds",
+        "amount": "3/4",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3/4 Tbsp chia seeds"
+      },
+      {
+        "type": "raw",
+        "name": "peanut butter",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp peanut butter"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "rolled oats",
+        "amount": "1/2",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/2 cup rolled oats"
+      }
+    ],
+    "meta": "Yield: 1 serving | Prep: 5 min | Chill: 6 hours",
+    "source": "https://minimalistbaker.com/peanut-butter-overnight-oats/",
+    "format": "yaml"
+  },
+  {
+    "id": 10,
     "title": "Tempeh Stir-Fry",
     "category": "hot meals",
     "image": "images/tempeh-stir-fry.jpg",
@@ -1894,7 +3045,364 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 7,
+    "id": 11,
+    "title": "Grillable Veggie Burgers",
+    "category": "hot meals",
+    "image": "images/veggie-burgers.jpg",
+    "description": "Hearty black bean walnut patties with smoky spices. Holds up on the grill.",
+    "steps": {
+      "brown rice": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "brown rice",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup brown rice"
+          },
+          {
+            "type": "raw",
+            "name": "water",
+            "amount": "2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "2 cups water"
+          }
+        ],
+        "technique": {
+          "name": "simmer",
+          "for": "45 min",
+          "until": "tender"
+        },
+        "duration": "45 min"
+      },
+      "toasted walnuts": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "raw walnuts",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup raw walnuts"
+          }
+        ],
+        "technique": {
+          "name": "bake at 350F",
+          "for": "5-7 min",
+          "until": "fragrant"
+        },
+        "duration": "7 min"
+      },
+      "sauteed onion": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "white onion",
+            "amount": "1/2",
+            "unit": "medium",
+            "prep": "diced",
+            "raw": "1/2 medium white onion, diced"
+          },
+          {
+            "type": "raw",
+            "name": "avocado oil",
+            "amount": "1/2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1/2 Tbsp avocado oil"
+          }
+        ],
+        "technique": {
+          "name": "saute",
+          "for": "3-4 min",
+          "until": "translucent"
+        },
+        "duration": "4 min"
+      },
+      "walnut spice mixture": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "toasted walnuts",
+            "raw": "toasted walnuts"
+          },
+          {
+            "type": "raw",
+            "name": "chili powder",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp chili powder"
+          },
+          {
+            "type": "raw",
+            "name": "cumin",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp cumin"
+          },
+          {
+            "type": "raw",
+            "name": "smoked paprika",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp smoked paprika"
+          },
+          {
+            "type": "raw",
+            "name": "sea salt",
+            "amount": "1/2",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1/2 tsp sea salt"
+          },
+          {
+            "type": "raw",
+            "name": "black pepper",
+            "amount": "1/2",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "1/2 tsp black pepper"
+          },
+          {
+            "type": "raw",
+            "name": "coconut sugar",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp coconut sugar"
+          }
+        ],
+        "technique": {
+          "name": "blend",
+          "for": null,
+          "until": "fine meal"
+        },
+        "duration": "1 min"
+      },
+      "mashed beans": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "cooked black beans",
+            "amount": "1 1/2",
+            "unit": "cups",
+            "prep": null,
+            "raw": "1 1/2 cups cooked black beans"
+          }
+        ],
+        "technique": {
+          "name": "mash",
+          "for": null,
+          "until": "mostly smooth with some chunks"
+        },
+        "duration": "3 min"
+      },
+      "burger mixture": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "brown rice",
+            "raw": "brown rice"
+          },
+          {
+            "type": "ref",
+            "name": "walnut spice mixture",
+            "raw": "walnut spice mixture"
+          },
+          {
+            "type": "ref",
+            "name": "sauteed onion",
+            "raw": "sauteed onion"
+          },
+          {
+            "type": "ref",
+            "name": "mashed beans",
+            "raw": "mashed beans"
+          },
+          {
+            "type": "raw",
+            "name": "panko bread crumbs",
+            "amount": "1/3",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/3 cup panko bread crumbs"
+          },
+          {
+            "type": "ref",
+            "name": "3-4 tbsp vegan bbq sauce",
+            "raw": "3-4 Tbsp vegan BBQ sauce"
+          }
+        ],
+        "technique": {
+          "name": "mix",
+          "for": "1-2 min",
+          "until": "moldable"
+        },
+        "duration": "3 min"
+      },
+      "patties": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "burger mixture",
+            "raw": "burger mixture"
+          }
+        ],
+        "technique": {
+          "name": "form into 5 patties",
+          "for": null,
+          "until": "1/2 cup each, firmly packed"
+        },
+        "duration": "5 min"
+      },
+      "cook": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "patties",
+            "raw": "patties"
+          },
+          {
+            "type": "ref",
+            "name": "avocado oil",
+            "raw": "avocado oil"
+          }
+        ],
+        "technique": {
+          "name": "grill or pan-fry",
+          "for": "3-4 min per side",
+          "until": "browned and heated through"
+        },
+        "duration": "8 min"
+      }
+    },
+    "stepOrder": [
+      "brown rice",
+      "toasted walnuts",
+      "sauteed onion",
+      "walnut spice mixture",
+      "mashed beans",
+      "burger mixture",
+      "patties",
+      "cook"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "brown rice",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup brown rice"
+      },
+      {
+        "type": "raw",
+        "name": "water",
+        "amount": "2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "2 cups water"
+      },
+      {
+        "type": "raw",
+        "name": "raw walnuts",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup raw walnuts"
+      },
+      {
+        "type": "raw",
+        "name": "white onion",
+        "amount": "1/2",
+        "unit": "medium",
+        "prep": "diced",
+        "raw": "1/2 medium white onion, diced"
+      },
+      {
+        "type": "raw",
+        "name": "avocado oil",
+        "amount": "1/2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1/2 Tbsp avocado oil"
+      },
+      {
+        "type": "raw",
+        "name": "chili powder",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp chili powder"
+      },
+      {
+        "type": "raw",
+        "name": "cumin",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp cumin"
+      },
+      {
+        "type": "raw",
+        "name": "smoked paprika",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp smoked paprika"
+      },
+      {
+        "type": "raw",
+        "name": "sea salt",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp sea salt"
+      },
+      {
+        "type": "raw",
+        "name": "black pepper",
+        "amount": "1/2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "1/2 tsp black pepper"
+      },
+      {
+        "type": "raw",
+        "name": "coconut sugar",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp coconut sugar"
+      },
+      {
+        "type": "raw",
+        "name": "cooked black beans",
+        "amount": "1 1/2",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/2 cups cooked black beans"
+      },
+      {
+        "type": "raw",
+        "name": "panko bread crumbs",
+        "amount": "1/3",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/3 cup panko bread crumbs"
+      }
+    ],
+    "meta": "Yield: 5 burgers | Prep: 25 min | Cook: 10 min",
+    "source": "https://minimalistbaker.com/easy-grillable-veggie-burgers/",
+    "format": "yaml"
+  },
+  {
+    "id": 12,
     "title": "Creamy Coconut Curry Lentils with Spinach",
     "category": "hot meals",
     "image": "images/coconut-curry-lentils.jpg",
@@ -2197,7 +3705,7 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 8,
+    "id": 13,
     "title": "Quinoa and Veggie Power Bowls",
     "category": "hot meals",
     "image": "images/quinoa-power-bowls.jpg",
@@ -2627,7 +4135,258 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 9,
+    "id": 14,
+    "title": "Peanut Butter Protein Bars",
+    "category": "desserts",
+    "image": "images/protein-bars.jpg",
+    "description": "5-ingredient no-bake bars with chocolate drizzle. Perfect post-workout snack.",
+    "steps": {
+      "base": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "creamy peanut butter",
+            "amount": "1 1/4",
+            "unit": "cups",
+            "prep": null,
+            "raw": "1 1/4 cups creamy peanut butter"
+          },
+          {
+            "type": "raw",
+            "name": "dates",
+            "amount": "5",
+            "unit": "medjool",
+            "prep": "pitted",
+            "raw": "5 medjool dates, pitted"
+          }
+        ],
+        "technique": {
+          "name": "process",
+          "for": null,
+          "until": "combined"
+        },
+        "duration": "1 min"
+      },
+      "mixture": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "base",
+            "raw": "base"
+          },
+          {
+            "type": "raw",
+            "name": "hemp seeds",
+            "amount": "2/3",
+            "unit": "cup",
+            "prep": null,
+            "raw": "2/3 cup hemp seeds"
+          },
+          {
+            "type": "raw",
+            "name": "chia seeds",
+            "amount": "1/3",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/3 cup chia seeds"
+          },
+          {
+            "type": "raw",
+            "name": "vanilla protein powder",
+            "amount": "1/3",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/3 cup vanilla protein powder"
+          }
+        ],
+        "technique": {
+          "name": "pulse",
+          "for": null,
+          "until": "cookie dough texture"
+        },
+        "duration": "2 min"
+      },
+      "press": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "mixture",
+            "raw": "mixture"
+          }
+        ],
+        "technique": {
+          "name": "press into parchment-lined loaf pan",
+          "for": null,
+          "until": "flat and even"
+        },
+        "duration": "3 min"
+      },
+      "chill": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "pressed bars",
+            "raw": "pressed bars"
+          }
+        ],
+        "technique": {
+          "name": "freeze",
+          "for": "10-15 min",
+          "until": "firm"
+        },
+        "duration": "15 min"
+      },
+      "chocolate topping": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "dark chocolate",
+            "amount": "1/4",
+            "unit": "cup",
+            "prep": "chopped",
+            "raw": "1/4 cup dark chocolate, chopped"
+          },
+          {
+            "type": "raw",
+            "name": "coconut oil",
+            "amount": "1/2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1/2 Tbsp coconut oil"
+          }
+        ],
+        "technique": {
+          "name": "melt",
+          "for": null,
+          "until": "smooth"
+        },
+        "duration": "2 min"
+      },
+      "finish": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "bars",
+            "raw": "bars"
+          },
+          {
+            "type": "ref",
+            "name": "chocolate topping",
+            "raw": "chocolate topping"
+          },
+          {
+            "type": "raw",
+            "name": "cacao nibs",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp cacao nibs"
+          }
+        ],
+        "technique": {
+          "name": "drizzle and top",
+          "for": null,
+          "until": "decorated"
+        },
+        "duration": "2 min"
+      },
+      "cut": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "finished bars",
+            "raw": "finished bars"
+          }
+        ],
+        "technique": {
+          "name": "slice into 12 bars",
+          "for": null,
+          "until": "portioned"
+        },
+        "duration": null
+      }
+    },
+    "stepOrder": [
+      "base",
+      "mixture",
+      "press",
+      "chill",
+      "chocolate topping",
+      "finish",
+      "cut"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "creamy peanut butter",
+        "amount": "1 1/4",
+        "unit": "cups",
+        "prep": null,
+        "raw": "1 1/4 cups creamy peanut butter"
+      },
+      {
+        "type": "raw",
+        "name": "dates",
+        "amount": "5",
+        "unit": "medjool",
+        "prep": "pitted",
+        "raw": "5 medjool dates, pitted"
+      },
+      {
+        "type": "raw",
+        "name": "hemp seeds",
+        "amount": "2/3",
+        "unit": "cup",
+        "prep": null,
+        "raw": "2/3 cup hemp seeds"
+      },
+      {
+        "type": "raw",
+        "name": "chia seeds",
+        "amount": "1/3",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/3 cup chia seeds"
+      },
+      {
+        "type": "raw",
+        "name": "vanilla protein powder",
+        "amount": "1/3",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/3 cup vanilla protein powder"
+      },
+      {
+        "type": "raw",
+        "name": "dark chocolate",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": "chopped",
+        "raw": "1/4 cup dark chocolate, chopped"
+      },
+      {
+        "type": "raw",
+        "name": "coconut oil",
+        "amount": "1/2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1/2 Tbsp coconut oil"
+      },
+      {
+        "type": "raw",
+        "name": "cacao nibs",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp cacao nibs"
+      }
+    ],
+    "meta": "Yield: 12 bars | Prep: 20 min",
+    "source": "https://minimalistbaker.com/easy-5-ingredient-protein-bars-peanut-butter-chocolate/",
+    "format": "yaml"
+  },
+  {
+    "id": 15,
     "title": "Vegan Winter Lentil Stew",
     "category": "hot meals",
     "image": "images/vegan-lentil-stew.jpg",
@@ -3006,7 +4765,7 @@ const recipes = [
     "format": "yaml"
   },
   {
-    "id": 10,
+    "id": 16,
     "title": "Edamame Salad with Peanut Sauce",
     "category": "cold meals",
     "image": "images/edamame-salad.jpg",
@@ -3337,6 +5096,321 @@ const recipes = [
     ],
     "meta": "Yield: 6 servings | Prep: 20 min",
     "source": "https://www.noracooks.com/edamame-salad/",
+    "format": "yaml"
+  },
+  {
+    "id": 17,
+    "title": "No-Bake Chocolate Cake Bites",
+    "category": "desserts",
+    "image": "images/chocolate-cake-bites.jpg",
+    "description": "Fudgy date-based truffles with chocolate glaze. No oven required.",
+    "steps": {
+      "date paste": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "pitted medjool dates",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup pitted medjool dates"
+          }
+        ],
+        "technique": {
+          "name": "process",
+          "for": null,
+          "until": "small bits remain or ball forms"
+        },
+        "duration": "2 min"
+      },
+      "dry mixture": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "almond flour",
+            "amount": "1",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1 cup almond flour"
+          },
+          {
+            "type": "raw",
+            "name": "coconut flour",
+            "amount": "1/3",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/3 cup coconut flour"
+          },
+          {
+            "type": "raw",
+            "name": "cacao powder",
+            "amount": "1/4",
+            "unit": "cup",
+            "prep": null,
+            "raw": "1/4 cup cacao powder"
+          }
+        ],
+        "technique": {
+          "name": "blend",
+          "for": null,
+          "until": "fine meal"
+        },
+        "duration": "1 min"
+      },
+      "dough": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "date paste",
+            "raw": "date paste"
+          },
+          {
+            "type": "ref",
+            "name": "dry mixture",
+            "raw": "dry mixture"
+          },
+          {
+            "type": "raw",
+            "name": "vanilla extract",
+            "amount": "2",
+            "unit": "tsp",
+            "prep": null,
+            "raw": "2 tsp vanilla extract"
+          },
+          {
+            "type": "raw",
+            "name": "maple syrup",
+            "amount": "4",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "4 Tbsp maple syrup"
+          },
+          {
+            "type": "raw",
+            "name": "coconut cream",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp coconut cream"
+          }
+        ],
+        "technique": {
+          "name": "process",
+          "for": null,
+          "until": "tacky dough forms"
+        },
+        "duration": "2 min"
+      },
+      "bites": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "dough",
+            "raw": "dough"
+          }
+        ],
+        "technique": {
+          "name": "roll into 1.5 Tbsp balls",
+          "for": null,
+          "until": "15 balls formed"
+        },
+        "duration": "5 min"
+      },
+      "freeze": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "bites",
+            "raw": "bites"
+          }
+        ],
+        "technique": {
+          "name": "freeze",
+          "for": "10 min",
+          "until": "firm"
+        },
+        "duration": "10 min"
+      },
+      "chocolate glaze": {
+        "inputs": [
+          {
+            "type": "raw",
+            "name": "coconut butter",
+            "amount": "3",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "3 Tbsp coconut butter"
+          },
+          {
+            "type": "raw",
+            "name": "melted coconut oil",
+            "amount": "2",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "2 Tbsp melted coconut oil"
+          },
+          {
+            "type": "raw",
+            "name": "cacao powder",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp cacao powder"
+          },
+          {
+            "type": "raw",
+            "name": "maple syrup",
+            "amount": "1",
+            "unit": "Tbsp",
+            "prep": null,
+            "raw": "1 Tbsp maple syrup"
+          }
+        ],
+        "technique": {
+          "name": "whisk",
+          "for": null,
+          "until": "smooth glaze"
+        },
+        "duration": "2 min"
+      },
+      "dip": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "bites",
+            "raw": "bites"
+          },
+          {
+            "type": "ref",
+            "name": "chocolate glaze",
+            "raw": "chocolate glaze"
+          }
+        ],
+        "technique": {
+          "name": "dip with fork",
+          "for": null,
+          "until": "coated"
+        },
+        "duration": "5 min"
+      },
+      "set": {
+        "inputs": [
+          {
+            "type": "ref",
+            "name": "dipped bites",
+            "raw": "dipped bites"
+          }
+        ],
+        "technique": {
+          "name": "freeze",
+          "for": "10 min",
+          "until": "glaze set"
+        },
+        "duration": "10 min"
+      }
+    },
+    "stepOrder": [
+      "date paste",
+      "dry mixture",
+      "dough",
+      "bites",
+      "freeze",
+      "chocolate glaze",
+      "dip",
+      "set"
+    ],
+    "ingredients": [
+      {
+        "type": "raw",
+        "name": "pitted medjool dates",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup pitted medjool dates"
+      },
+      {
+        "type": "raw",
+        "name": "almond flour",
+        "amount": "1",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1 cup almond flour"
+      },
+      {
+        "type": "raw",
+        "name": "coconut flour",
+        "amount": "1/3",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/3 cup coconut flour"
+      },
+      {
+        "type": "raw",
+        "name": "cacao powder",
+        "amount": "1/4",
+        "unit": "cup",
+        "prep": null,
+        "raw": "1/4 cup cacao powder"
+      },
+      {
+        "type": "raw",
+        "name": "vanilla extract",
+        "amount": "2",
+        "unit": "tsp",
+        "prep": null,
+        "raw": "2 tsp vanilla extract"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "4",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "4 Tbsp maple syrup"
+      },
+      {
+        "type": "raw",
+        "name": "coconut cream",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp coconut cream"
+      },
+      {
+        "type": "raw",
+        "name": "coconut butter",
+        "amount": "3",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "3 Tbsp coconut butter"
+      },
+      {
+        "type": "raw",
+        "name": "melted coconut oil",
+        "amount": "2",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "2 Tbsp melted coconut oil"
+      },
+      {
+        "type": "raw",
+        "name": "cacao powder",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp cacao powder"
+      },
+      {
+        "type": "raw",
+        "name": "maple syrup",
+        "amount": "1",
+        "unit": "Tbsp",
+        "prep": null,
+        "raw": "1 Tbsp maple syrup"
+      }
+    ],
+    "meta": "Yield: 15 bites | Prep: 30 min",
+    "source": "https://minimalistbaker.com/no-bake-fudgy-chocolate-cake-bites/",
     "format": "yaml"
   }
 ];

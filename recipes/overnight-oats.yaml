@@ -1,0 +1,42 @@
+title: Peanut Butter Overnight Oats
+category: cold meals
+image: images/overnight-oats.jpg
+description: Creamy make-ahead oats with peanut butter swirls. Perfect grab-and-go breakfast.
+meta: "Yield: 1 serving | Prep: 5 min | Chill: 6 hours"
+source: https://minimalistbaker.com/peanut-butter-overnight-oats/
+
+steps:
+  wet mixture:
+    with:
+      - 1/2 cup almond milk
+      - 3/4 Tbsp chia seeds
+      - 2 Tbsp peanut butter
+      - 1 Tbsp maple syrup
+    do: whisk
+    until: loosely combined (leave peanut butter swirls)
+    duration: 2 min
+
+  oats:
+    with:
+      - wet mixture
+      - 1/2 cup rolled oats
+    do: stir
+    until: oats fully moistened
+    duration: 1 min
+
+  chill:
+    with:
+      - oats
+    do: refrigerate
+    for: 6 hours or overnight
+    until: thickened and creamy
+    duration: 360 min
+
+  serve:
+    with:
+      - oats
+      - sliced banana (optional)
+      - berries (optional)
+      - granola (optional)
+    do: top
+    until: ready to enjoy

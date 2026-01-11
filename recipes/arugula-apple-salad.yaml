@@ -1,0 +1,44 @@
+title: Apple Pecan Arugula Salad
+category: cold meals
+image: images/arugula-apple-salad.jpg
+description: Peppery arugula with crisp apples, toasted pecans, and lemon maple dressing.
+meta: "Yield: 4 side servings | Prep: 15 min"
+source: https://minimalistbaker.com/apple-pecan-arugula-salad/
+
+steps:
+  toasted pecans:
+    with:
+      - 1/2 cup raw pecans
+    do: bake at 350F
+    for: 8-10 min
+    until: fragrant and golden
+    duration: 10 min
+
+  lemon dressing:
+    with:
+      - 3 Tbsp fresh lemon juice
+      - 1 Tbsp maple syrup
+      - pinch sea salt
+      - pinch black pepper
+      - 3 Tbsp olive oil
+    do: whisk
+    until: emulsified
+    duration: 2 min
+
+  salad:
+    with:
+      - 7 oz arugula
+      - 2 apples, thinly sliced
+      - 1/4 red onion, thinly sliced
+      - 2 Tbsp dried cranberries (optional)
+      - toasted pecans
+    do: toss
+    until: combined
+    duration: 3 min
+
+  dress:
+    with:
+      - salad
+      - lemon dressing
+    do: toss
+    until: evenly coated

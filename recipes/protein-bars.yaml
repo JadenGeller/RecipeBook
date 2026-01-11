@@ -1,0 +1,63 @@
+title: Peanut Butter Protein Bars
+category: desserts
+image: images/protein-bars.jpg
+description: 5-ingredient no-bake bars with chocolate drizzle. Perfect post-workout snack.
+meta: "Yield: 12 bars | Prep: 20 min"
+source: https://minimalistbaker.com/easy-5-ingredient-protein-bars-peanut-butter-chocolate/
+
+steps:
+  base:
+    with:
+      - 1 1/4 cups creamy peanut butter
+      - 5 medjool dates, pitted
+    do: process
+    until: combined
+    duration: 1 min
+
+  mixture:
+    with:
+      - base
+      - 2/3 cup hemp seeds
+      - 1/3 cup chia seeds
+      - 1/3 cup vanilla protein powder
+    do: pulse
+    until: cookie dough texture
+    duration: 2 min
+
+  press:
+    with:
+      - mixture
+    do: press into parchment-lined loaf pan
+    until: flat and even
+    duration: 3 min
+
+  chill:
+    with:
+      - pressed bars
+    do: freeze
+    for: 10-15 min
+    until: firm
+    duration: 15 min
+
+  chocolate topping:
+    with:
+      - 1/4 cup dark chocolate, chopped
+      - 1/2 Tbsp coconut oil
+    do: melt
+    until: smooth
+    duration: 2 min
+
+  finish:
+    with:
+      - bars
+      - chocolate topping
+      - 1 Tbsp cacao nibs
+    do: drizzle and top
+    until: decorated
+    duration: 2 min
+
+  cut:
+    with:
+      - finished bars
+    do: slice into 12 bars
+    until: portioned
