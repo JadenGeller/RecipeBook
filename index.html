@@ -398,6 +398,15 @@
             right: 0;
             padding: 3rem 2rem 2rem;
             background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .recipe-hero-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .recipe-hero .category {
@@ -509,8 +518,27 @@
             }
 
             .recipe-hero {
-                height: 40vh;
+                height: auto;
                 min-height: 280px;
+            }
+
+            .recipe-hero-overlay {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .recipe-actions {
+                width: 100%;
+            }
+
+            .recipe-actions .cook-mode-btn,
+            .recipe-actions .source-link {
+                flex: 1;
+                justify-content: center;
+                text-align: center;
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -701,22 +729,21 @@
 
         .recipe-actions {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 3px dashed var(--border);
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
         }
 
         .source-link {
             display: inline-block;
-            padding: 0.875rem 1.5rem;
-            background: var(--bg);
+            padding: 0.75rem 1.25rem;
+            background: var(--card);
             color: var(--text);
             text-decoration: none;
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
             font-weight: 700;
+            text-transform: uppercase;
             border: 3px solid var(--border);
             transition: all 0.1s ease;
             box-shadow: 4px 4px 0 var(--border);
@@ -752,14 +779,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 1.5rem;
-            margin-right: 0.75rem;
-            padding: 0.875rem 1.5rem;
+            padding: 0.75rem 1.25rem;
             background: var(--accent);
             color: var(--text);
             border: 3px solid var(--border);
             font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
@@ -1455,8 +1480,20 @@
         <div class="recipe-hero">
             <img id="recipe-hero-img" src="" alt="">
             <div class="recipe-hero-overlay">
-                <div class="category" id="recipe-category"></div>
-                <h1 id="recipe-title"></h1>
+                <div class="recipe-hero-info">
+                    <div class="category" id="recipe-category"></div>
+                    <h1 id="recipe-title"></h1>
+                </div>
+                <div class="recipe-actions">
+                    <a class="source-link" id="recipe-source-top" href="#" target="_blank">View Original</a>
+                    <button class="cook-mode-btn" id="start-cook-mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Cook Mode
+                    </button>
+                </div>
             </div>
         </div>
         <div class="recipe-content">
@@ -1473,17 +1510,6 @@
                     <ol class="instructions-list" id="recipe-instructions"></ol>
 
                     <div class="recipe-meta" id="recipe-meta"></div>
-
-                    <div class="recipe-actions">
-                        <button class="cook-mode-btn" id="start-cook-mode">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Start Cook Mode
-                        </button>
-                        <a class="source-link" id="recipe-source" href="#" target="_blank">View Original Recipe</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1862,7 +1888,7 @@
                 metaEl.style.display = 'none';
             }
 
-            document.getElementById('recipe-source').href = recipe.source;
+            document.getElementById('recipe-source-top').href = recipe.source;
 
             document.getElementById('recipe-page').classList.add('active');
             document.body.style.overflow = 'hidden';
